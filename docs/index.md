@@ -19,6 +19,14 @@ Components
 In the Data Station this repository system is used for depositing, storing and disseminating datasets, as well as creating long-term preservation copies of
 those datasets.
 
+#### Workflows
+
+Dataverse provides event hooks that allow to configure workflows to run just before and after a publication event. These workflows can have multiple steps. A
+step can be implemented as part of Dataverse or as an external service (see [External Workflow Step Services](#external-workflow-step-services)).
+
+The **RDA Bag Export** flow step is implemented in Dataverse and is used to export an RDA compliant bag (also a "Dataset Version Export" or DVE) for each
+dataset version after publication. This exported bag is then picked up by [dd-transfer-to-vault](#dd-transfer-to-vault).
+
 | Docs                         | Code                                                |
 |------------------------------|-----------------------------------------------------|
 | [Dataverse]{:target=_blank}  | <https://github.com/IQSS/dataverse>{:target=_blank} |
@@ -50,9 +58,8 @@ Command line utilities for Data Station application management.
 
 ### External Workflow Step Services
 
-Dataverse provides event hooks that allow to configure workflows to run just before and after a publication event. These workflows can have multiple steps. The
-step-type [http/authext]{:target=_blank} will invoke an external HTTP service and authorize it to query and modify the dataset being published. The following
-micro-services have been created to perform specific steps
+The [workflow](#workflows) step-type [http/authext]{:target=_blank} will invoke an external HTTP service and authorize it to query and modify the dataset being
+published. The following micro-services have been created to perform specific steps.
 
 #### dd-workflow-step-virus-scan
 
@@ -81,13 +88,17 @@ A thesaurus service developed by the National Library of Finland. It is used to 
 
 ### dd-transfer-to-vault
 
-Service
+Service for preparing Dataset Version Exports for storage in [SURF's Data Archive](#dmf-data-archive). This includes validation, aggregation into larger files
+and creating a [vault catalog](#dd-vault-catalog) entry for each export.
 
 ### dd-vault-catalog
 
+Service that manages a catalog of all Dataset Version Exports in 
+
 ### BRI-GMH
 
-### SURF Data Archive
+### DANS Data Vault
+
 
 [Dataverse]: https://guides.dataverse.org/en/latest/user/index.html
 
