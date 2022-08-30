@@ -1,5 +1,6 @@
+#!/usr/bin/env bash
 #
-# Copyright (C) 2022 DANS - Data Archiving and Networked Services (info@dans.knaw.nl)
+# Copyright (C) 2016 DANS - Data Archiving and Networked Services (info@dans.knaw.nl)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,28 +15,13 @@
 # limitations under the License.
 #
 
-site_name: dans-datastation-architecture
-theme:
-  name: readthedocs
+set -e
 
-repo_name: DANS-KNAW/dans-datastation-architecture
-repo_url: https://github.com/DANS-KNAW/dans-datastation-architecture
+REMOTE="https://@github.com/${GITHUB_REPOSITORY}"
+git remote set-url origin ${REMOTE}
 
-nav:
-  - Overview: index.md
+pip install -r .github/workflows/mkdocs/requirements.txt
 
-plugins:
-  - markdownextradata
-  - search
-
-markdown_extensions:
-  - attr_list
-  - admonition
-  - codehilite:
-      guess_lang: False
-      use_pygments: False
-  - def_list
-  - footnotes
-  - meta
-  - toc:
-      permalink: true
+echo "START deploying docs to GitHub pages..."
+mkdocs gh-deploy --force
+echo "DONE deploying docs to GitHub pages."
