@@ -18,10 +18,10 @@
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="369.63131122833465" width="1360.416666666667" x="543.0833333333333" y="1016.3207547169812"/>
+          <y:Geometry height="403.11284853052007" width="1360.416666666667" x="543.083333333333" y="1016.3207547169811"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="dashed" width="3.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="30" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="39.33203125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="br" textColor="#000000" verticalTextPosition="bottom" visible="true" width="75.9970703125" x="1280.419596354167" xml:space="preserve" y="326.29927997833477">SURF</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="30" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="39.33203125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="br" textColor="#000000" verticalTextPosition="bottom" visible="true" width="75.9970703125" x="1280.419596354167" xml:space="preserve" y="359.78081728052007">SURF</y:NodeLabel>
           <y:Shape type="roundrectangle"/>
         </y:ShapeNode>
       </data>
@@ -411,24 +411,34 @@
     <node id="n33">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="117.0" width="441.0" x="903.125" y="1074.7995478522985"/>
+          <y:Geometry height="117.0" width="441.0" x="903.125" y="1147.3428786737002"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="192.8671875" x="124.06640625" xml:space="preserve" y="44.72265625">DMF / Data Archive<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="126.79296875" x="157.103515625" xml:space="preserve" y="44.72265625">Data Archive<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
     </node>
     <node id="n34">
-      <data key="d5"/>
       <data key="d6">
         <y:ImageNode>
-          <y:Geometry height="168.06631499623222" width="184.0" x="1031.625" y="1176.514412207988"/>
+          <y:Geometry height="168.06631499623222" width="184.0" x="1031.625" y="1249.0577430293897"/>
           <y:Fill color="#CCCCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="b" textColor="#000000" verticalTextPosition="bottom" visible="true" width="165.328125" x="9.3359375" xml:space="preserve" y="136.51162749623222">DANS Data Vault</y:NodeLabel>
           <y:Image alphaImage="true" refid="3"/>
         </y:ImageNode>
+      </data>
+    </node>
+    <node id="n35">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="30.0" width="30.0" x="1108.625" y="1081.1415094339623"/>
+          <y:Fill hasColor="false" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="sides" modelPosition="w" textColor="#000000" verticalTextPosition="bottom" visible="true" width="65.388671875" x="-69.388671875" xml:space="preserve" y="5.93359375">SSH / DMF</y:NodeLabel>
+          <y:Shape type="ellipse"/>
+        </y:ShapeNode>
       </data>
     </node>
     <edge id="e0" source="n8" target="n9">
@@ -734,7 +744,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e28" source="n18" target="n33">
+    <edge id="e28" source="n18" target="n35">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -750,6 +760,16 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="3.0"/>
           <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e30" source="n35" target="n33">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

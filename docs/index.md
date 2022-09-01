@@ -88,17 +88,44 @@ A thesaurus service developed by the National Library of Finland. It is used to 
 
 ### dd-transfer-to-vault
 
-Service for preparing Dataset Version Exports for storage in [SURF's Data Archive](#dmf-data-archive). This includes validation, aggregation into larger files
+Service for preparing Dataset Version Exports for storage in the [DANS Data Vault](#dans-data-vault). This includes validation, aggregation into larger files
 and creating a [vault catalog](#dd-vault-catalog) entry for each export.
+
+| Docs                                   | Code                                                                |
+|----------------------------------------|---------------------------------------------------------------------|
+| [dd-transfer-to-vault]{:target=_blank} | <https://github.com/DANS-KNAW/dd-transfer-to-vault>{:target=_blank} |
 
 ### dd-vault-catalog
 
-Service that manages a catalog of all Dataset Version Exports in 
+Service that manages a catalog of all Dataset Version Exports in the [DANS Data Vault](#dans-data-vault). It will expose a summary page for each stored dataset.
+This page will be 
+
+| Docs                               | Code                                                            |
+|------------------------------------|-----------------------------------------------------------------|
+| [dd-vault-catalog]{:target=_blank} | <https://github.com/DANS-KNAW/dd-vault-catalog>{:target=_blank} |
 
 ### BRI-GMH
 
+The NBN resolver service operated by DANS in cooperation with the Koninklijke Bibliotheek. It resolves NBN persistent identifiers to their current location.
+The resolver is hosted at <https://persistent-identifier.nl/>. 
+
+| Docs and code                                           |
+|---------------------------------------------------------|
+| [NBN]{:target=_blank}                                   |
+| <https://github.com/DANS-KNAW/gmh-registration-service> |
+| <https://github.com/DANS-KNAW/gmh-resolver-ui>          |
+| <https://github.com/DANS-KNAW/gmh-meresco>              | 
+
 ### DANS Data Vault
 
+The DANS long-term preservation archive. This is implemented as a collection of files stored on tape via SURF's Data Archive service. The Dataset Version
+Exports are
+wrapped in an [OCFL] repository structure.
+
+| Docs                                |
+|-------------------------------------|
+| [SURF Data Archive]{:target=_blank} |
+| [OCFL]{:target=_blank}              |
 
 [Dataverse]: https://guides.dataverse.org/en/latest/user/index.html
 
@@ -116,7 +143,17 @@ Service that manages a catalog of all Dataset Version Exports in
 
 [dd-workflow-step-vault-metadata]: https://dans-knaw.github.io/dd-workflow-step-vault-metadata
 
+[dd-vault-catalog]:  https://dans-knaw.github.io/dd-vault-catalog
+
+[dd-transfer-to-vault]:  https://dans-knaw.github.io/dd-transfer-to-vault
+
 [Skosmos]: https://www.skosmos.org/
+
+[SURF Data Archive]: https://servicedesk.surf.nl/wiki/display/WIKI/Data+Archive
+
+[OCFL]: https://ocfl.io/
+
+[NBN]: https://www.ifla.org/references/best-practice-for-national-bibliographic-agencies-in-a-digital-age/resource-description-and-standards/identifiers/national-bibliography-number-nbn/
 
 Schema Legend
 -------------

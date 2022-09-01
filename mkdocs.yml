@@ -23,6 +23,7 @@ repo_url: https://github.com/DANS-KNAW/dans-datastation-architecture
 
 nav:
   - Overview: index.md
+  - Development: dev.md
 
 plugins:
   - markdownextradata
