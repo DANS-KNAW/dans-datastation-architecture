@@ -23,6 +23,7 @@ repo_url: https://github.com/DANS-KNAW/dans-datastation-architecture
 
 nav:
   - Overview: index.md
+  - Mirroring to EASY: easy-mirror.md
   - Development: dev.md
   - Build status: status.md
 
