@@ -98,7 +98,6 @@ and creating a [vault catalog](#dd-vault-catalog) entry for each export.
 ### dd-vault-catalog
 
 Service that manages a catalog of all Dataset Version Exports in the [DANS Data Vault](#dans-data-vault). It will expose a summary page for each stored dataset.
-This page will be 
 
 | Docs                               | Code                                                            |
 |------------------------------------|-----------------------------------------------------------------|
@@ -107,7 +106,7 @@ This page will be
 ### BRI-GMH
 
 The NBN resolver service operated by DANS in cooperation with the Koninklijke Bibliotheek. It resolves NBN persistent identifiers to their current location.
-The resolver is hosted at <https://persistent-identifier.nl/>. 
+The resolver is hosted at <https://persistent-identifier.nl/>.
 
 | Docs and code                                           |
 |---------------------------------------------------------|
@@ -119,8 +118,7 @@ The resolver is hosted at <https://persistent-identifier.nl/>.
 ### DANS Data Vault
 
 The DANS long-term preservation archive. This is implemented as a collection of files stored on tape via SURF's Data Archive service. The Dataset Version
-Exports are
-wrapped in an [OCFL] repository structure.
+Exports are wrapped in an [OCFL] repository structure.
 
 | Docs                                |
 |-------------------------------------|
