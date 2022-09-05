@@ -1,5 +1,7 @@
 Development
 ===========
+The following sections discuss development on various parts of a Data Station. Some components are developed by DANS, other components are provided by open
+source projects in which DANS may participate.
 
 DANS micro-services
 -------------------
