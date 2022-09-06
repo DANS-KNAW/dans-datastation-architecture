@@ -48,6 +48,16 @@ Service for ingesting deposit directories into Dataverse.
 |----------------------------------|---------------------------------------------------------------|
 | [dd-ingest-flow]{:target=_blank} | <https://github.com/DANS-KNAW/dd-ingest-flow>{:target=_blank} |
 
+### dd-validate-dans-bag
+
+Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-ingest-flow](#dd-ingest-flow) to validate bags that are uploaded via
+SWORD2 or are migrated from EASY. 
+
+| Docs                                    | Code                                                                |
+|-----------------------------------------|---------------------------------------------------------------------|
+| [dd-validate-dans-bag]{:target=_blank}  | <https://github.com/DANS-KNAW/dd-validate-dans-bag>{:target=_blank} |
+| [DANS BagIt Profile v1]{:target=_blank} | <https://github.com/DANS-KNAW/dans-bagit-profile>{:target=_blank}   | 
+
 ### dans-datastation-tools
 
 Command line utilities for Data Station application management.
@@ -132,6 +142,10 @@ Exports are wrapped in an [OCFL] repository structure.
 [dd-sword2]: https://dans-knaw.github.io/dd-sword2/
 
 [dd-ingest-flow]: https://dans-knaw.github.io/dd-ingest-flow
+
+[dd-validate-dans-bag]: https://dans-knaw.github.io/dd-validate-dans-bag
+
+[DANS BagIt Profile v1]: https://dans-knaw.github.io/dans-bagit-profile/versions/1.0.0/
 
 [dans-datastation-tools]: https://dans-knaw.github.io/dans-datastation-tools
 
