@@ -22,12 +22,12 @@ via the Dataverse community. When working on Dataverse code take notice of the [
 !!! note "Debugging Dataverse"
 
     For DANS developers it is **not necessary (nor preferable)** to set up Dataverse and its dependencies Solr and PostGreSQL on your development laptop, as 
-    described in the developer docs. Instead you should use the pre-build Dataverse. Information can be found in the private repository 
+    described in the developer docs. Instead you should use the pre-build vagrant box. Information can be found in the private repository 
     [dd-dtap](https://github.com/DANS-KNAW/dd-dtap/blob/master/docs/dataverse-dev-with-vagrant.md){:target=_blank} (only accessible for DANS developers).
 
 Skosmos
 -------
-Skosmos is used to serve vocabulary terms to Dataverse. DANS is currently not actively involved in development, but it is entirely possible that bug
+[Skosmos]{:target=_blank} is used to serve vocabulary terms to Dataverse. DANS is currently not actively involved in development, but it is entirely possible that bug
 fixes may need to be contributed in the future. The project is written in PHP but there is no information on the Skosmos website about the development
 environment set-up.
 
@@ -58,3 +58,5 @@ scripts in [dans-dev-tools]{:target=_blank}.
 [yEd]: https://www.yworks.com/products/yed
 
 [dans-dev-tools]: https://github.com/DANS-KNAW/dans-dev-tools#dans-dev-tools
+
+[Skosmos]: {{ skosmos_url }}

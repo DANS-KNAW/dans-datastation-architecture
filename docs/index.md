@@ -9,6 +9,13 @@ the [legend that is included at the end of this page](#schema-legend).
 
 ![Overview](arch-overview.png)
 
+Actors
+------
+
+* **SWORD2 Client** - a software client that interacts with the [DANS SWORDv2 Service](#dd-sword2) to deposit datasets. 
+* **Data Station User** - a user of the Data Station, typically a customer who downloads or deposits data.
+* **Data Manager** - a user with special privileges, who curates and publishes datasets submitted for review by a user.
+
 Components
 ----------
 
@@ -159,7 +166,7 @@ Exports are wrapped in an [OCFL] repository structure.
 
 [dd-transfer-to-vault]:  https://dans-knaw.github.io/dd-transfer-to-vault
 
-[Skosmos]: https://www.skosmos.org/
+[Skosmos]: {{ skosmos_url }}
 
 [SURF Data Archive]: https://servicedesk.surf.nl/wiki/display/WIKI/Data+Archive
 

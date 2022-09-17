@@ -31,6 +31,9 @@ plugins:
   - markdownextradata
   - search
 
+extra:
+  skosmos_url: https://skosmos.org/
+
 markdown_extensions:
   - attr_list
   - admonition
