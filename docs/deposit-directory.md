@@ -15,8 +15,8 @@ A _deposit directory_ is a directory containing:
 
 Deposit
 -------
-The deposit is a file or directory containing the files to be deposited. Typically, it will be a [bag]{:target=_blank}, an more specifically one
-conforming to the [DANS BagIt Profile v1]{:target=_blank}. However, applications may have different expectations about the contents and lay-out of the
+The deposit is a file or directory containing the files to be deposited. Typically, it will be a [bag]{:target=_blank}, and more specifically, one
+conforming to the [DANS BagIt Profile v1]{:target=_blank}. However, applications have different requirements with respect to the contents and lay-out of the
 deposit.
 
 deposit.properties
