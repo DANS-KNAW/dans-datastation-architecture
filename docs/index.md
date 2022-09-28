@@ -152,7 +152,7 @@ Exports are wrapped in an [OCFL] repository structure.
 
 [dd-validate-dans-bag]: https://dans-knaw.github.io/dd-validate-dans-bag
 
-[DANS BagIt Profile v1]: https://dans-knaw.github.io/dans-bagit-profile/versions/1.0.0/
+[DANS BagIt Profile v1]: {{ dans_bagit_profile }} 
 
 [dans-datastation-tools]: https://dans-knaw.github.io/dans-datastation-tools
 
