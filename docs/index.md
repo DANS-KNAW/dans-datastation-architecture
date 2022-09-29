@@ -135,7 +135,7 @@ The resolver is hosted at <https://persistent-identifier.nl/>.
 ### DANS Data Vault
 
 The DANS long-term preservation archive. This is implemented as a collection of files stored on tape via SURF's Data Archive service. The Dataset Version
-Exports are wrapped in an [OCFL] repository structure.
+Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
 
 | Docs                                |
 |-------------------------------------|
