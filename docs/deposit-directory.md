@@ -9,18 +9,18 @@ A _deposit directory_ is a directory containing:
 ```text
 .
 └── deposit-directory
-    ├── deposit
+    ├── <deposit files>
     └── deposit.properties
 ```
 
-Deposit
--------
-The deposit is a file or directory containing the files to be deposited. Typically, it will be a [bag]{:target=_blank}, and more specifically, one
+`<deposit files>`
+-----------------
+The deposit files are one or more files are directories. Typically, it will be one directory, a [bag]{:target=_blank}, and more specifically, one
 conforming to the [DANS BagIt Profile v1]{:target=_blank}. However, applications have different requirements with respect to the contents and lay-out of the
 deposit.
 
-deposit.properties
-------------------
+`deposit.properties`
+--------------------
 Processing metadata about the deposit are stored in a [properties file]{:target=_blank} called `deposit.properties`.
 
 It shall have at minimum the following properties:
@@ -31,7 +31,7 @@ It shall have at minimum the following properties:
 | `state.label`         |                                                                | A label indicating the current<br/> state of the deposit                                                     |
 | `state.description`   |                                                                | A human readable description of <br/>the state or an error message, <br/>if `state.label` indicates an error | 
 
-Application may use additional properties.
+Applications may use additional properties.
 
 
 [bag]: https://tools.ietf.org/html/rfc8493
