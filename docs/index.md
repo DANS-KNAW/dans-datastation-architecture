@@ -12,7 +12,7 @@ the [legend that is included at the end of this page](#schema-legend).
 Actors
 ------
 
-* **SWORD2 Client** - a software client that interacts with the [DANS SWORDv2 Service](#dd-sword2) to deposit datasets. 
+* **SWORD2 Client** - a software client that interacts with the [DANS SWORDv2 Service](#dd-sword2) to deposit datasets.
 * **Data Station User** - a user of the Data Station, typically a customer who downloads or deposits data.
 * **Data Manager** - a user with special privileges, who curates and publishes datasets submitted for review by a user.
 
@@ -47,6 +47,15 @@ DANS implementation of the SWORD v2 protocol for automated deposits.
 |-----------------------------|----------------------------------------------------------|
 | [dd-sword2]{:target=_blank} | <https://github.com/DANS-KNAW/dd-sword2>{:target=_blank} |
 
+### dd-dataverse-authenticator
+
+A proxy that authenticates clients on behalf of Dataverse, using the basic auth protocol. It is used by [dd-sword2](#dd-sword2) to authenticate its clients by
+their Dataverse account credentials.
+
+| Docs                                         | Code                                                                |
+|----------------------------------------------|---------------------------------------------------------------------|
+| [dd-dataverse-authenticator]{:target=_blank} | <https://github.com/DANS-KNAW/dd-dataverse-authenticator>{:target=_blank} |
+
 ### dd-ingest-flow
 
 Service for ingesting deposit directories into Dataverse.
@@ -58,7 +67,7 @@ Service for ingesting deposit directories into Dataverse.
 ### dd-validate-dans-bag
 
 Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-ingest-flow](#dd-ingest-flow) to validate bags that are uploaded via
-SWORD2 or are migrated from EASY. 
+SWORD2 or are migrated from EASY.
 
 | Docs                                    | Code                                                                |
 |-----------------------------------------|---------------------------------------------------------------------|
@@ -148,11 +157,13 @@ Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
 
 [dd-sword2]: https://dans-knaw.github.io/dd-sword2/
 
+[dd-dataverse-authenticator]: https://dans-knaw.github.io/dd-dataverse-authenticator/
+
 [dd-ingest-flow]: https://dans-knaw.github.io/dd-ingest-flow
 
 [dd-validate-dans-bag]: https://dans-knaw.github.io/dd-validate-dans-bag
 
-[DANS BagIt Profile v1]: {{ dans_bagit_profile }} 
+[DANS BagIt Profile v1]: {{ dans_bagit_profile }}
 
 [dans-datastation-tools]: https://dans-knaw.github.io/dans-datastation-tools
 
