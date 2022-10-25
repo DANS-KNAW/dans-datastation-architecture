@@ -69,10 +69,11 @@ Service for ingesting deposit directories into Dataverse.
 Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-ingest-flow](#dd-ingest-flow) to validate bags that are uploaded via
 SWORD2 or are migrated from EASY.
 
-| Docs                                    | Code                                                                |
-|-----------------------------------------|---------------------------------------------------------------------|
-| [dd-validate-dans-bag]{:target=_blank}  | <https://github.com/DANS-KNAW/dd-validate-dans-bag>{:target=_blank} |
-| [DANS BagIt Profile v1]{:target=_blank} | <https://github.com/DANS-KNAW/dans-bagit-profile>{:target=_blank}   | 
+| Docs                                    | Code                                                                 |
+|-----------------------------------------|----------------------------------------------------------------------|
+| [dd-validate-dans-bag]{:target=_blank}  | <https://github.com/DANS-KNAW/dd-validate-dans-bag>{:target=_blank}  |
+| [DANS BagIt Profile v1]{:target=_blank} | <https://github.com/DANS-KNAW/dans-bagit-profile>{:target=_blank}    | 
+| [DANS schema]{:target=_blank}           | <https://github.com/DANS-KNAW/dans-schema>{:target=_blank}           | 
 
 ### dans-datastation-tools
 
@@ -164,6 +165,8 @@ Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
 [dd-validate-dans-bag]: https://dans-knaw.github.io/dd-validate-dans-bag
 
 [DANS BagIt Profile v1]: {{ dans_bagit_profile }}
+
+[DANS schema]: https://dans-knaw.github.io/dans-schema/
 
 [dans-datastation-tools]: https://dans-knaw.github.io/dans-datastation-tools
 
