@@ -83,6 +83,14 @@ Command line utilities for Data Station application management.
 |------------------------------------------|-----------------------------------------------------------------------|
 | [dans-datastation-tools]{:target=_blank} | <https://github.com/DANS-KNAW/dans-datastation-tools>{:target=_blank} |
 
+### dd-verify-dataset
+
+Service for performing curation checks on datasets.
+
+| Docs                                | Code                                                             |
+|-------------------------------------|------------------------------------------------------------------|
+| [dd-verify-dataset]{:target=_blank} | <https://github.com/DANS-KNAW/dd-verify-dataset>{:target=_blank} |
+
 ### External Workflow Step Services
 
 The [workflow](#workflows) step-type [http/authext]{:target=_blank} will invoke an external HTTP service and authorize it to query and modify the dataset being
@@ -169,6 +177,8 @@ Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
 [DANS schema]: https://dans-knaw.github.io/dans-schema/
 
 [dans-datastation-tools]: https://dans-knaw.github.io/dans-datastation-tools
+
+[dd-verify-dataset]: https://dans-knaw.github.io/dd-verify-dataset
 
 [http/authext]: https://guides.dataverse.org/en/latest/developers/workflows.html#http-authext
 
