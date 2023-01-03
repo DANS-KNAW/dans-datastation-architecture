@@ -29,10 +29,17 @@ those datasets.
 #### Workflows
 
 Dataverse provides event hooks that allow to configure workflows to run just before and after a publication event. These workflows can have multiple steps. A
-step can be implemented as part of Dataverse or as an external service (see [External Workflow Step Services](#external-workflow-step-services)).
+step can be implemented as part of Dataverse or as an external service. The following microservices are configured to run as `PrePublishDataset` workflow steps:
+
+* [dd-vault-metadata](#dd-vault-metadata)
+
+The following microservices are candidates to become part of the `PrePublishDataset` workflow in the future:
+
+* [dd-virus-scan](#dd-virus-scan)
+* [dd-verify-dataset](#dd-verify-dataset)
 
 The **RDA Bag Export** flow step is implemented in Dataverse and is used to export an RDA compliant bag (also a "Dataset Version Export" or DVE) for each
-dataset version after publication. This exported bag is then picked up by [dd-transfer-to-vault](#dd-transfer-to-vault).
+dataset version after publication (i.e. in the `PostPublishDataset` workflow). This exported bag is then picked up by [dd-transfer-to-vault](#dd-transfer-to-vault).
 
 | Docs                         | Code                                                |
 |------------------------------|-----------------------------------------------------|
@@ -91,22 +98,18 @@ Service for performing curation checks on datasets.
 |-------------------------------------|------------------------------------------------------------------|
 | [dd-verify-dataset]{:target=_blank} | <https://github.com/DANS-KNAW/dd-verify-dataset>{:target=_blank} |
 
-### External Workflow Step Services
 
-The [workflow](#workflows) step-type [http/authext]{:target=_blank} will invoke an external HTTP service and authorize it to query and modify the dataset being
-published. The following micro-services have been created to perform specific steps.
+### dd-virus-scan
 
-#### dd-workflow-step-virus-scan
-
-A (`PrePublishDataset`) workflow step that scans all files in a dataset for virus using `clamav` and blocks publication if a virus is found.
+A service p that scans all files in a dataset for virus using `clamav` and blocks publication if a virus is found.
 
 | Docs                                            | Code                                                                       |
 |-------------------------------------------------|----------------------------------------------------------------------------|
 | [dd-workflow-step-virus-scan]{:target=_blank}   | <https://github.com/DANS-KNAW/dd-workflow-step-virus-scan>{:target=_blank} |
 
-#### dd-workflow-step-vault-metadata
+### dd-vault-metadata
 
-A (`PrePublishDataset`) workflow step that fills in the "Vault Metadata" for a dataset version. These metadata will be used later on
+A service that fills in the "Vault Metadata" for a dataset version. These metadata will be used later on
 by [dd-transfer-to-vault](#dd-transfer-to-vault) to catalogue the long-term preservation copy of the dataset version when it is stored on tape.
 
 | Docs                                              | Code                                                                       |
