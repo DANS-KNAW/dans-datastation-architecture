@@ -82,6 +82,15 @@ SWORD2 or are migrated from EASY.
 | [DANS BagIt Profile v1]{:target=_blank} | <https://github.com/DANS-KNAW/dans-bagit-profile>{:target=_blank}    | 
 | [DANS schema]{:target=_blank}           | <https://github.com/DANS-KNAW/dans-schema>{:target=_blank}           | 
 
+### dd-manage-deposit
+
+Service that manages and maintains information about deposits in a deposit area.
+
+| Docs                                | Code                                                          |
+|-------------------------------------|---------------------------------------------------------------|
+| [dd-manage-deposit]{:target=_blank} | <https://github.com/DANS-KNAW/dd-manage-deposit>{:target=_blank} |
+
+
 ### dans-datastation-tools
 
 Command line utilities for Data Station application management.
