@@ -184,6 +184,8 @@ Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
 
 [dd-validate-dans-bag]: https://dans-knaw.github.io/dd-validate-dans-bag
 
+[dd-manage-deposit]: https://dans-knaw.github.io/dd-manage-deposit
+
 [DANS BagIt Profile v1]: {{ dans_bagit_profile }}
 
 [DANS schema]: https://dans-knaw.github.io/dans-schema/
