@@ -195,6 +195,8 @@ The components mentioned above use many open source libraries. A couple of these
 
 [dd-sword2]: https://dans-knaw.github.io/dd-sword2/
 
+[dd-dans-sword2-examples]: https://dans-knaw.github.io/dd-dans-sword2-examples/
+
 [dd-dataverse-authenticator]: https://dans-knaw.github.io/dd-dataverse-authenticator/
 
 [dd-ingest-flow]: https://dans-knaw.github.io/dd-ingest-flow
