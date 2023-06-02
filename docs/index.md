@@ -213,9 +213,9 @@ The components mentioned above use many open source libraries. A couple of these
 
 [http/authext]: https://guides.dataverse.org/en/latest/developers/workflows.html#http-authext
 
-[dd-workflow-step-virus-scan]: https://dans-knaw.github.io/dd-workflow-step-virus-scan
+[dd-virus-scan]: https://dans-knaw.github.io/dd-virus-scan
 
-[dd-workflow-step-vault-metadata]: https://dans-knaw.github.io/dd-workflow-step-vault-metadata
+[dd-vault-metadata]: https://dans-knaw.github.io/dd-vault-metadata
 
 [dd-vault-catalog]:  https://dans-knaw.github.io/dd-vault-catalog
 
