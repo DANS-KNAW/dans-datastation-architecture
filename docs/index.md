@@ -39,28 +39,30 @@ The following microservices are candidates to become part of the `PrePublishData
 * [dd-verify-dataset](#dd-verify-dataset)
 
 The **RDA Bag Export** flow step is implemented in Dataverse and is used to export an RDA compliant bag (also a "Dataset Version Export" or DVE) for each
-dataset version after publication (i.e. in the `PostPublishDataset` workflow). This exported bag is then picked up by [dd-transfer-to-vault](#dd-transfer-to-vault).
+dataset version after publication (i.e. in the `PostPublishDataset` workflow). This exported bag is then picked up
+by [dd-transfer-to-vault](#dd-transfer-to-vault).
 
-| Docs                         | Code                                                |
-|------------------------------|-----------------------------------------------------|
-| [Dataverse]{:target=_blank}  | <https://github.com/IQSS/dataverse>{:target=_blank} |
-| [Workflows]{:target=_blank}  | Part of the Dataverse code base                     |
+| Docs                        | Code                                                |
+|-----------------------------|-----------------------------------------------------|
+| [Dataverse]{:target=_blank} | <https://github.com/IQSS/dataverse>{:target=_blank} |
+| [Workflows]{:target=_blank} | Part of the Dataverse code base                     |
 
 ### dd-sword2
 
 DANS implementation of the SWORD v2 protocol for automated deposits.
 
-| Docs                        | Code                                                     |
-|-----------------------------|----------------------------------------------------------|
-| [dd-sword2]{:target=_blank} | <https://github.com/DANS-KNAW/dd-sword2>{:target=_blank} |
+| Docs                                      | Code                                                                   |
+|-------------------------------------------|------------------------------------------------------------------------|
+| [dd-sword2]{:target=_blank}               | <https://github.com/DANS-KNAW/dd-sword2>{:target=_blank}               |
+| [dd-dans-sword2-examples]{:target=_blank} | <https://github.com/DANS-KNAW/dd-dans-sword2-examples>{:target=_blank} |
 
 ### dd-dataverse-authenticator
 
 A proxy that authenticates clients on behalf of Dataverse, using the basic auth protocol. It is used by [dd-sword2](#dd-sword2) to authenticate its clients by
 their Dataverse account credentials.
 
-| Docs                                         | Code                                                                |
-|----------------------------------------------|---------------------------------------------------------------------|
+| Docs                                         | Code                                                                      |
+|----------------------------------------------|---------------------------------------------------------------------------|
 | [dd-dataverse-authenticator]{:target=_blank} | <https://github.com/DANS-KNAW/dd-dataverse-authenticator>{:target=_blank} |
 
 ### dd-ingest-flow
@@ -76,20 +78,19 @@ Service for ingesting deposit directories into Dataverse.
 Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-ingest-flow](#dd-ingest-flow) to validate bags that are uploaded via
 SWORD2 or are migrated from EASY.
 
-| Docs                                    | Code                                                                 |
-|-----------------------------------------|----------------------------------------------------------------------|
-| [dd-validate-dans-bag]{:target=_blank}  | <https://github.com/DANS-KNAW/dd-validate-dans-bag>{:target=_blank}  |
-| [DANS BagIt Profile v1]{:target=_blank} | <https://github.com/DANS-KNAW/dans-bagit-profile>{:target=_blank}    | 
-| [DANS schema]{:target=_blank}           | <https://github.com/DANS-KNAW/dans-schema>{:target=_blank}           | 
+| Docs                                    | Code                                                                |
+|-----------------------------------------|---------------------------------------------------------------------|
+| [dd-validate-dans-bag]{:target=_blank}  | <https://github.com/DANS-KNAW/dd-validate-dans-bag>{:target=_blank} |
+| [DANS BagIt Profile v1]{:target=_blank} | <https://github.com/DANS-KNAW/dans-bagit-profile>{:target=_blank}   | 
+| [DANS schema]{:target=_blank}           | <https://github.com/DANS-KNAW/dans-schema>{:target=_blank}          | 
 
 ### dd-manage-deposit
 
 Service that manages and maintains information about deposits in a deposit area.
 
-| Docs                                | Code                                                          |
-|-------------------------------------|---------------------------------------------------------------|
+| Docs                                | Code                                                             |
+|-------------------------------------|------------------------------------------------------------------|
 | [dd-manage-deposit]{:target=_blank} | <https://github.com/DANS-KNAW/dd-manage-deposit>{:target=_blank} |
-
 
 ### dans-datastation-tools
 
@@ -107,31 +108,30 @@ Service for performing curation checks on datasets.
 |-------------------------------------|------------------------------------------------------------------|
 | [dd-verify-dataset]{:target=_blank} | <https://github.com/DANS-KNAW/dd-verify-dataset>{:target=_blank} |
 
-
 ### dd-virus-scan
 
 A service p that scans all files in a dataset for virus using `clamav` and blocks publication if a virus is found.
 
-| Docs                                            | Code                                                                       |
-|-------------------------------------------------|----------------------------------------------------------------------------|
-| [dd-workflow-step-virus-scan]{:target=_blank}   | <https://github.com/DANS-KNAW/dd-workflow-step-virus-scan>{:target=_blank} |
+| Docs                            | Code                                                         |
+|---------------------------------|--------------------------------------------------------------|
+| [dd-virus-scan]{:target=_blank} | <https://github.com/DANS-KNAW/dd-virus-scan>{:target=_blank} |
 
 ### dd-vault-metadata
 
 A service that fills in the "Vault Metadata" for a dataset version. These metadata will be used later on
 by [dd-transfer-to-vault](#dd-transfer-to-vault) to catalogue the long-term preservation copy of the dataset version when it is stored on tape.
 
-| Docs                                              | Code                                                                       |
-|---------------------------------------------------|----------------------------------------------------------------------------|
-| [dd-workflow-step-vault-metadata]{:target=_blank} | <https://github.com/DANS-KNAW/dd-workflow-step-vault-metadata>{:target=_blank} |
+| Docs                                | Code                                                             |
+|-------------------------------------|------------------------------------------------------------------|
+| [dd-vault-metadata]{:target=_blank} | <https://github.com/DANS-KNAW/dd-vault-metadata>{:target=_blank} |
 
 ### Skosmos
 
 A thesaurus service developed by the National Library of Finland. It is used to serve the external controlled vocabulary fields.
 
-| Docs                      | Code                                                   |
-|---------------------------|--------------------------------------------------------|
-| [Skosmos]{:target=_blank} | <https://github.com/NatLibFi/Skosmos>{:target=_blank}  |
+| Docs                      | Code                                                  |
+|---------------------------|-------------------------------------------------------|
+| [Skosmos]{:target=_blank} | <https://github.com/NatLibFi/Skosmos>{:target=_blank} |
 
 ### dd-transfer-to-vault
 
@@ -155,12 +155,12 @@ Service that manages a catalog of all Dataset Version Exports in the [DANS Data 
 The NBN resolver service operated by DANS in cooperation with the Koninklijke Bibliotheek. It resolves NBN persistent identifiers to their current location.
 The resolver is hosted at <https://persistent-identifier.nl/>.
 
-| Docs and code                                           |
-|---------------------------------------------------------|
-| [NBN]{:target=_blank}                                   |
-| <https://github.com/DANS-KNAW/gmh-registration-service> |
-| <https://github.com/DANS-KNAW/gmh-resolver-ui>          |
-| <https://github.com/DANS-KNAW/gmh-meresco>              | 
+| Docs and code                                                           |
+|-------------------------------------------------------------------------|
+| [NBN]{:target=_blank}                                                   |
+| <https://github.com/DANS-KNAW/gmh-registration-service>{:target=_blank} |
+| <https://github.com/DANS-KNAW/gmh-resolver-ui>{:target=_blank}          |
+| <https://github.com/DANS-KNAW/gmh-meresco>{:target=_blank}              | 
 
 ### DANS Data Vault
 
@@ -171,6 +171,23 @@ Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
 |-------------------------------------|
 | [SURF Data Archive]{:target=_blank} |
 | [OCFL]{:target=_blank}              |
+
+Libraries
+---------
+
+The components mentioned above use many open source libraries. A couple of these are developed by DANS and are available on GitHub.
+
+| Library                                     | Code                                                                     |
+|---------------------------------------------|--------------------------------------------------------------------------|
+| [dans-bagit-lib]{:target=_blank}            | <https://github.com/DANS-KNAW/dans-bagit-lib>{:target=_blank}            |    
+| [dans-dataverse-client-lib]{:target=_blank} | <https://github.com/DANS-KNAW/dans-dataverse-client-lib>{:target=_blank} |
+| [dans-java-utils]{:target=_blank}           | <https://github.com/DANS-KNAW/dans-java-utils>{:target=_blank}           |
+
+[dans-bagit-lib]: https://dans-knaw.github.io/dans-bagit-lib
+
+[dans-dataverse-client-lib]: https://dans-knaw.github.io/dans-dataverse-client-lib
+
+[dans-java-utils]: https://dans-knaw.github.io/dans-java-utils
 
 [Dataverse]: https://guides.dataverse.org/en/latest/user/index.html
 
