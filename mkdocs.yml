@@ -23,8 +23,9 @@ repo_url: https://github.com/DANS-KNAW/dans-datastation-architecture
 
 nav:
   - Architecture overview: index.md
-  - Mirroring to EASY: easy-mirror.md
+  - Vault as a service: vaas.md
   - Deposit directory: deposit-directory.md
+  - Mirroring to EASY: easy-mirror.md
   - Development: dev.md
   - Build status: status.md
 
