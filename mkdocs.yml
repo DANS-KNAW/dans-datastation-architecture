@@ -22,8 +22,10 @@ repo_name: DANS-KNAW/dans-datastation-architecture
 repo_url: https://github.com/DANS-KNAW/dans-datastation-architecture
 
 nav:
-  - Architecture overview: index.md
+  - Core Services: index.md
+  - Data Station: datastation.md
   - Vault as a service: vaas.md
+  - DataverseNL: dataversenl.md
   - Deposit directory: deposit-directory.md
   - Mirroring to EASY: easy-mirror.md
   - Development: dev.md
@@ -34,6 +36,9 @@ plugins:
   - search
 
 extra:
+  dataverse_org: https://dataverse.org/
+  ds_archaeology: https://archaeology.datastations.nl/
+  ds_ssh: https://ssh.datastations.nl/
   skosmos_url: https://skosmos.org/
   dans_bagit_profile: https://dans-knaw.github.io/dans-bagit-profile/versions/1.0.0/
 
