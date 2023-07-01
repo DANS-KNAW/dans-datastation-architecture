@@ -1,14 +1,11 @@
-DANS Data Station Architecture
-==============================
-
-
-
-
+Data Station architecture
+=========================
 
 Overview
 --------
-This document gives an overview of the DANS Data Station architecture. The schema below displays all the components of a Data Station and how they relate to
-each other. The notation used is not a formal one and is intended to be self-explanatory. To the extent that it is not you might want to consult
+This document gives an overview of the Data Station architecture. The schema below displays all the components of a Data
+Station and how they relate to each other. The notation used is not a formal one and is intended to be self-explanatory.
+To the extent that it is not, you might want to consult
 the [legend that is included at the end of this page](#schema-legend).
 
 ![Overview](arch-overview.png)
@@ -16,24 +13,26 @@ the [legend that is included at the end of this page](#schema-legend).
 Actors
 ------
 
-* **SWORD2 Client** - a software client that interacts with the [DANS SWORDv2 Service](#dd-sword2) to deposit datasets.
 * **Data Station User** - a user of the Data Station, typically a customer who downloads or deposits data.
 * **Data Manager** - a user with special privileges, who curates and publishes datasets submitted for review by a user.
+* **SWORD2 Client** - a software client that interacts with the [DANS SWORDv2 Service](#dd-sword2) to deposit datasets.
 
 Components
 ----------
 
 ### Dataverse
 
-> "The Dataverse Project is an open source web application to share, preserve, cite, explore, and analyze research data."
+> "The Dataverse Project is an open source web application to share, preserve, cite, explore, and analyze research
+> data."
 
-In the Data Station this repository system is used for depositing, storing and disseminating datasets, as well as creating long-term preservation copies of
-those datasets.
+In the Data Station this repository system is used for depositing, storing and disseminating datasets, as well as
+creating long-term preservation copies of those datasets.
 
 #### Workflows
 
-Dataverse provides event hooks that allow to configure workflows to run just before and after a publication event. These workflows can have multiple steps. A
-step can be implemented as part of Dataverse or as an external service. The following microservices are configured to run as `PrePublishDataset` workflow steps:
+Dataverse provides event hooks that allow to configure workflows to run just before and after a publication event. These
+workflows can have multiple steps. A step can be implemented as part of Dataverse or as an external service. The
+following microservices are configured to run as `PrePublishDataset` workflow steps:
 
 * [dd-vault-metadata](#dd-vault-metadata)
 
@@ -42,9 +41,9 @@ The following microservices are candidates to become part of the `PrePublishData
 * [dd-virus-scan](#dd-virus-scan)
 * [dd-verify-dataset](#dd-verify-dataset)
 
-The **RDA Bag Export** flow step is implemented in Dataverse and is used to export an RDA compliant bag (also a "Dataset Version Export" or DVE) for each
-dataset version after publication (i.e. in the `PostPublishDataset` workflow). This exported bag is then picked up
-by [dd-transfer-to-vault](#dd-transfer-to-vault).
+The **RDA Bag Export** flow step is implemented in Dataverse and is used to export an RDA compliant bag (also a "Dataset
+Version Export" or DVE) for each dataset version after publication (i.e. in the `PostPublishDataset` workflow). This
+exported bag is then picked up by [dd-transfer-to-vault](#dd-transfer-to-vault).
 
 | Docs                        | Code                                                |
 |-----------------------------|-----------------------------------------------------|
@@ -62,8 +61,8 @@ DANS implementation of the SWORD v2 protocol for automated deposits.
 
 ### dd-dataverse-authenticator
 
-A proxy that authenticates clients on behalf of Dataverse, using the basic auth protocol. It is used by [dd-sword2](#dd-sword2) to authenticate its clients by
-their Dataverse account credentials.
+A proxy that authenticates clients on behalf of Dataverse, using the basic auth protocol. It is used
+by [dd-sword2](#dd-sword2) to authenticate its clients by their Dataverse account credentials.
 
 | Docs                                         | Code                                                                      |
 |----------------------------------------------|---------------------------------------------------------------------------|
@@ -71,7 +70,7 @@ their Dataverse account credentials.
 
 ### dd-ingest-flow
 
-Service for ingesting deposit directories into Dataverse.
+Service for ingesting [deposit directories](./deposit-directory.md) into Dataverse.
 
 | Docs                             | Code                                                          |
 |----------------------------------|---------------------------------------------------------------|
@@ -79,8 +78,8 @@ Service for ingesting deposit directories into Dataverse.
 
 ### dd-validate-dans-bag
 
-Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-ingest-flow](#dd-ingest-flow) to validate bags that are uploaded via
-SWORD2 or are migrated from EASY.
+Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-ingest-flow](#dd-ingest-flow)
+to validate bags that are uploaded via SWORD2 or are migrated from EASY.
 
 | Docs                                    | Code                                                                |
 |-----------------------------------------|---------------------------------------------------------------------|
@@ -123,7 +122,8 @@ A service p that scans all files in a dataset for virus using `clamav` and block
 ### dd-vault-metadata
 
 A service that fills in the "Vault Metadata" for a dataset version. These metadata will be used later on
-by [dd-transfer-to-vault](#dd-transfer-to-vault) to catalogue the long-term preservation copy of the dataset version when it is stored on tape.
+by [dd-transfer-to-vault](#dd-transfer-to-vault) to catalogue the long-term preservation copy of the dataset version
+when it is stored on tape.
 
 | Docs                                | Code                                                             |
 |-------------------------------------|------------------------------------------------------------------|
@@ -131,7 +131,8 @@ by [dd-transfer-to-vault](#dd-transfer-to-vault) to catalogue the long-term pres
 
 ### Skosmos
 
-A thesaurus service developed by the National Library of Finland. It is used to serve the external controlled vocabulary fields.
+A thesaurus service developed by the National Library of Finland. It is used to serve the external controlled vocabulary
+fields.
 
 | Docs                      | Code                                                  |
 |---------------------------|-------------------------------------------------------|
@@ -139,7 +140,8 @@ A thesaurus service developed by the National Library of Finland. It is used to 
 
 ### dd-transfer-to-vault
 
-Service for preparing Dataset Version Exports for storage in the [DANS Data Vault](#dans-data-vault). This includes validation, aggregation into larger files
+Service for preparing Dataset Version Exports for storage in the [DANS Data Vault](#dans-data-vault). This includes
+validation, aggregation into larger files
 and creating a [vault catalog](#dd-vault-catalog) entry for each export.
 
 | Docs                                   | Code                                                                |
@@ -148,7 +150,8 @@ and creating a [vault catalog](#dd-vault-catalog) entry for each export.
 
 ### dd-vault-catalog
 
-Service that manages a catalog of all Dataset Version Exports in the [DANS Data Vault](#dans-data-vault). It will expose a summary page for each stored dataset.
+Service that manages a catalog of all Dataset Version Exports in the [DANS Data Vault](#dans-data-vault). It will expose
+a summary page for each stored dataset.
 
 | Docs                               | Code                                                            |
 |------------------------------------|-----------------------------------------------------------------|
@@ -156,7 +159,8 @@ Service that manages a catalog of all Dataset Version Exports in the [DANS Data 
 
 ### BRI-GMH
 
-The NBN resolver service operated by DANS in cooperation with the Koninklijke Bibliotheek. It resolves NBN persistent identifiers to their current location.
+The NBN resolver service operated by DANS in cooperation with the Koninklijke Bibliotheek. It resolves NBN persistent
+identifiers to their current location.
 The resolver is hosted at <https://persistent-identifier.nl/>.
 
 | Docs and code                                                           |
@@ -168,7 +172,8 @@ The resolver is hosted at <https://persistent-identifier.nl/>.
 
 ### DANS Data Vault
 
-The DANS long-term preservation archive. This is implemented as a collection of files stored on tape via SURF's Data Archive service. The Dataset Version
+The DANS long-term preservation archive. This is implemented as a collection of files stored on tape via SURF's Data
+Archive service. The Dataset Version
 Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
 
 | Docs                                |
@@ -179,7 +184,8 @@ Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
 Libraries
 ---------
 
-The components mentioned above use many open source libraries. A couple of these are developed by DANS and are available on GitHub.
+The components mentioned above use many open source libraries. A couple of these are developed by DANS and are available
+on GitHub.
 
 | Library                                     | Code                                                                     |
 |---------------------------------------------|--------------------------------------------------------------------------|
@@ -190,6 +196,7 @@ The components mentioned above use many open source libraries. A couple of these
 [dans-bagit-lib]: https://dans-knaw.github.io/dans-bagit-lib
 
 [dans-dataverse-client-lib]: https://dans-knaw.github.io/dans-dataverse-client-lib
+
 
 [dans-java-utils]: https://dans-knaw.github.io/dans-java-utils
 
