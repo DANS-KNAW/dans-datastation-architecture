@@ -25,7 +25,7 @@ Each Data Station targets a part of the scientific research community. There is 
 * Physical & Technical Sciences
 
 The Data Stations use [Dataverse]{:target=_blank} as their repository system. Dataverse is an open source repository
-system developed by Harvard University. * The Data Stations create a long-term preservation copy of each dataset in the
+system developed by Harvard University. The Data Stations create a long-term preservation copy of each dataset in the
 DANS Data Vault.
 
 Other services
@@ -46,6 +46,12 @@ of the DataverseNL customer.
 
 [Vault as a Service](./vaas.md) offers an interface for automated deposit of datasets directly into the DANS Data Vault.
 This service can be used as a building block in a customer's own archival workflow.
+
+Interfaces
+----------
+The services have both human and machine interfaces. This is represented in the diagram by the people and computer
+icons. Note that the Vault as a Service has no human interface. See for more information
+under [External interfaces](./external-interfaces.md).
 
 [Dataverse]: {{ dataverse_org }}
 [Archaeology]: {{ ds_archaeology }}
