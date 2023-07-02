@@ -40,7 +40,7 @@ Documentation with mkdocs
 The documentation for DANS projects (including this site) is written using [mkdocs]{:target=_blank}. The source code for
 those sites consists of markdown in combination with other resources, such as images. Images are often created
 with [yEd]{:target=_blank}. The graphml source code of the images is committed along with the image exports. You should
-always check that your changes render correctly. This is made easy by the `start-mkdocs.sh` scripts
+always check that your changes render correctly. This is made easy by the `start-mkdocs.sh` script
 in [dans-dev-tools]{:target=_blank}.
 
 
