@@ -3,7 +3,7 @@ Deposit directory
 
 A _deposit directory_ is a directory containing:
 
-1. a deposit
+1. deposit files
 2. deposit properties
 
 ```text

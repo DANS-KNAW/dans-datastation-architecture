@@ -15,7 +15,7 @@ The following interfaces are exposed to the outside world:
     Specifically, it is currently not possible to guard certain metadata blocks against changes by users. However, for 
     the Data Stations is it crucial that the Vault Metadata added by the system can only be changed by the system.
 
-    In a future release of Dataverse there will allow metadata blocks to be protected by a key. Until that time API 
+    A future release of Dataverse will allow metadata blocks to be protected by a key. Until that time, API 
     endpoints that write metadata are disabled.
 
 [Dataverse User Guide]: {{ dataverse_user_guide }}

@@ -11,8 +11,8 @@ depositing datasets in [EASY](./migration.md). The SWORD2 interface is also avai
     focusing on guaranteeing the continued availability of the SWORD2 interface for our existing customers. It is not yet
     decided whether we will implement SWORD3 in the future. 
 
-Information for developers
---------------------------
+Information for SWORD client developers
+---------------------------------------
 Developers of SWORD2 clients can refer to the [dd-dans-sword2-examples]{:target=_blank} repository for Java code
 examples and its associated [GitHub pages]{:target=_blank} for documentation.
 

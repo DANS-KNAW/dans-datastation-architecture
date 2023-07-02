@@ -3,8 +3,8 @@ Development
 The following sections discuss development on various parts of a Data Station. Some components are developed by DANS,
 other components are provided by open source projects in which DANS may participate.
 
-DANS micro-services
--------------------
+DANS microservices
+------------------
 The DANS microservices are based on the [dans-module-archetype]{:target=_blank}. This archetype creates a skeleton
 microservice based on the [DropWizard]{:target=_blank} framework. When working on DANS microservices, please comply
 with the [best practises]{:target=_blank} documented in the dans-module-archetype documentation.

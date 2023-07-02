@@ -37,6 +37,7 @@ nav:
   - Internal interfaces:
       - Overview: internal-interfaces.md
       - Deposit directory: deposit-directory.md
+      - OCFL repository: ocfl-repo.md
   - Migration from EASY:
       - About: migration.md
   - Development:
@@ -49,6 +50,7 @@ plugins:
 extra:
   dans_website: https://dans.knaw.nl/
   dataverse_org: https://dataverse.org/
+  dataverse_docs: https://guides.dataverse.org/en/latest/
   dataverse_user_guide: https://guides.dataverse.org/en/latest/user/index.html
   dataverse_api_guide: https://guides.dataverse.org/en/latest/api/index.html
   dataversenl_url: https://dataverse.nl/

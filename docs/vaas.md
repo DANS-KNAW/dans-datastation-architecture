@@ -7,7 +7,7 @@ Overview
 Clients can also use the DANS Data Vault as a building block in their own archival workflows. To this end DANS offers
 Vault as a Service. It exposes the same SWORD2 interface as the Data Stations. Instead of storing the datasets in
 Dataverse, they are directly converted into RDA compliant bags and transferred to the Data Vault. In this scenario,
-dissemination of the datasets remains the responsibility of the customer.
+curation as well as dissemination of the datasets remain the responsibility of the customer.
 
 ![Overview](arch-overview-vaas.png)
 

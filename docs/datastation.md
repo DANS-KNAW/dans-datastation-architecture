@@ -3,7 +3,7 @@ Data Station architecture
 
 Overview
 --------
-This document gives an overview of the Data Station architecture. The schema below displays all the components of a Data
+This document gives an overview of the Data Station architecture. The schema below displays the components of a Data
 Station and how they relate to each other. The notation used is not a formal one and is intended to be self-explanatory.
 To the extent that it is not, you might want to consult
 the [legend that is included at the end of this page](#schema-legend).
@@ -15,7 +15,7 @@ Actors
 
 * **Data Station User** - a user of the Data Station, typically a customer who downloads or deposits data.
 * **Data Manager** - a user with special privileges, who curates and publishes datasets submitted for review by a user.
-* **SWORD2 Client** - a software client that interacts with the [DANS SWORDv2 Service](#dd-sword2) to deposit datasets.
+* **SWORD2 Client** - a software client that interacts with the [DANS SWORD2 Service](#dd-sword2) to deposit datasets.
 
 Components
 ----------
@@ -61,8 +61,8 @@ DANS implementation of the SWORD v2 protocol for automated deposits.
 
 ### dd-dataverse-authenticator
 
-A proxy that authenticates clients on behalf of Dataverse, using the basic auth protocol. It is used
-by [dd-sword2](#dd-sword2) to authenticate its clients by their Dataverse account credentials.
+A proxy that authenticates clients on behalf of Dataverse, using the basic auth protocol or a Dataverse API token. It is
+used by [dd-sword2](#dd-sword2) to authenticate its clients by their Dataverse account credentials.
 
 | Docs                                         | Code                                                                      |
 |----------------------------------------------|---------------------------------------------------------------------------|
@@ -79,7 +79,7 @@ Service for ingesting [deposit directories](./deposit-directory.md) into Dataver
 ### dd-validate-dans-bag
 
 Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-ingest-flow](#dd-ingest-flow)
-to validate bags that are uploaded via SWORD2 or are migrated from EASY.
+to validate bags that are uploaded via [dd-sword2](#dd-sword2).
 
 | Docs                                    | Code                                                                |
 |-----------------------------------------|---------------------------------------------------------------------|
@@ -113,7 +113,7 @@ Service for performing curation checks on datasets.
 
 ### dd-virus-scan
 
-A service p that scans all files in a dataset for virus using `clamav` and blocks publication if a virus is found.
+A service that scans all files in a dataset for virus using `clamav` and blocks publication if a virus is found.
 
 | Docs                            | Code                                                         |
 |---------------------------------|--------------------------------------------------------------|
@@ -159,9 +159,9 @@ a summary page for each stored dataset.
 
 ### BRI-GMH
 
-The NBN resolver service operated by DANS in cooperation with the Koninklijke Bibliotheek. It resolves NBN persistent
-identifiers to their current location.
-The resolver is hosted at <https://persistent-identifier.nl/>.
+The NBN resolver service operated by DANS in cooperation with the [Koninklijke Bibliotheek]{:target=_blank}. It resolves
+NBN persistent identifiers to their current location. The resolver is hosted at 
+<https://persistent-identifier.nl/>{:target=_blank}.
 
 | Docs and code                                                           |
 |-------------------------------------------------------------------------|
@@ -200,7 +200,7 @@ on GitHub.
 
 [dans-java-utils]: https://dans-knaw.github.io/dans-java-utils
 
-[Dataverse]: https://guides.dataverse.org/en/latest/user/index.html
+[Dataverse]: {{ dataverse_docs }}
 
 [Workflows]: https://guides.dataverse.org/en/latest/developers/workflows.html#workflows
 
@@ -246,3 +246,4 @@ Schema Legend
 -------------
 ![legend](legend.png){width=50%}
 
+[Koninklijke Bibliotheek]: https://www.kb.nl/en
