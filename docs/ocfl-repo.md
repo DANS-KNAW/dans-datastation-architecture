@@ -8,11 +8,12 @@ The diagram below details how the Data Vault stores the datasets in the OCFL rep
 collection of Dataset Versions. Dataset versions are exported to Dataset Version Exports (DVEs). Currently, this is 
 done as an RDA compliant bag. In the future other packaging formats may be supported.
 
+![vault-impl](./vault-impl.png){:width="75%"}
+
 Since every Dataset Version is stored in a separated OCFL object, multiple DVEs can be stored for the same Dataset
 Version. This is necessary to support the following scenarios:
 
-**TODO: expand**
-
-![vault-impl](./vault-impl.png){:width="75%"}
+* Replacing a version that was updated in place, i.e. with "updatecurrent" in Dataverse. 
+* Repackaging dataset versions in a different packaging format. 
 
 [OCFL]: {{ ocfl_url }}
