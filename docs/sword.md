@@ -11,11 +11,19 @@ depositing datasets in [EASY](./migration.md). The SWORD2 interface is also avai
     focusing on guaranteeing the continued availability of the SWORD2 interface for our existing customers. It is not yet
     decided whether we will implement SWORD3 in the future. 
 
-Information for SWORD client developers
----------------------------------------
-Developers of SWORD2 clients can refer to the [dd-dans-sword2-examples]{:target=_blank} repository for Java code
-examples and its associated [GitHub pages]{:target=_blank} for documentation.
+Guide and code examples for SWORD2 client developers
+----------------------------------------------------
+The following documents and examples are available for developers who want to use the DANS SWORD2 service:
 
-[SWORD2]: {{ sword2_url }}
-[GitHub pages]: {{ sword2_examples_docs }}
-[dd-dans-sword2-examples]: {{ sword2_examples }}
+* [Guide for DANS SWORD2 client developers]{:target=_blank}
+* [Code examples]{:target=_blank}
+
+DANS BagIt Profile
+------------------
+The bags that are deposited to the DANS SWORD2 service must comply with the DANS BagIt Profile.
+
+* [DANS BagIt Profile v1]{:target=_blank}
+
+[Guide for DANS SWORD2 client developers]: {{ sword2_examples_docs }}
+[Code examples]: {{ sword2_examples }}
+[DANS BagIt Profile v1]: {{ dans_bagit_profile }}
