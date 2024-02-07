@@ -22,8 +22,8 @@ Each Data Station targets a part of the scientific research community. There is 
 
 * [Archaeology]{:target=_blank}
 * [Social Sciences and Humanities]{:target=_blank}
-* Life, Health and Medical Sciences
-* Physical and Technical Sciences
+* [Life Sciences]{:target=_blank}
+* [Physical and Technical Sciences]{:target=_blank}
 
 The Data Stations use [Dataverse]{:target=_blank} as their repository system. Dataverse is an open source repository
 system developed by Harvard University. The Data Stations create a long-term preservation copy of each dataset in the
@@ -56,5 +56,7 @@ under [External interfaces](./external-interfaces.md).
 
 [Dataverse]: {{ dataverse_org }}
 [Archaeology]: {{ ds_archaeology }}
+[Life Sciences]: {{ ds_ls }}
+[Physical and Technical Sciences]: {{ ds_pts }}
 [Social Sciences and Humanities]: {{ ds_ssh }}
 [Data Station]: {{ dans_website }}
