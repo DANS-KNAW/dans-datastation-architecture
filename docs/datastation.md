@@ -141,8 +141,7 @@ fields.
 ### dd-transfer-to-vault
 
 Service for preparing Dataset Version Exports for storage in the [DANS Data Vault](#dans-data-vault). This includes
-validation, aggregation into larger files
-and creating a [vault catalog](#dd-vault-catalog) entry for each export.
+validation, aggregation into larger files and creating a [vault catalog](#dd-vault-catalog) entry for each export.
 
 | Docs                                   | Code                                                                |
 |----------------------------------------|---------------------------------------------------------------------|
@@ -157,10 +156,18 @@ a summary page for each stored dataset.
 |------------------------------------|-----------------------------------------------------------------|
 | [dd-vault-catalog]{:target=_blank} | <https://github.com/DANS-KNAW/dd-vault-catalog>{:target=_blank} |
 
+### dd-data-vault
+
+Interface to the [DANS Data Vault](#dans-data-vault) for depositing and managing Dataset Version Exports.
+
+| Docs                            | Code                                                         |
+|---------------------------------|--------------------------------------------------------------|
+| [dd-data-vault]{:target=_blank} | <https://github.com/DANS-KNAW/dd-data-vault>{:target=_blank} |
+
 ### BRI-GMH
 
 The NBN resolver service operated by DANS in cooperation with the [Koninklijke Bibliotheek]{:target=_blank}. It resolves
-NBN persistent identifiers to their current location. The resolver is hosted at 
+NBN persistent identifiers to their current location. The resolver is hosted at
 <https://persistent-identifier.nl/>{:target=_blank}.
 
 | Docs and code                                                           |
@@ -172,14 +179,15 @@ NBN persistent identifiers to their current location. The resolver is hosted at
 
 ### DANS Data Vault
 
-The DANS long-term preservation archive. This is implemented as a collection of files stored on tape via SURF's Data
-Archive service. The Dataset Version
-Exports are wrapped in an [OCFL]{:target=_blank} repository structure.
+The DANS long-term preservation archive. It is implemented as an array of [OCFL]{:target=_blank} repositories, stored in DMF TAR files on tape. Each TAR file
+represents a layer. If the layers are extracted to disk in the correct order, the result is an OCFL repository. For more details see the docs on the Data Vault
+internal interface.
 
-| Docs                                |
-|-------------------------------------|
-| [SURF Data Archive]{:target=_blank} |
-| [OCFL]{:target=_blank}              |
+| Docs                                                 |
+|------------------------------------------------------|
+| [SURF Data Archive]{:target=_blank}                  |
+| [OCFL]{:target=_blank}                               |
+| [Data Vault internal interface](./vault-internal.md) |
 
 Libraries
 ---------
