@@ -183,11 +183,11 @@ The DANS long-term preservation archive. It is implemented as an array of [OCFL]
 represents a layer. If the layers are extracted to disk in the correct order, the result is an OCFL repository. For more details see the docs on the Data Vault
 internal interface.
 
-| Docs                                                 |
-|------------------------------------------------------|
-| [SURF Data Archive]{:target=_blank}                  |
-| [OCFL]{:target=_blank}                               |
-| [Data Vault internal interface](./vault-internal.md) |
+| Docs                                             |
+|--------------------------------------------------|
+| [SURF Data Archive]{:target=_blank}              |
+| [OCFL]{:target=_blank}                           |
+| [Data Vault internal interface](./data-vault.md) |
 
 Libraries
 ---------
@@ -239,6 +239,8 @@ on GitHub.
 [dd-vault-metadata]: https://dans-knaw.github.io/dd-vault-metadata
 
 [dd-vault-catalog]:  https://dans-knaw.github.io/dd-vault-catalog
+
+[dd-data-vault]: https://dans-knaw.github.io/dd-data-vault
 
 [dd-transfer-to-vault]:  https://dans-knaw.github.io/dd-transfer-to-vault
 

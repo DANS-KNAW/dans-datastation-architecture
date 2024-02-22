@@ -67,6 +67,7 @@ extra:
   core_trust_seal_url: https://www.coretrustseal.org/about/
   ocfl_url: https://ocfl.io/
   bagit_specs: https://www.rfc-editor.org/rfc/rfc8493.html
+  dans_layer_store_lib: https://dans-knaw.github.io/dans-layer-store-lib/
 
 markdown_extensions:
   - attr_list
