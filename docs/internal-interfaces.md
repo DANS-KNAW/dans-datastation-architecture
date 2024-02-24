@@ -10,6 +10,6 @@ The interfaces between the microservices fall into the following categories:
 * Shared disk space. In the automated deposit pipeline deposits are passed from one microservice to the next by storing
   them in a shared disk space. In this category fall the following interfaces:
     * [Deposit Directory](./deposit-directory.md)
-    * [OCFL repository](./ocfl-repo.md)
+    * [Data Vault](./data-vault)
 
 [microservices architectural style]: https://www.martinfowler.com/microservices/

@@ -37,7 +37,7 @@ nav:
   - Internal interfaces:
       - Overview: internal-interfaces.md
       - Deposit directory: deposit-directory.md
-      - OCFL repository: ocfl-repo.md
+      - Data Vault: data-vault.md
   - Migration from EASY:
       - About: migration.md
   - Development:
@@ -66,6 +66,8 @@ extra:
   sword2_examples_docs: https://dans-knaw.github.io/dd-dans-sword2-examples/
   core_trust_seal_url: https://www.coretrustseal.org/about/
   ocfl_url: https://ocfl.io/
+  bagit_specs: https://www.rfc-editor.org/rfc/rfc8493.html
+  dans_layer_store_lib: https://dans-knaw.github.io/dans-layer-store-lib/
 
 markdown_extensions:
   - attr_list
