@@ -164,6 +164,14 @@ Interface to the [DANS Data Vault](#dans-data-vault) for depositing and managing
 |---------------------------------|--------------------------------------------------------------|
 | [dd-data-vault]{:target=_blank} | <https://github.com/DANS-KNAW/dd-data-vault>{:target=_blank} |
 
+### dd-data-vault-cli
+
+Provides the `data-vault` command line tool for interacting with the [DANS Data Vault](#dans-data-vault).
+
+| Docs                                | Code                                                             |
+|-------------------------------------|------------------------------------------------------------------|
+| [dd-data-vault-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-data-vault-cli>{:target=_blank} |
+
 ### BRI-GMH
 
 The NBN resolver service operated by DANS in cooperation with the [Koninklijke Bibliotheek]{:target=_blank}. It resolves
@@ -241,6 +249,8 @@ on GitHub.
 [dd-vault-catalog]:  https://dans-knaw.github.io/dd-vault-catalog
 
 [dd-data-vault]: https://dans-knaw.github.io/dd-data-vault
+
+[dd-data-vault-cli]: https://dans-knaw.github.io/dd-data-vault-cli
 
 [dd-transfer-to-vault]:  https://dans-knaw.github.io/dd-transfer-to-vault
 
