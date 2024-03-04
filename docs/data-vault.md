@@ -50,7 +50,7 @@ a 1-to-_n_ relationship.
 
 Some scenarios where a dataset version is exported multiple times are:
 
-* The dataset was updated in the Data Station without creating a new version. This can be done by a superuser an is known as "updatecurrent". A new Dataset
+* The dataset was updated in the Data Station without creating a new version. This can be done by a superuser and is known as "updatecurrent". A new Dataset
   Version Export will be created and therefore a new OCFL Object Version will be created as well. The Data Station version history, however, will **not**
   display an additional version.
 * Repackaging of one or all of the Dataset Version Exports. Currently, the DVEs are store in a [bag]{:target=_blank} that complies with recommendations
