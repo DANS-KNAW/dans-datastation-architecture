@@ -9,7 +9,7 @@ Vault as a Service. It exposes the same SWORD2 interface as the Data Stations. I
 Dataverse, they are directly converted into RDA compliant bags and transferred to the Data Vault. In this scenario,
 curation as well as dissemination of the datasets remain the responsibility of the customer.
 
-![Overview](arch-overview-vaas.png)
+[![Overview](arch-overview-vaas.png)<button class="btn">Enlarge Image</button>](arch-overview-vaas.png){: data-lightbox="group" data-title="Overview" }
 
 Components
 ----------

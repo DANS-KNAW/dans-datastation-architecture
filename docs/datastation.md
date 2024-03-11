@@ -8,7 +8,9 @@ Station and how they relate to each other. The notation used is not a formal one
 To the extent that it is not, you might want to consult
 the [legend that is included at the end of this page](#schema-legend).
 
-![Overview](arch-overview.png)
+
+[![Overview](arch-overview.png)<button class="btn">Enlarge Image</button>](arch-overview.png){: data-lightbox="group" data-title="Overview" }
+
 
 Actors
 ------

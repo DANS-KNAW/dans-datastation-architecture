@@ -47,6 +47,12 @@ plugins:
   - markdownextradata
   - search
 
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js
+
 extra:
   dans_website: https://dans.knaw.nl/
   dataverse_org: https://dataverse.org/
