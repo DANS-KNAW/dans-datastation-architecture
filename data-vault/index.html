@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Data Vault - dans-datastation-architecture</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data Vault";
+        var mkdocs_page_input_path = "data-vault.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> dans-datastation-architecture
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../core-services/">Core Services</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../datastation/">Data Station</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configurations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configurations/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataversenl/">DataverseNL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vaas/">Vault as a Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../easy-mirror/">Mirroring to EASY</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">External interfaces</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../external-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sword/">SWORD</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Internal interfaces</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../internal-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deposit-directory/">Deposit directory</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Data Vault</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-vault-collections">Data Vault Collections</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#layers">Layers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dataset-model-mapping">Dataset model mapping</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#versions">Versions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#identifiers">Identifiers</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Migration from EASY</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../migration/">About</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../status/">Build status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">dans-datastation-architecture</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Internal interfaces &raquo;</li><li>Data Vault</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/DANS-KNAW/dans-datastation-architecture/edit/master/docs/data-vault.md"> Edit on DANS-KNAW/dans-datastation-architecture</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="data-vault">Data Vault<a class="headerlink" href="#data-vault" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>It may be surprising to talk about the Data Vault's <strong>interface</strong>. However, viewed from the standpoint of a future user of our long-term preservation copies,
+the details of how to retrieve the information stored in the Data Vault are essential. It is that interface that we describe here.</p>
+<p>The Data Vault interface is classified here as an <strong>internal</strong> interface, but it could arguably be classified as an external interface as well, particularly in
+a scenario where a future, external organization is responsible for taking up the dissemination of the data stored in the Data Vault. Nevertheless, for the time
+being, we consider it an internal interface, as it is currently only used by DANS systems.</p>
+<h2 id="data-vault-collections">Data Vault Collections<a class="headerlink" href="#data-vault-collections" title="Permanent link">&para;</a></h2>
+<p>The DANS Data Vault is implemented as an array of <a href="https://ocfl.io/" target="_blank">OCFL</a> repositories. OCFL stands for Oxford Common File Layout. It is a community
+specification for the layout of a repository that stores versioned digital objects. Each repository, or "storage root," is one <strong>Data Vault Collection</strong>. The
+Data Stations each have their own Data Vault Collection as does each customer of the Vault as a Service.</p>
+<h3 id="layers">Layers<a class="headerlink" href="#layers" title="Permanent link">&para;</a></h3>
+<p>The Data Vault Collections are not stored as regular directories on a regular file system, but instead packaged in DMF TAR files. This is because the tape
+storage system that is used, requires a minimum file size of 1GB. Parts of the repository therefore need to be combined into a single file to meet this
+requirement. Each TAR file constitutes a layer. To restore a Data Vault Collection, the layer TAR files must be extracted in the correct order. The base name of
+each layer TAR file is a Unix timestamp with millisecond precision. The order of extraction is the chronological order of the timestamps. This is important
+because, layers in later TAR files may contain files that overwrite files in earlier layers, notably the <code>inventory.json</code> files.</p>
+<p>For a more detailed description of the layers, see the documentation of <a href="https://dans-knaw.github.io/dans-layer-store-lib/" target="_blank">dans-layer-store-lib</a>.</p>
+<h2 id="dataset-model-mapping">Dataset model mapping<a class="headerlink" href="#dataset-model-mapping" title="Permanent link">&para;</a></h2>
+<p>OCFL is a generic storage model. It does not define the concept of a dataset. The DANS archival systems (Data Stations and Vault as a Service), on the other
+hand, are built around the dataset concept. The mapping between the two models is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>DANS dataset model</th>
+<th>OCFL model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset</td>
+<td>OCFL Object</td>
+</tr>
+<tr>
+<td>Dataset Version</td>
+<td>OCFL Object Version</td>
+</tr>
+<tr>
+<td>Datafile</td>
+<td>OCFL Content File</td>
+</tr>
+</tbody>
+</table>
+<h3 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">&para;</a></h3>
+<p>Each Dataset Version Export (DVE) is stored in a separate OCFL Object Version. This means that there is a 1-to-1 mapping between a DVE and an OCFL Object
+Version. Note however, that it is possible that one dataset version is exported multiple times. The mapping of a dataset version to an OCFL Object is therefore
+a 1-to-<em>n</em> relationship.</p>
+<p>Some scenarios where a dataset version is exported multiple times are:</p>
+<ul>
+<li>The dataset was updated in the Data Station without creating a new version. This can be done by a superuser and is known as "updatecurrent". A new Dataset
+  Version Export will be created and therefore a new OCFL Object Version will be created as well. The Data Station version history, however, will <strong>not</strong>
+  display an additional version.</li>
+<li>Repackaging of one or all of the Dataset Version Exports. Currently, the DVEs are store in a <a href="https://www.rfc-editor.org/rfc/rfc8493.html" target="_blank">bag</a> that complies with recommendations
+  published by the Research Data Alliance. If at some time in the future, a new packaging format should be adopted, the DVEs will be repacked. Since the OCFL
+  repository is immutable, the repacking will result in a new OCFL Object Version(s) being created.</li>
+</ul>
+<h3 id="identifiers">Identifiers<a class="headerlink" href="#identifiers" title="Permanent link">&para;</a></h3>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../deposit-directory/" class="btn btn-neutral float-left" title="Deposit directory"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../migration/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../deposit-directory/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../migration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
