@@ -41,7 +41,6 @@ following microservices are configured to run as `PrePublishDataset` workflow st
 The following microservices are candidates to become part of the `PrePublishDataset` workflow in the future:
 
 * [dd-virus-scan](#dd-virus-scan)
-* [dd-verify-dataset](#dd-verify-dataset)
 
 The **RDA Bag Export** flow step is implemented in Dataverse and is used to export an RDA compliant bag (also a "Dataset
 Version Export" or DVE) for each dataset version after publication (i.e. in the `PostPublishDataset` workflow). This
@@ -104,14 +103,6 @@ Command line utilities for Data Station application management.
 | Docs                                     | Code                                                                  |
 |------------------------------------------|-----------------------------------------------------------------------|
 | [dans-datastation-tools]{:target=_blank} | <https://github.com/DANS-KNAW/dans-datastation-tools>{:target=_blank} |
-
-### dd-verify-dataset
-
-Service for performing curation checks on datasets.
-
-| Docs                                | Code                                                             |
-|-------------------------------------|------------------------------------------------------------------|
-| [dd-verify-dataset]{:target=_blank} | <https://github.com/DANS-KNAW/dd-verify-dataset>{:target=_blank} |
 
 ### dd-virus-scan
 
@@ -239,8 +230,6 @@ on GitHub.
 [DANS schema]: https://dans-knaw.github.io/dans-schema/
 
 [dans-datastation-tools]: https://dans-knaw.github.io/dans-datastation-tools
-
-[dd-verify-dataset]: https://dans-knaw.github.io/dd-verify-dataset
 
 [http/authext]: https://guides.dataverse.org/en/latest/developers/workflows.html#http-authext
 
