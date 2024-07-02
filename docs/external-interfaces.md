@@ -3,9 +3,14 @@ External interfaces
 
 The following interfaces are exposed to the outside world:
 
-* The user interface of Dataverse. See for more information the [Dataverse User Guide]{:target=_blank}.
-* The RESTful HTTP API of Dataverse. See for more information the [Dataverse API Guide]{:target=_blank}.
-* A SWORD2 deposit interface. See for more information the [SWORD](./sword.md) page.
+* The **[Dataverse user interface]{:target=_blank}**. This interface used by human users.
+* The **[Dataverse RESTful HTTP API]{:target=_blank}**. This interface is used by internal and external systems that need to interact with Dataverse.
+* A **[SWORD2 deposit service]**. S This interface is used by external systems that want to deposit data in Dataverse or directly in the Data Vault.
+* Long term preservation copies of the data via the **[Data Vault Storage Root]**. This interface (or exchange format) is intended for future users who need to
+  disseminate the data stored in the Data Vault after the current dissemination infrastructure has been decommissioned.
 
-[Dataverse User Guide]: {{ dataverse_user_guide }}
-[Dataverse API Guide]: {{ dataverse_api_guide }}
+[SWORD2 deposit service]: ./sword.md
+
+[Dataverse user interface]: {{ dataverse_user_guide }}
+[Dataverse RESTful HTTP API]: {{ dataverse_api_guide }}
+[Data Vault Storage Root]: ./data-vault-storage-root.md

@@ -34,10 +34,10 @@ nav:
   - External interfaces:
       - Overview: external-interfaces.md
       - SWORD: sword.md
+      - Data Vault Storage Root: data-vault-storage-root.md
   - Internal interfaces:
       - Overview: internal-interfaces.md
-      - Deposit directory: deposit-directory.md
-      - Data Vault: data-vault.md
+      - Deposit Directory: deposit-directory.md
   - Migration from EASY:
       - About: migration.md
   - Development:
@@ -54,6 +54,8 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js
 
 extra:
+  data_archive: https://www.surf.nl/en/services/data-archive
+  dmftar: https://servicedesk.surf.nl/wiki/display/WIKI/Data+Archive%3A+Packaging+with+dmftar
   dans_website: https://dans.knaw.nl/
   dataverse_org: https://dataverse.org/
   dataverse_docs: https://guides.dataverse.org/en/latest/

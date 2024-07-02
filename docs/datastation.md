@@ -188,7 +188,7 @@ internal interface.
 |--------------------------------------------------|
 | [SURF Data Archive]{:target=_blank}              |
 | [OCFL]{:target=_blank}                           |
-| [Data Vault internal interface](./data-vault.md) |
+| [Data Vault internal interface](./data-vault-storage-root) |
 
 Libraries
 ---------
