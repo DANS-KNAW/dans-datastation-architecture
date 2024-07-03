@@ -71,12 +71,15 @@ a 1-to-_n_ relationship.
     be done by a superuser and is known as **"updatecurrent"**. A new Dataset Version Export will be created and therefore a new OCFL Object Version will be 
     created as well. The Data Station version history, however, will **not** display an additional version.
 
-### Metadata
+### Identifying metadata
 
+To identify datasets, versions and data files in the OCFL repository, the following metadata is used: 
 
+![Vault metadata](vault-metadata.png){: .align-center}
 
+The full metadata of each dataset version is stored, but the way it is stored depends on the export format used. The current export format is based on Dataverse
+implementation of the [RDA Research Data Repository Interoperability WG recommendations]{:target=_blank}.
 
-
-
+[RDA Research Data Repository Interoperability WG recommendations]: {{ rda_research_data_repo_interoperability_wg_recommendations }}
 [bag]: {{ bagit_specs }}
 [Oxford Common File Layout]: {{ ocfl_url }}

@@ -76,6 +76,7 @@ extra:
   ocfl_url: https://ocfl.io/
   bagit_specs: https://www.rfc-editor.org/rfc/rfc8493.html
   dans_layer_store_lib: https://dans-knaw.github.io/dans-layer-store-lib/
+  rda_research_data_repo_interoperability_wg_recommendations: http://doi.org/10.15497/RDA00025
 
 markdown_extensions:
   - attr_list
