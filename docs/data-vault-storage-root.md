@@ -5,15 +5,19 @@ Introduction
 ------------
 
 The Data Vault is subdivided into **Storage Roots**, each one containing the long term preservation copies for either a Data Station or a "Vault as a
-Service"  (VaaS) customer. A Data Vault Storage Root (DVSR) can be viewed as a type of interface, or exchange format, albeit an atypical one, as it is aimed at
+Service"  (VaaS) customer. The Data Vault Storage Root (DVSR) can be viewed as a type of interface, or exchange format, albeit an atypical one, as it is aimed
+at
 future users, rather than current ones.
 
 !!! alert "dd-data-vault interface"
 
-    Do not confuse the DVSR with the of [service interface dd-data-vault], wich is an internal microservice interface that is used by the ingest pipeline to 
+    Do not confuse the DVSR with the [service interface of dd-data-vault], which is an internal microservice interface that is used by the [transfer service] to 
     store data in the Data Vault.
 
-[service interface dd-data-vault]: /datastation#dd-data-vault
+[service interface of dd-data-vault]: /datastation#dd-data-vault
+
+[transfer service]: /datastation#dd-transfer-to-vault
+
 
 OCFL repositories
 -----------------
@@ -22,22 +26,22 @@ The DANS Data Vault is implemented as an array of **OCFL** repositories. OCFL st
 specification for the layout of a repository that stores versioned digital objects. Each repository, or "storage root," is one
 **Data Vault Storage Root (DVSR)**. The Data Stations each have their own DVSR as does each customer of the Vault as a Service.
 
-### Layers
+### Serialization in layers
 
-The DVSRs are not stored as regular directories on a regular file system, but instead packaged in DMF TAR files. This is because the tape storage system that is
-used, requires a minimum file size of 1GB. Parts of the repository therefore need to be combined into a single file to meet this requirement. Each TAR file
-constitutes a layer. To unpack a DVSR, its layer files must be extracted in the correct order. The base name of each layer file is a Unix timestamp with
-millisecond precision. The order of extraction is the chronological order of the timestamps. This is important because, layers in later layer files may contain
-files that overwrite files in earlier layers, notably the `inventory.json` files.
-
-For a more detailed description of the layers, see the documentation of [dans-layer-store-lib]{:target=_blank}.
+OCFL repositories can be serialized in different ways, for example as a directory structure on a file system, or as objects in an object store. The DANS Data
+Vault uses the SURF [Data Archive]{:target=_blank} tape storage. The tape storage system that is used by Data Archive organizes files in a file-folder
+structure, so in principle serialization should be the same as to a disk-based files system, from OCFL's perspective. However, the tape storage system requires
+a minimum file size of 1GB, which is much larger than the typical data file stored in the DANS Data Vault. To meet this requirement, the OCFL repositories are
+stored as a series of DMF TAR archives (see note below on how this is different from a regular TAR archive), each of which is larger than 1GB. Each archive
+forms a layer. To restore the OCFL repository, the layers must be extracted in the correct order. For a more detailed description of the layers, see the
+documentation of [dans-layer-store-lib]{:target=_blank}.
 
 !!! note "DMF TAR"
 
-    The Data Vault is stored in SURF's **[Data Archive]{:target=_blank}**, which uses DMF as its tape storage system. DMF stands for **Data Migration Facility**.
-    SURF has developed a utility called **[dmftar]{:target=_blank}**: _"dmftar is a wrapper for the Linux tool gnutar and automatically creates multi-volume 
-    archive files (...) and can incorporate the transfer of the files to the archive file system if necessary."_  `dmftar` stores the TAR volumes in a directory
-    with the extension `.dmftar`, which also contains an index and a checksum file.
+    The tape storage system used by Data Archive is managed by DMF, which stands for **Data Migration Facility**. SURF has developed a utility called 
+    **[dmftar]{:target=_blank}**: _"dmftar is a wrapper for the Linux tool gnutar and automatically creates multi-volume archive files (...) and can incorporate 
+    the transfer of the files to the archive file system if necessary."_  `dmftar` stores the TAR volumes in a directory with the extension `.dmftar`, which also 
+    contains an index and a checksum file.
 
 [dans-layer-store-lib]: {{ dans_layer_store_lib }}
 [Data Archive]: {{ data_archive }}
@@ -61,7 +65,7 @@ Each Dataset Version Export (DVE) is stored in a separate OCFL Object Version. T
 Version. Note however, that it is possible that one dataset version is exported multiple times. The mapping of a dataset version to an OCFL Object is therefore
 a 1-to-_n_ relationship.
 
-!!! note "Multiple exports"
+!!! note "A multiple exports scenario"
 
     A scenario where a dataset version is exported multiple times is when the dataset was updated in the Data Station without creating a new version. This can 
     be done by a superuser and is known as **"updatecurrent"**. A new Dataset Version Export will be created and therefore a new OCFL Object Version will be 
