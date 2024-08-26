@@ -67,7 +67,7 @@ extra:
   ds_ls: https://lifesciences.datastations.nl/
   ds_pts: https://phys-techsciences.datastations.nl/
   skosmos_url: https://skosmos.org/
-  dans_bagit_profile: https://dans-knaw.github.io/dans-bagit-profile/versions/1.1.0/
+  dans_bagit_profile: https://dans-knaw.github.io/dans-bagit-profile/versions/1.2.0/
   sword2_url: https://sword.cottagelabs.com/previous-versions-of-sword/sword-v2/sword-v2-specifications/
   easy_url: https://easy.dans.knaw.nl/ui/home
   sword2_examples: https://github.com/DANS-KNAW/dd-dans-sword2-examples
