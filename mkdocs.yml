@@ -30,7 +30,7 @@ nav:
       - Overview: configurations.md
       - DataverseNL: dataversenl.md
       - Vault as a Service: vaas.md
-      - Mirroring to EASY: easy-mirror.md
+      - Temporary Vault: temporary-vault-config.md
   - External interfaces:
       - Overview: external-interfaces.md
       - SWORD: sword.md
