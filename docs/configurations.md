@@ -11,4 +11,4 @@ Details about the various configurations can be found in the following sections:
 
 * [DataverseNL](./dataversenl.md)
 * [Vault as a Service](./vaas.md)
-* [Temporary Vault](/temporary-vault-config)
+* [Temporary Vault](./temporary-vault-config.md)
