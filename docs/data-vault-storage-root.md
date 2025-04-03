@@ -14,9 +14,9 @@ future users, rather than current ones.
     Do not confuse the DVSR with the [service interface of dd-data-vault], which is an internal microservice interface that is used by the [transfer service] to 
     store data in the Data Vault.
 
-[service interface of dd-data-vault]: /datastation#dd-data-vault
+[service interface of dd-data-vault]: ../datastation#dd-data-vault
 
-[transfer service]: /datastation#dd-transfer-to-vault
+[transfer service]: ../datastation#dd-transfer-to-vault
 
 
 OCFL repositories
