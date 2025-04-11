@@ -8,7 +8,6 @@ Station and how they relate to each other. The notation used is not a formal one
 To the extent that it is not, you might want to consult
 the [legend that is included at the end of this page](#schema-legend).
 
-
 [![Overview](arch-overview.png)<button class="btn">Enlarge Image</button>](arch-overview.png){: data-lightbox="group" data-title="Overview" }
 
 
@@ -42,14 +41,16 @@ The following microservices are candidates to become part of the `PrePublishData
 
 * [dd-virus-scan](#dd-virus-scan)
 
-The **RDA Bag Export** flow step is implemented in Dataverse and is used to export an RDA compliant bag (also a "Dataset
-Version Export" or DVE) for each dataset version after publication (i.e. in the `PostPublishDataset` workflow). This
-exported bag is then picked up by [dd-transfer-to-vault](#dd-transfer-to-vault).
+The **BagPack export** flow step is implemented in Dataverse and is used to create an export of the published dataset version (a "Dataset Version Export" or
+DVE). The export complies with the [RDA's BagPack recommendation]{:target=_blank}. This exported bag is then picked up
+by [dd-transfer-to-vault](#dd-transfer-to-vault).
 
 | Docs                        | Code                                                |
 |-----------------------------|-----------------------------------------------------|
 | [Dataverse]{:target=_blank} | <https://github.com/IQSS/dataverse>{:target=_blank} |
 | [Workflows]{:target=_blank} | Part of the Dataverse code base                     |
+
+[RDA's BagPack recommendation]: {{ rda_research_data_repo_interoperability_wg_recommendations }}
 
 ### dd-sword2
 
@@ -69,17 +70,17 @@ used by [dd-sword2](#dd-sword2) to authenticate its clients by their Dataverse a
 |----------------------------------------------|---------------------------------------------------------------------------|
 | [dd-dataverse-authenticator]{:target=_blank} | <https://github.com/DANS-KNAW/dd-dataverse-authenticator>{:target=_blank} |
 
-### dd-ingest-flow
+### dd-dataverse-ingest
 
 Service for ingesting [deposit directories](./deposit-directory.md) into Dataverse.
 
-| Docs                             | Code                                                          |
-|----------------------------------|---------------------------------------------------------------|
-| [dd-ingest-flow]{:target=_blank} | <https://github.com/DANS-KNAW/dd-ingest-flow>{:target=_blank} |
+| Docs                                  | Code                                                               |
+|---------------------------------------|--------------------------------------------------------------------|
+| [dd-dataverse-ingest]{:target=_blank} | <https://github.com/DANS-KNAW/dd-dataverse-ingest>{:target=_blank} |
 
 ### dd-validate-dans-bag
 
-Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-ingest-flow](#dd-ingest-flow)
+Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by [dd-dataverse-ingest](#dd-dataverse-ingest)
 to validate bags that are uploaded via [dd-sword2](#dd-sword2).
 
 | Docs                                    | Code                                                                |
@@ -133,8 +134,9 @@ fields.
 
 ### dd-transfer-to-vault
 
-Service for preparing Dataset Version Exports for storage in the [DANS Data Vault](#dans-data-vault). This includes
-validation, aggregation into larger files and creating a [vault catalog](#dd-vault-catalog) entry for each export.
+Service for preparing Dataset Version Exports for storage in the DANS Data Vault. This includes validation, registering the NBN for a dataset with
+the [BRI-GMH resolver](#bri-gmh), creating a [vault catalog](#dd-vault-catalog) entry and handing over the bag to
+the [dd-data-vault](#dd-data-vault) service.
 
 | Docs                                   | Code                                                                |
 |----------------------------------------|---------------------------------------------------------------------|
@@ -142,8 +144,7 @@ validation, aggregation into larger files and creating a [vault catalog](#dd-vau
 
 ### dd-vault-catalog
 
-Service that manages a catalog of all Dataset Version Exports in the [DANS Data Vault](#dans-data-vault). It will expose
-a summary page for each stored dataset.
+Service that manages a catalog of all Dataset Version Exports in the DANS Data Vault. It will expose a summary page for each stored dataset.
 
 | Docs                               | Code                                                            |
 |------------------------------------|-----------------------------------------------------------------|
@@ -151,7 +152,7 @@ a summary page for each stored dataset.
 
 ### dd-data-vault
 
-Interface to the [DANS Data Vault](#dans-data-vault) for depositing and managing Dataset Version Exports.
+Service that manages a [Data Vault Storage Root](./data-vault-storage-root), which implements the DANS Data Vault.
 
 | Docs                            | Code                                                         |
 |---------------------------------|--------------------------------------------------------------|
@@ -159,7 +160,7 @@ Interface to the [DANS Data Vault](#dans-data-vault) for depositing and managing
 
 ### dd-data-vault-cli
 
-Provides the `data-vault` command line tool for interacting with the [DANS Data Vault](#dans-data-vault).
+Provides the `data-vault` command line tool for interacting with the [dd-data-vault](#dd-data-vault) service.
 
 | Docs                                | Code                                                             |
 |-------------------------------------|------------------------------------------------------------------|
@@ -180,14 +181,12 @@ NBN persistent identifiers to their current location. The resolver is hosted at
 
 ### DANS Data Vault
 
-The DANS long-term preservation archive. It is implemented as an array of [OCFL]{:target=_blank} repositories, stored in DMF TAR files on tape. Each TAR file
-represents a layer. If the layers are extracted to disk in the correct order, the result is an OCFL repository. For more details see the docs on the Data Vault
-internal interface.
+The DANS long-term preservation archive. It is implemented as a set of [Data Vault Storage Roots](../data-vault-storage-root).
 
-| Docs                                             |
-|--------------------------------------------------|
-| [SURF Data Archive]{:target=_blank}              |
-| [OCFL]{:target=_blank}                           |
+| Docs                                                       |
+|------------------------------------------------------------|
+| [SURF Data Archive]{:target=_blank}                        |
+| [OCFL]{:target=_blank}                                     |
 | [Data Vault internal interface](./data-vault-storage-root) |
 
 Libraries
@@ -202,10 +201,14 @@ on GitHub.
 | [dans-dataverse-client-lib]{:target=_blank} | <https://github.com/DANS-KNAW/dans-dataverse-client-lib>{:target=_blank} |
 | [dans-java-utils]{:target=_blank}           | <https://github.com/DANS-KNAW/dans-java-utils>{:target=_blank}           |
 
+Schema Legend
+-------------
+![legend](legend.png){width=50%}
+
+
 [dans-bagit-lib]: https://dans-knaw.github.io/dans-bagit-lib
 
 [dans-dataverse-client-lib]: https://dans-knaw.github.io/dans-dataverse-client-lib
-
 
 [dans-java-utils]: https://dans-knaw.github.io/dans-java-utils
 
@@ -219,7 +222,7 @@ on GitHub.
 
 [dd-dataverse-authenticator]: https://dans-knaw.github.io/dd-dataverse-authenticator/
 
-[dd-ingest-flow]: https://dans-knaw.github.io/dd-ingest-flow
+[dd-dataverse-ingest]: https://dans-knaw.github.io/dd-dataverse-ingest
 
 [dd-validate-dans-bag]: https://dans-knaw.github.io/dd-validate-dans-bag
 
@@ -252,9 +255,5 @@ on GitHub.
 [OCFL]: https://ocfl.io/
 
 [NBN]: https://www.ifla.org/references/best-practice-for-national-bibliographic-agencies-in-a-digital-age/resource-description-and-standards/identifiers/national-bibliography-number-nbn/
-
-Schema Legend
--------------
-![legend](legend.png){width=50%}
 
 [Koninklijke Bibliotheek]: https://www.kb.nl/en
