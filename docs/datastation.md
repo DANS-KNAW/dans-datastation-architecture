@@ -134,8 +134,8 @@ fields.
 
 ### dd-transfer-to-vault
 
-Service for preparing Dataset Version Exports for storage in the DANS Data Vault. This includes validation, registering the NBN for a dataset with
-the [BRI-GMH resolver](#bri-gmh), creating a [vault catalog](#dd-vault-catalog) entry and handing over the bag to
+Service for preparing Dataset Version Exports for storage in the [DANS Data Vault](#dans-data-vault). This includes validation, registering the NBN for a
+dataset with the [BRI-GMH resolver](#bri-gmh), creating a [vault catalog](#dd-vault-catalog) entry and handing over the bag to
 the [dd-data-vault](#dd-data-vault) service.
 
 | Docs                                   | Code                                                                |
@@ -144,7 +144,7 @@ the [dd-data-vault](#dd-data-vault) service.
 
 ### dd-vault-catalog
 
-Service that manages a catalog of all Dataset Version Exports in the DANS Data Vault. It will expose a summary page for each stored dataset.
+Service that manages a catalog of all Dataset Version Exports in the [DANS Data Vault](#dans-data-vault). It will expose a summary page for each stored dataset.
 
 | Docs                               | Code                                                            |
 |------------------------------------|-----------------------------------------------------------------|
@@ -152,7 +152,7 @@ Service that manages a catalog of all Dataset Version Exports in the DANS Data V
 
 ### dd-data-vault
 
-Service that manages a [Data Vault Storage Root](./data-vault-storage-root), which implements the DANS Data Vault.
+Service that manages a [Data Vault Storage Root](./data-vault-storage-root), which implements the [DANS Data Vault](#dans-data-vault).
 
 | Docs                            | Code                                                         |
 |---------------------------------|--------------------------------------------------------------|
@@ -181,13 +181,7 @@ NBN persistent identifiers to their current location. The resolver is hosted at
 
 ### DANS Data Vault
 
-The DANS long-term preservation archive. It is implemented as a set of [Data Vault Storage Roots](../data-vault-storage-root).
-
-| Docs                                                       |
-|------------------------------------------------------------|
-| [SURF Data Archive]{:target=_blank}                        |
-| [OCFL]{:target=_blank}                                     |
-| [Data Vault internal interface](./data-vault-storage-root) |
+The DANS long-term preservation archive. It is implemented as a set of [Data Vault Storage Roots](../data-vault-storage-root) stored in the SURF Data Archive.
 
 Libraries
 ---------
@@ -200,6 +194,8 @@ on GitHub.
 | [dans-bagit-lib]{:target=_blank}            | <https://github.com/DANS-KNAW/dans-bagit-lib>{:target=_blank}            |    
 | [dans-dataverse-client-lib]{:target=_blank} | <https://github.com/DANS-KNAW/dans-dataverse-client-lib>{:target=_blank} |
 | [dans-java-utils]{:target=_blank}           | <https://github.com/DANS-KNAW/dans-java-utils>{:target=_blank}           |
+| [dans-validation-lib]{:target=_blank}       | <https://github.com/DANS-KNAW/dans-validation-lib>{:target=_blank}       |
+| [dans-converter-lib]{:target=_blank}        | <https://github.com/DANS-KNAW/dans-converter-lib>{:target=_blank}        |
 
 Schema Legend
 -------------
@@ -211,6 +207,10 @@ Schema Legend
 [dans-dataverse-client-lib]: https://dans-knaw.github.io/dans-dataverse-client-lib
 
 [dans-java-utils]: https://dans-knaw.github.io/dans-java-utils
+
+[dans-validation-lib]: https://dans-knaw.github.io/dans-validation-lib
+
+[dans-converter-lib]: https://dans-knaw.github.io/dans-converter-lib
 
 [Dataverse]: {{ dataverse_docs }}
 
