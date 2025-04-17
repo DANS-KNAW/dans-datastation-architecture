@@ -11,23 +11,25 @@ with the [best practises]{:target=_blank} documented in the dans-module-archetyp
 
 DANS command-line tools
 -----------------------
-DANS command line tools are written in Python. [Poetry]{:target=_blank} is used as the build tool. The Python-based
-modules are released to the [DANS-KNAW PyPI account]{:target=_blank}. [PyCharm]{:target=_blank} is the preferred IDE for
-Python-based projects.
+DANS command line tools are written in Java as well. They are based on the [dans-cli-archetype]{:target=_blank}. This archetype
+creates a skeleton command line tool which uses some of the DropWizard facilities.
+
+!!! note "Python command line tools"
+
+    Previously DANS command line tools were written in Python, but his approach is being phased out.
+
 
 Dataverse
 ---------
 The [architecture overview](index.md) makes clear that Dataverse plays a key role in the Data Station. That is why DANS
-is actively involved in its developmentvia the Dataverse community. When working on Dataverse code take notice of
+is actively involved in its development via the Dataverse community. When working on Dataverse code, take notice of
 the [developer docs]{:target=_blank}.
 
 !!! note "Debugging Dataverse"
 
     For DANS developers it is **not necessary (nor preferable)** to set up Dataverse and its dependencies Solr and 
     PostGreSQL on your development laptop, as described in the developer docs. Instead you should use the pre-build 
-    vagrant box. Information can be found in the private repository 
-    [dd-dtap](https://github.com/DANS-KNAW/dd-dtap/blob/master/docs/dataverse-dev-with-vagrant.md){:target=_blank} 
-    (only accessible for DANS developers).
+    vagrant box, which is available only for DANS developers. 
 
 Skosmos
 -------
@@ -41,10 +43,11 @@ The documentation for DANS projects (including this site) is written using [mkdo
 those sites consists of markdown in combination with other resources, such as images. Images are often created
 with [yEd]{:target=_blank}. The graphml source code of the images is committed along with the image exports. You should
 always check that your changes render correctly. This is made easy by the `start-mkdocs.sh` script
-in [dans-dev-tools]{:target=_blank}.
-
+in the `dans-core-systems` project (only available for DANS developers).
 
 [dans-module-archetype]: https://dans-knaw.github.io/dans-module-archetype/
+
+[dans-cli-archetype]: https://dans-knaw.github.io/dans-cli-archetype/
 
 [DropWizard]: https://www.dropwizard.io/en/latest/
 
