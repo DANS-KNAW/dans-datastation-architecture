@@ -18,13 +18,13 @@ The "Vault as a Service" configuration has mostly the same components as a Data 
 Dataverse is not part of the configuration. Instead, a new component is introduced to convert the datasets into RDA
 compliant bags and transfer them to the Data Vault.
 
-### dd-vault-ingest-flow
+### dd-vault-ingest
 
 Service to convert datasets into BagPacks and transfer them to the Data Vault.
 
 | Docs                                   | Code                                                                |
 |----------------------------------------|---------------------------------------------------------------------|
-| [dd-vault-ingest-flow]{:target=_blank} | <https://github.com/DANS-KNAW/dd-vault-ingest-flow>{:target=_blank} |
+| [dd-vault-ingest]{:target=_blank} | <https://github.com/DANS-KNAW/dd-vault-ingest>{:target=_blank} |
 
-[dd-vault-ingest-flow]: https://dans-knaw.github.io/dd-vault-ingest-flow/
+[dd-vault-ingest]: https://dans-knaw.github.io/dd-vault-ingest/
 
