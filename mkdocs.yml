@@ -38,8 +38,13 @@ nav:
   - Internal interfaces:
       - Overview: internal-interfaces.md
       - Deposit Directory: deposit-directory.md
-  - Migration from EASY:
-      - About: migration.md
+  - Components:
+      - Dataverse: dataverse.md
+      - DANS Microservices: dans-microservices.md
+      - DANS Libraries: dans-libraries.md
+      - Skosmos: skosmos.md
+      - NBN Resolver (KB): nbn-resolver.md
+      - Data Archive (SURF): data-archive.md
   - Development:
       - Overview: dev.md
       - Build status: status.md
@@ -76,7 +81,9 @@ extra:
   ocfl_url: https://ocfl.io/
   bagit_specs: https://www.rfc-editor.org/rfc/rfc8493.html
   dans_layer_store_lib: https://dans-knaw.github.io/dans-layer-store-lib/
-  rda_research_data_repo_interoperability_wg_recommendations: http://doi.org/10.15497/RDA00025
+  bagpack_specs: http://doi.org/10.15497/RDA00025
+  easy: https://dans.knaw.nl/en/data-services/easy/
+  koninklijke_bibliotheek_url: https://www.kb.nl/en
 
 markdown_extensions:
   - attr_list

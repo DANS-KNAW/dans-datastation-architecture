@@ -19,9 +19,11 @@ The documentation discusses the following topics:
 * _Interfaces_. The Data Stations have a number of interfaces, both internal and external. For more information, see
   the sections about [internal interfaces](./internal-interfaces.md) and
   about [external interfaces](./external-interfaces.md).
-* _Migration_. DANS is currently in the process of migrating all datasets from the legacy repository system EASY to the
-  Data Stations and/or the DANS Data Vault. For more information, see the section about [migration](./migration.md).
+* _Migration_. The Data Stations are the successor of the legacy repository system [EASY]{:target=_blank}, which was in use from 2007 
+  until 2024. Some parts of this documentation still contain references to EASY, but these will be removed as we 
+  are wrapping up the migration process.
 * _Development_. The Data Stations are developed by the DANS Core Systems Team. For more information about the
   development environment, see the section about [development](./dev.md).
 
 [DANS website]: {{ dans_website }}
+[EASY]: {{ easy }}
