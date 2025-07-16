@@ -79,6 +79,7 @@ extra:
   sword2_examples_docs: https://dans-knaw.github.io/dd-dans-sword2-examples/
   core_trust_seal_url: https://www.coretrustseal.org/about/
   ocfl_url: https://ocfl.io/
+  ocfl_java_url: https://github.com/OCFL/ocfl-java
   bagit_specs: https://www.rfc-editor.org/rfc/rfc8493.html
   dans_layer_store_lib: https://dans-knaw.github.io/dans-layer-store-lib/
   bagpack_specs: http://doi.org/10.15497/RDA00025
