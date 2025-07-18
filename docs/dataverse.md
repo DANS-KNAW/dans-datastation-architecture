@@ -13,15 +13,15 @@ Dataverse provides event hooks that allow to configure workflows to run just bef
 workflows can have multiple steps. A step can be implemented as part of Dataverse or as an external service. The
 following microservices are configured to run as `PrePublishDataset` workflow steps:
 
-* [dd-vault-metadata](#dd-vault-metadata)
+* [dd-vault-metadata](../dans-microservices/#dd-vault-metadata)
 
 The following microservices are candidates to become part of the `PrePublishDataset` workflow in the future:
 
-* [dd-virus-scan](#dd-virus-scan)
+* [dd-virus-scan](../dans-microservices/#dd-virus-scan)
 
 The **BagPack export** flow step is implemented in Dataverse and is used to create an export of the published dataset version (a "Dataset Version Export" or
 DVE). The export complies with the [RDA's BagPack recommendation]{:target=_blank}. This exported bag is then picked up
-by [dd-transfer-to-vault](#dd-transfer-to-vault).
+by [dd-transfer-to-vault](../dans-microservices/#dd-transfer-to-vault).
 
 | Docs                        | Code                                                |
 |-----------------------------|-----------------------------------------------------|

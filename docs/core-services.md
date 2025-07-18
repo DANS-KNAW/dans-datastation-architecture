@@ -14,24 +14,24 @@ The following diagram gives a high-level overview:
 
 Data Stations
 -------------
-Each Data Station targets a part of the scientific research community. There is a Data Station for each of the following
-community domains:
+Each Data Station targets a part of the scientific research community. There is a Data Station for each of the following community domains:
 
 * [Archaeology]{:target=_blank}
 * [Social Sciences and Humanities]{:target=_blank}
 * [Life Sciences]{:target=_blank}
 * [Physical and Technical Sciences]{:target=_blank}
 
-The Data Stations use [Dataverse]{:target=_blank} as their repository system. Dataverse is an open source repository
-system developed by Harvard University. The Data Stations create a long-term preservation copy of each dataset in the
-DANS Data Vault.
+The Data Stations use [Dataverse]{:target=_blank} as their repository system. Dataverse is an open source repository system developed by Harvard University. The
+Data Stations create a long-term preservation copy of each dataset in the DANS Data Vault.
 
 Other services
 --------------
 
 The Data Stations are trusted repositories (some are still in the process of being certified). They are displayed as blue slices in the diagram. The grey slices
 are **not Data Stations**, as they are not in themselves full trusted repositories. In the technical architecture, however, they are described as variations on
-the [Data Station architecture](./datastation.md), as they are built using mostly the same components.
+the [Data Station architecture](./datastation.md), as they are built using mostly the same [components].
+
+[components]: ../components/
 
 ### DataverseNL
 
