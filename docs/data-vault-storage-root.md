@@ -14,9 +14,9 @@ future users, rather than current ones.
     Do not confuse the DVSR with the [service interface of dd-data-vault], which is an internal microservice interface that is used by the [transfer service] to 
     store data in the Data Vault.
 
-[service interface of dd-data-vault]: ../datastation#dd-data-vault
+[service interface of dd-data-vault]: ../dans-microservices/#dd-data-vault
 
-[transfer service]: ../datastation#dd-transfer-to-vault
+[transfer service]: ../dans-microservices/#dd-transfer-to-vault
 
 
 OCFL repositories
@@ -26,7 +26,20 @@ The DANS Data Vault is implemented as an array of **OCFL** repositories. OCFL st
 specification for the layout of a repository that stores versioned digital objects. Each repository, or "storage root," is one
 **Data Vault Storage Root (DVSR)**. The Data Stations each have their own DVSR as does each customer of the Vault as a Service.
 
-### Serialization in layers
+### Extensions
+
+OCFL can be extended with additional metadata and functionality. The DANS Data Vault uses the following extensions:
+
+* [OCFL Packaging Format extension]{:target=_blank} - This extension defines a way to specify for each version of an object how it is packaged.
+* Extension for supporting deletion. **TODO**.
+
+[OCFL Packaging Format extension]: {{ dans_ocfl_extensions }}
+
+
+
+
+Serialization in layers
+-----------------------
 
 OCFL repositories can be serialized in different ways, for example as a directory structure on a file system, or as objects in an object store. The DANS Data
 Vault uses the SURF [Data Archive]{:target=_blank} tape storage. The tape storage system that is used by Data Archive organizes files in a file-folder
@@ -43,7 +56,7 @@ documentation of [dans-layer-store-lib]{:target=_blank}.
     the transfer of the files to the archive file system if necessary."_  `dmftar` stores the TAR volumes in a directory with the extension `.dmftar`, which also 
     contains an index and a checksum file.
 
-[dans-layer-store-lib]: {{ dans_layer_store_lib }}
+[dans-layer-store-lib]: ../dans-libraries/#dans-layer-store-lib
 [Data Archive]: {{ data_archive }}
 [dmftar]: {{ dmftar }}
 
@@ -73,13 +86,13 @@ a 1-to-_n_ relationship.
 
 ### Identifying metadata
 
-To identify datasets, versions and data files in the OCFL repository, the following metadata is used: 
+To identify datasets, versions and data files in the OCFL repository, the following metadata is used:
 
 ![Vault metadata](vault-metadata.png){: .align-center}
 
-The full metadata of each dataset version is stored, but the way it is stored depends on the export format used. The current export format is based on Dataverse
-implementation of the [RDA Research Data Repository Interoperability WG recommendations]{:target=_blank}.
+The full metadata of each dataset version is stored, but the way it is stored depends on the packaging format used. The current packaging format is based on
+Dataverse implementation of [RDA BagPack]{:target=_blank}.
 
-[RDA Research Data Repository Interoperability WG recommendations]: {{ rda_research_data_repo_interoperability_wg_recommendations }}
+[RDA BagPack]: {{ bagpack_specs }}
 [bag]: {{ bagit_specs }}
 [Oxford Common File Layout]: {{ ocfl_url }}

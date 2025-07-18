@@ -3,7 +3,7 @@ SWORD
 
 The Simple Web-service Offering Repository Deposit (SWORD) protocol is a standard for depositing content into
 repositories. The DANS implementation of **version 2** of this protocol has been operational for several years for
-depositing datasets in [EASY](./migration.md). The SWORD2 interface is also available in the Data Stations.
+depositing datasets in [EASY]{:target=_blank}. The SWORD2 interface is also available in the Data Stations.
 
 !!! note "SWORD3 not yet available"
 
@@ -27,3 +27,4 @@ The bags that are deposited to the DANS SWORD2 service must comply with the DANS
 [Guide for DANS SWORD2 client developers]: {{ sword2_examples_docs }}
 [Code examples]: {{ sword2_examples }}
 [DANS BagIt Profile v1]: {{ dans_bagit_profile }}
+[EASY]: {{ easy }}

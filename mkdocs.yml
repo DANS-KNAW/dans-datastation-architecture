@@ -38,8 +38,14 @@ nav:
   - Internal interfaces:
       - Overview: internal-interfaces.md
       - Deposit Directory: deposit-directory.md
-  - Migration from EASY:
-      - About: migration.md
+  - Components:
+      - Overview: components.md
+      - Dataverse: dataverse.md
+      - DANS Microservices: dans-microservices.md
+      - DANS Libraries: dans-libraries.md
+      - Skosmos: skosmos.md
+      - NBN Resolver (KB): nbn-resolver.md
+      - Data Archive (SURF): data-archive.md
   - Development:
       - Overview: dev.md
       - Build status: status.md
@@ -74,9 +80,17 @@ extra:
   sword2_examples_docs: https://dans-knaw.github.io/dd-dans-sword2-examples/
   core_trust_seal_url: https://www.coretrustseal.org/about/
   ocfl_url: https://ocfl.io/
+  ocfl_java_url: https://github.com/OCFL/ocfl-java
   bagit_specs: https://www.rfc-editor.org/rfc/rfc8493.html
   dans_layer_store_lib: https://dans-knaw.github.io/dans-layer-store-lib/
-  rda_research_data_repo_interoperability_wg_recommendations: http://doi.org/10.15497/RDA00025
+  bagpack_specs: http://doi.org/10.15497/RDA00025
+  easy: https://dans.knaw.nl/en/data-services/easy/
+  koninklijke_bibliotheek_url: https://www.kb.nl/en
+  jackson_url: https://github.com/FasterXML/jackson-docs
+  jpa_url: https://www.oracle.com/java/technologies/persistence-jsp.html
+  dans_ocfl_extensions: https://github.com/DANS-KNAW/dans-ocfl-extensions
+  dans_bagpack_profile: https://dans-knaw.github.io/dans-bagpack-profile/
+  vault_metadata_block: https://docs.google.com/spreadsheets/d/1M0mefIC3VoXgQr-N_HlZlA6FAi_A_FAzbfCzngEEi3o/edit?gid=9637200#gid=9637200&range=A1
 
 markdown_extensions:
   - attr_list
