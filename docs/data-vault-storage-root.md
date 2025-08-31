@@ -79,18 +79,17 @@ OCFL repositories can be serialized in different ways, for example as a director
 Vault uses the SURF [Data Archive]{:target=_blank} tape storage. The tape storage system that is used by Data Archive organizes files in a file-folder
 structure, so in principle serialization should be the same as to a disk-based files system, from OCFL's perspective. However, the tape storage system requires
 a minimum file size of 1GB, which is much larger than the typical data file stored in the DANS Data Vault. To meet this requirement, the OCFL repositories are
-stored as a series of DMFTAR archives, each of which is larger than 1GB. Each archive forms a layer.
+stored as a series of DMFTAR archives, each of which is larger than 1GB. Each archive forms a layer. For a more detailed description of the layers, see the
+documentation of [dans-layer-store-lib]{:target=_blank}.
 
-To restore the OCFL repository, the layers must be extracted in the correct order. For a more detailed description of the layers, see the documentation
-of [dans-layer-store-lib]{:target=_blank}. SURF provides a utility called [dmftar]{:target=_blank} to create and extract DMFTAR archives. This utility is the 
-interface to the tape storage system.
+To restore the OCFL repository, the layers must be extracted in the correct order. SURF provides a utility called [dmftar]{:target=_blank} to create and extract
+DMFTAR archives. This utility is the interface to the tape storage system.
 
 !!! alert "dmftar utility"
 
     Even without the `dmftar` utility, it is possible to read the OCFL repository, as long as the layers are extracted in the correct order. A DMFTAR archive is
     just a lightweight wrapper around a TAR archive, implemented as a directory containing batches of (possibly multi-volume) TAR files along with index files 
     and a checksum file.
-
 
 [dans-layer-store-lib]: ../dans-libraries/#dans-layer-store-lib
 [Data Archive]: {{ data_archive }}
