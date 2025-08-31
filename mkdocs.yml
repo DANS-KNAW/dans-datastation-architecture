@@ -91,6 +91,9 @@ extra:
   dans_ocfl_extensions: https://github.com/DANS-KNAW/dans-ocfl-extensions
   dans_bagpack_profile: https://dans-knaw.github.io/dans-bagpack-profile/
   vault_metadata_block: https://docs.google.com/spreadsheets/d/1M0mefIC3VoXgQr-N_HlZlA6FAi_A_FAzbfCzngEEi3o/edit?gid=9637200#gid=9637200&range=A1
+  data_archive_url: https://www.surf.nl/diensten/opslag-datamanagement/data-archive
+  surf_url: https://www.surf.nl/en
+  ghm_registration_service_url: https://persistent-identifier.nl/gmh-registration-service/api/v1/openapi.yaml
 
 markdown_extensions:
   - attr_list
