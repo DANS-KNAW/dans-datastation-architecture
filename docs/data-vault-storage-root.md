@@ -85,11 +85,11 @@ documentation of [dans-layer-store-lib]{:target=_blank}.
 To restore the OCFL repository, the layers must be extracted in the correct order. SURF provides a utility called [dmftar]{:target=_blank} to create and extract
 DMFTAR archives. This utility is the interface to the tape storage system.
 
-!!! alert "dmftar utility"
+!!! alert "Restoring without the `dmftar` utility"
 
-    Even without the `dmftar` utility, it is possible to read the OCFL repository, as long as the layers are extracted in the correct order. A DMFTAR archive is
-    just a lightweight wrapper around a TAR archive, implemented as a directory containing batches of (possibly multi-volume) TAR files along with index files 
-    and a checksum file.
+    Even without the `dmftar` utility, it is possible to restore the OCFL repository, as long as the layers are extracted in the correct order. A DMFTAR archive 
+    is just a lightweight wrapper around a TAR archive, implemented as a directory containing batches of (possibly multi-volume) TAR files along with index 
+    files and a checksum file.
 
 [dans-layer-store-lib]: ../dans-libraries/#dans-layer-store-lib
 [Data Archive]: {{ data_archive }}
