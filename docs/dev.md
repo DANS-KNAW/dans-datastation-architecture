@@ -28,8 +28,8 @@ the [developer docs]{:target=_blank}.
 !!! note "Debugging Dataverse"
 
     For DANS developers it is **not necessary (nor preferable)** to set up Dataverse and its dependencies Solr and 
-    PostGreSQL on your development laptop, as described in the developer docs. Instead you should use the pre-build 
-    vagrant box, which is available only for DANS developers. 
+    PostGreSQL on your development laptop, as described in the developer docs. Instead you should use the pre-built 
+    vagrant boxes, which are available only for DANS developers. 
 
 Skosmos
 -------
