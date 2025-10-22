@@ -16,7 +16,7 @@ A _deposit directory_ is a directory containing:
 `<deposit files>`
 -----------------
 The deposit files are one or more files or directories. Typically, it will be one directory, a [bag]{:target=_blank}, and more specifically, one
-conforming to the [DANS BagIt Profile v1]{:target=_blank}. However, applications have different requirements with respect to the contents and lay-out of the
+conforming to the [DANS BagIt Profile]{:target=_blank}. However, applications have different requirements with respect to the contents and lay-out of the
 deposit.
 
 `deposit.properties`
@@ -35,5 +35,5 @@ Applications may use additional properties.
 
 
 [bag]: https://tools.ietf.org/html/rfc8493
-[DANS BagIt Profile v1]: {{ dans_bagit_profile }}
+[DANS BagIt Profile]: {{ dans_bagit_profile }}
 [properties file]: https://en.wikipedia.org/wiki/.properties

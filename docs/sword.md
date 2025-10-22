@@ -22,9 +22,9 @@ DANS BagIt Profile
 ------------------
 The bags that are deposited to the DANS SWORD2 service must comply with the DANS BagIt Profile.
 
-* [DANS BagIt Profile v1]{:target=_blank}
+* [DANS BagIt Profile]{:target=_blank}
 
 [Guide for DANS SWORD2 client developers]: {{ sword2_examples_docs }}
 [Code examples]: {{ sword2_examples }}
-[DANS BagIt Profile v1]: {{ dans_bagit_profile }}
+[DANS BagIt Profile]: {{ dans_bagit_profile }}
 [EASY]: {{ easy }}
