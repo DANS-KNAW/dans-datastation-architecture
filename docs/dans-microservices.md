@@ -1,5 +1,5 @@
-DANS Microservices
-==================
+DANS Microservices & Tools
+==========================
 
 Several of the components in the architecture are implemented as microservices and developed by DANS. Microservice projects often have an associated API
 project, containing the OpenAPI specification as well as a Command Line Interface (CLI) project that provides a command line tool for interacting with the

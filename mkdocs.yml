@@ -41,7 +41,7 @@ nav:
   - Components:
       - Overview: components.md
       - Dataverse: dataverse.md
-      - DANS Microservices: dans-microservices.md
+      - DANS Microservices & Tools: dans-microservices.md
       - DANS Libraries: dans-libraries.md
       - Skosmos: skosmos.md
       - NBN Resolver (KB): nbn-resolver.md
