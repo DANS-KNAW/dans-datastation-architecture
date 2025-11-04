@@ -48,6 +48,7 @@ nav:
       - Data Archive (SURF): data-archive.md
   - Development:
       - Overview: dev.md
+      - Common practices: dev-common-practices.md
       - Build status: status.md
 plugins:
   - markdownextradata
@@ -94,6 +95,7 @@ extra:
   data_archive_url: https://www.surf.nl/diensten/opslag-datamanagement/data-archive
   surf_url: https://www.surf.nl/en
   ghm_registration_service_url: https://persistent-identifier.nl/gmh-registration-service/api/v1/openapi.yaml
+  dans_dev_scripts_repo: https://github.com/DANS-KNAW/dans-dev-scripts
 
 markdown_extensions:
   - attr_list
