@@ -45,6 +45,7 @@ nav:
       - DANS Libraries: dans-libraries.md
       - Skosmos: skosmos.md
       - NBN Resolver (KB): nbn-resolver.md
+      - Object Store (SURF): object-store.md
       - Data Archive (SURF): data-archive.md
   - Development:
       - Overview: dev.md
@@ -96,6 +97,7 @@ extra:
   surf_url: https://www.surf.nl/en
   ghm_registration_service_url: https://persistent-identifier.nl/gmh-registration-service/api/v1/openapi.yaml
   dans_dev_scripts_repo: https://github.com/DANS-KNAW/dans-dev-scripts
+  surf_object_store: https://www.surf.nl/en/services/storage-data-management/object-store
 
 markdown_extensions:
   - attr_list
