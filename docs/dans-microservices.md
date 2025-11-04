@@ -258,10 +258,6 @@ A service that scans all files in a dataset for virus using `clamav` and blocks 
 | [dd-virus-scan]{:target=_blank}     | <https://github.com/DANS-KNAW/dd-virus-scan>{:target=_blank}     |
 | [dd-virus-scan-api]{:target=_blank} | <https://github.com/DANS-KNAW/dd-virus-scan-api>{:target=_blank} |
 
-!!! note "API not yet implemented"
-
-    The current implementation of `dd-virus-scan` does not yet implement `dd-virus-scan-api`, but instead has a manually coded API.
-
 [dd-virus-scan]: https://dans-knaw.github.io/dd-virus-scan/
 
 [dd-virus-scan-api]: https://dans-knaw.github.io/dd-virus-scan-api/
