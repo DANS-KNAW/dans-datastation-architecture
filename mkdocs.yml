@@ -47,6 +47,8 @@ nav:
       - NBN Resolver (KB): nbn-resolver.md
       - Object Store (SURF): object-store.md
       - Data Archive (SURF): data-archive.md
+  - Data flow:
+      - Data Vault pipeline: vault-pipeline.md
   - Development:
       - Overview: dev.md
       - Common practices: dev-common-practices.md
