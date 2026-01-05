@@ -15,7 +15,7 @@ Actors
 
 * **Data Station User** - a user of the Data Station, typically a customer who downloads or deposits data.
 * **Data Manager** - a user with special privileges, who curates and publishes datasets submitted for review by a user.
-* **SWORD2 Client** - a software client that interacts with the [DANS SWORD2 Service](../dans-microservices/#dd-sword2).
+* **SWORD2 Client** - a software client that interacts with the [DANS SWORD2 Service](dans-microservices.md#dd-sword2).
 
 Schema Legend
 -------------

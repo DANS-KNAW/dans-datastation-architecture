@@ -16,4 +16,4 @@ Components
 The "Vault as a Service" configuration has mostly the same components as a Data Station. The main difference is that Dataverse is not part of the configuration.
 Instead, a new component, [dd-vault-ingest]{:target=_blank}, is introduced to convert the datasets into RDA compliant bags and transfer them to the Data Vault.
 
-[dd-vault-ingest]: ../dans-microservices/#dd-vault-ingest
+[dd-vault-ingest]: dans-microservices.md#dd-vault-ingest

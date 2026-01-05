@@ -14,9 +14,9 @@ future users, rather than current ones.
     Do not confuse the DVSR with the [service interface of dd-data-vault], which is an internal microservice interface that is used by the [transfer service] to 
     store data in the Data Vault.
 
-[service interface of dd-data-vault]: ../dans-microservices/#dd-data-vault
+[service interface of dd-data-vault]: dans-microservices.md#dd-data-vault
 
-[transfer service]: ../dans-microservices/#dd-transfer-to-vault
+[transfer service]: dans-microservices.md#dd-transfer-to-vault
 
 
 OCFL repositories
@@ -91,6 +91,6 @@ DMFTAR archives. This utility is the interface to the tape storage system.
     is just a lightweight wrapper around a TAR archive, implemented as a directory containing batches of (possibly multi-volume) TAR files along with index 
     files and a checksum file.
 
-[dans-layer-store-lib]: ../dans-libraries/#dans-layer-store-lib
+[dans-layer-store-lib]: dans-libraries.md#dans-layer-store-lib
 [Data Archive]: {{ data_archive }}
 [dmftar]: {{ dmftar }}

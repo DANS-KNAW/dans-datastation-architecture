@@ -31,7 +31,7 @@ The Data Stations are trusted repositories (some are still in the process of bei
 are **not Data Stations**, as they are not in themselves full trusted repositories. In the technical architecture, however, they are described as variations on
 the [Data Station architecture](./datastation.md), as they are built using mostly the same [components].
 
-[components]: ../components/
+[components]: components.md
 
 ### DataverseNL
 

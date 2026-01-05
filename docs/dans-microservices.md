@@ -30,7 +30,7 @@ export is archived in the DANS Data Vault.
 
 Service that manages a [Data Vault Storage Root] and provides a REST API for interacting with it.
 
-[Data Vault Storage Root]: ../data-vault-storage-root/
+[Data Vault Storage Root]: data-vault-storage-root.md
 
 | Docs                                | Code                                                             |  
 |-------------------------------------|------------------------------------------------------------------|
@@ -63,11 +63,11 @@ Command line tool for interacting with the [Dataverse] service. It uses [dans-da
 |------------------------------------|-----------------------------------------------------------------|
 | [dd-dataverse-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-dataverse-cli>{:target=_blank} |
 
-[Dataverse]: ../dataverse/
+[Dataverse]: dataverse.md
 
 [dd-dataverse-cli]: https://dans-knaw.github.io/dd-dataverse-cli/
 
-[dans-dataverse-client-lib]: ../dans-libraries/#dans-dataverse-client-lib
+[dans-dataverse-client-lib]: dans-libraries.md#dans-dataverse-client-lib
 
 !!! note "Replacement for dans-datastation-tools"
 
@@ -216,7 +216,7 @@ Service that manages a catalog of all Dataset Version Exports in the [DANS Data 
 
 [dd-vault-catalog-cli]: https://dans-knaw.github.io/dd-vault-catalog-cli/
 
-[DANS Data Vault]: ../data-vault-storage-root/
+[DANS Data Vault]: data-vault-storage-root.md
 
 ## dd-vault-ingest
 
