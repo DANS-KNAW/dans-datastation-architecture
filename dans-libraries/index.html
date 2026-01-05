@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>DANS Libraries - dans-datastation-architecture</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "DANS Libraries";
+        var mkdocs_page_input_path = "dans-libraries.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> dans-datastation-architecture
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../core-services/">Core Services</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../datastation/">Data Station</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configurations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configurations/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataversenl/">DataverseNL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vaas/">Vault as a Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../temporary-vault-config/">Temporary Vault</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">External interfaces</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../external-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sword/">SWORD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-vault-storage-root/">Data Vault Storage Root</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Internal interfaces</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../internal-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deposit-directory/">Deposit Directory</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Components</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../components/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataverse/">Dataverse</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dans-microservices/">DANS Microservices & Tools</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">DANS Libraries</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dans-bagit-lib">dans-bagit-lib</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dans-bagpack-lib">dans-bagpack-lib</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dans-converter-lib">dans-converter-lib</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dans-dataverse-client-lib">dans-dataverse-client-lib</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dans-java-utils">dans-java-utils</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dans-layer-store-lib">dans-layer-store-lib</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dans-ocfl-java-extensions-lib">dans-ocfl-java-extensions-lib</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dans-validation-lib">dans-validation-lib</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../skosmos/">Skosmos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nbn-resolver/">NBN Resolver (KB)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../object-store/">Object Store (SURF)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-archive/">Data Archive (SURF)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data flow</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../vault-pipeline/">Data Vault pipeline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev-common-practices/">Common practices</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../status/">Build status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">dans-datastation-architecture</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Components</li>
+      <li class="breadcrumb-item active">DANS Libraries</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/DANS-KNAW/dans-datastation-architecture/edit/master/docs/dans-libraries.md">Edit on DANS-KNAW/dans-datastation-architecture</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="dans-libraries">DANS Libraries<a class="headerlink" href="#dans-libraries" title="Permanent link">&para;</a></h1>
+<p>DANS makes extensive use of open source libraries. We also provide some of our own.</p>
+<h2 id="dans-bagit-lib">dans-bagit-lib<a class="headerlink" href="#dans-bagit-lib" title="Permanent link">&para;</a></h2>
+<p>A fork from the <a href="https://github.com/LibraryOfCongress/bagit-java" target="_blank">Java BagIt library</a> that is used to create, validate and read BagIt packages.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-bagit-lib/" target="_blank">dans-bagit-lib</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-bagit-lib" target="_blank">https://github.com/DANS-KNAW/dans-bagit-lib</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dans-bagpack-lib">dans-bagpack-lib<a class="headerlink" href="#dans-bagpack-lib" title="Permanent link">&para;</a></h2>
+<p>Classes for working with <a href="http://doi.org/10.15497/RDA00025" target="_blank">BagPack</a> packages.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-bagpack-lib/" target="_blank">dans-bagpack-lib</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-bagpack-lib" target="_blank">https://github.com/DANS-KNAW/dans-bagpack-lib</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dans-converter-lib">dans-converter-lib<a class="headerlink" href="#dans-converter-lib" title="Permanent link">&para;</a></h2>
+<p>DANS <a href="https://github.com/FasterXML/jackson-docs" target="_blank">Jackson</a> and <a href="https://www.oracle.com/java/technologies/persistence-jsp.html" target="_blank">JPA</a> converters.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-converter-lib/" target="_blank">dans-converter-lib</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-converter-lib" target="_blank">https://github.com/DANS-KNAW/dans-converter-lib</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dans-dataverse-client-lib">dans-dataverse-client-lib<a class="headerlink" href="#dans-dataverse-client-lib" title="Permanent link">&para;</a></h2>
+<p>A client library for the <a href="https://guides.dataverse.org/en/latest/api/index.html" target="_blank">Dataverse API</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-dataverse-client-lib/" target="_blank">dans-dataverse-client-lib</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-dataverse-client-lib" target="_blank">https://github.com/DANS-KNAW/dans-dataverse-client-lib</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/DANS-KNAW/dans-dataverse-client-lib/tree/master/examples/src/main/java/nl/knaw/dans/lib/dataverse/example" target="_blank">Code examples</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dans-java-utils">dans-java-utils<a class="headerlink" href="#dans-java-utils" title="Permanent link">&para;</a></h2>
+<p>A collection of utility classes for Java geared towards DANS applications.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-java-utils/" target="_blank">dans-java-utils</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-java-utils" target="_blank">https://github.com/DANS-KNAW/dans-java-utils</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dans-layer-store-lib">dans-layer-store-lib<a class="headerlink" href="#dans-layer-store-lib" title="Permanent link">&para;</a></h2>
+<p>Implementation of a "layer store": a write-only store that allows for the mutation of data.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-layer-store-lib/" target="_blank">dans-layer-store-lib</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-layer-store-lib" target="_blank">https://github.com/DANS-KNAW/dans-layer-store-lib</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dans-ocfl-java-extensions-lib">dans-ocfl-java-extensions-lib<a class="headerlink" href="#dans-ocfl-java-extensions-lib" title="Permanent link">&para;</a></h2>
+<p>Extension classes for the <a href="https://github.com/OCFL/ocfl-java" target="_blank">OCFL Java library</a>. Specifically, it implements a layer store for OCFL objects.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-ocfl-java-extensions-lib/" target="_blank">dans-ocfl-java-extensions-lib</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-ocfl-java-extensions-lib" target="_blank">https://github.com/DANS-KNAW/dans-ocfl-java-extensions-lib</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dans-validation-lib">dans-validation-lib<a class="headerlink" href="#dans-validation-lib" title="Permanent link">&para;</a></h2>
+<p>A library of annotations and validators.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-validation-lib/" target="_blank">dans-validation-lib</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-validation-lib" target="_blank">https://github.com/DANS-KNAW/dans-validation-lib</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../dans-microservices/" class="btn btn-neutral float-left" title="DANS Microservices & Tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../skosmos/" class="btn btn-neutral float-right" title="Skosmos">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/DANS-KNAW/dans-datastation-architecture" class="fa fa-code-fork" style="color: #fcfcfc"> DANS-KNAW/dans-datastation-architecture</a>
+        </span>
+    
+    
+      <span><a href="../dans-microservices/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../skosmos/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

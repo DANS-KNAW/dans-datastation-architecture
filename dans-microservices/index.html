@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>DANS Microservices & Tools - dans-datastation-architecture</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "DANS Microservices \u0026 Tools";
+        var mkdocs_page_input_path = "dans-microservices.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> dans-datastation-architecture
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../core-services/">Core Services</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../datastation/">Data Station</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configurations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configurations/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataversenl/">DataverseNL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vaas/">Vault as a Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../temporary-vault-config/">Temporary Vault</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">External interfaces</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../external-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sword/">SWORD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-vault-storage-root/">Data Vault Storage Root</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Internal interfaces</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../internal-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deposit-directory/">Deposit Directory</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Components</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../components/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataverse/">Dataverse</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">DANS Microservices & Tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dd-confirm-archiving">dd-confirm-archiving</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-data-vault">dd-data-vault</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-dataverse-authenticator">dd-dataverse-authenticator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-dataverse-cli">dd-dataverse-cli</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-dataverse-ingest">dd-dataverse-ingest</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-gmh">dd-gmh</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-manage-deposit">dd-manage-deposit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-sword2">dd-sword2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-transfer-to-vault">dd-transfer-to-vault</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-validate-bagpack">dd-validate-bagpack</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-validate-dans-bag">dd-validate-dans-bag</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-vault-catalog">dd-vault-catalog</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-vault-ingest">dd-vault-ingest</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-vault-metadata">dd-vault-metadata</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dd-virus-scan">dd-virus-scan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dans-datastation-tools-deprecated">dans-datastation-tools (deprecated)</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dans-libraries/">DANS Libraries</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../skosmos/">Skosmos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nbn-resolver/">NBN Resolver (KB)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../object-store/">Object Store (SURF)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-archive/">Data Archive (SURF)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data flow</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../vault-pipeline/">Data Vault pipeline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev-common-practices/">Common practices</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../status/">Build status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">dans-datastation-architecture</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Components</li>
+      <li class="breadcrumb-item active">DANS Microservices & Tools</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/DANS-KNAW/dans-datastation-architecture/edit/master/docs/dans-microservices.md">Edit on DANS-KNAW/dans-datastation-architecture</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="dans-microservices-tools">DANS Microservices &amp; Tools<a class="headerlink" href="#dans-microservices-tools" title="Permanent link">&para;</a></h1>
+<p>Several of the components in the architecture are implemented as microservices and developed by DANS. Microservice projects often have an associated API
+project, containing the OpenAPI specification as well as a Command Line Interface (CLI) project that provides a command line tool for interacting with the
+microservice.</p>
+<div class="admonition note">
+<p class="admonition-title">API versioning</p>
+<p>The head of the API project is not necessarily the version implemented by the microservice, but rather the latest version of the
+OpenAPI specification.</p>
+</div>
+<h2 id="dd-confirm-archiving">dd-confirm-archiving<a class="headerlink" href="#dd-confirm-archiving" title="Permanent link">&para;</a></h2>
+<p>Monitors dataset version exports that are being archived by <a href="#dd-data-vault">dd-data-vault</a> and registers the archival timestamp in the <a href="#dd-vault-catalog">Vault Catalog</a> once the
+export is archived in the DANS Data Vault.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-confirm-archiving/" target="_blank">dd-confirm-archiving</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-confirm-archiving" target="_blank">https://github.com/DANS-KNAW/dd-confirm-archiving</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-confirm-archiving-api/" target="_blank">dd-confirm-archiving-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-confirm-archiving-api" target="_blank">https://github.com/DANS-KNAW/dd-confirm-archiving-api</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-data-vault">dd-data-vault<a class="headerlink" href="#dd-data-vault" title="Permanent link">&para;</a></h2>
+<p>Service that manages a <a href="../data-vault-storage-root/">Data Vault Storage Root</a> and provides a REST API for interacting with it.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-data-vault/" target="_blank">dd-data-vault</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-data-vault" target="_blank">https://github.com/DANS-KNAW/dd-data-vault</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-data-vault-api/" target="_blank">dd-data-vault-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-data-vault-api" target="_blank">https://github.com/DANS-KNAW/dd-data-vault-api</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-data-vault-cli/" target="_blank">dd-data-vault-cli</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-data-vault-cli" target="_blank">https://github.com/DANS-KNAW/dd-data-vault-cli</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-dataverse-authenticator">dd-dataverse-authenticator<a class="headerlink" href="#dd-dataverse-authenticator" title="Permanent link">&para;</a></h2>
+<p>A proxy that authenticates clients on behalf of Dataverse, using the basic auth protocol or a Dataverse API token. It is
+used by <a href="#dd-sword2">dd-sword2</a> to authenticate its clients by their Dataverse account credentials.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-dataverse-authenticator/" target="_blank">dd-dataverse-authenticator</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-dataverse-authenticator" target="_blank">https://github.com/DANS-KNAW/dd-dataverse-authenticator</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-dataverse-cli">dd-dataverse-cli<a class="headerlink" href="#dd-dataverse-cli" title="Permanent link">&para;</a></h2>
+<p>Command line tool for interacting with the <a href="../dataverse/">Dataverse</a> service. It uses <a href="../dans-libraries/#dans-dataverse-client-lib">dans-dataverse-client-lib</a> to communicate with the Dataverse API.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-dataverse-cli/" target="_blank">dd-dataverse-cli</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-dataverse-cli" target="_blank">https://github.com/DANS-KNAW/dd-dataverse-cli</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Replacement for dans-datastation-tools</p>
+<p>This will replace most of the old <a href="#dans-datastation-tools-deprecated">dans-datastation-tools</a> command line tools, which are now deprecated.</p>
+</div>
+<h2 id="dd-dataverse-ingest">dd-dataverse-ingest<a class="headerlink" href="#dd-dataverse-ingest" title="Permanent link">&para;</a></h2>
+<p>Service for ingesting <a href="../deposit-directory/">deposit directories</a> into Dataverse.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-dataverse-ingest/" target="_blank">dd-dataverse-ingest</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-dataverse-ingest" target="_blank">https://github.com/DANS-KNAW/dd-dataverse-ingest</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-dataverse-ingest-api/" target="_blank">dd-dataverse-ingest-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-dataverse-ingest-api" target="_blank">https://github.com/DANS-KNAW/dd-dataverse-ingest-api</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-dataverse-ingest-cli/" target="_blank">dd-dataverse-ingest-cli</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-dataverse-ingest-cli" target="_blank">https://github.com/DANS-KNAW/dd-dataverse-ingest-cli</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-gmh">dd-gmh<a class="headerlink" href="#dd-gmh" title="Permanent link">&para;</a></h2>
+<p>Command line tool for interacting with the <a href="https://persistent-identifier.nl/" target="_blank">BRI-GMH resolver</a> to resolve a DANS Persistent Identifier (NBN) to a URL.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-gmh-api/" target="_blank">dd-gmh-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-gmh-api" target="_blank">https://github.com/DANS-KNAW/dd-gmh-api</a></td>
+</tr>
+<tr>
+<td>In code</td>
+<td><a href="https://persistent-identifier.nl/gmh-registration-service/api/v1/openapi.yaml" target="_blank">https://persistent-identifier.nl/gmh-registration-service/api/v1/openapi.yaml</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-gmh-cli/" target="_blank">dd-gmh-cli</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-gmh-cli" target="_blank">https://github.com/DANS-KNAW/dd-gmh-cli</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">OpenAPI specification</p>
+<p>The <code>dd-gmh-api</code> project contains a copy of the OpenAPI specification to be used in the build process of the <code>dd-gmh-cli</code> project. Note, however,
+that the GMH used to be maintained by DANS, but is currently maintained and hosted by Seecr on behalf of the Koninklijke Bibliotheek (KB). The 
+authoritative OpenAPI specification is published at <a href="https://persistent-identifier.nl/gmh-registration-service/api/v1/openapi.yaml" target="_blank">https://persistent-identifier.nl/gmh-registration-service/api/v1/openapi.yaml</a>.</p>
+</div>
+<h2 id="dd-manage-deposit">dd-manage-deposit<a class="headerlink" href="#dd-manage-deposit" title="Permanent link">&para;</a></h2>
+<p>Service that manages and maintains information about deposits in a deposit area.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-manage-deposit/" target="_blank">dd-manage-deposit</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-manage-deposit" target="_blank">https://github.com/DANS-KNAW/dd-manage-deposit</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-manage-deposit-api/" target="_blank">dd-manage-deposit-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-manage-deposit-api" target="_blank">https://github.com/DANS-KNAW/dd-manage-deposit-api</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-manage-deposit-cli/" target="_blank">dd-manage-deposit-cli</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-manage-deposit-cli" target="_blank">https://github.com/DANS-KNAW/dd-manage-deposit-cli</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">API and CLI not yet implemented</p>
+<p>The current implementation of <code>dd-manage-deposit</code> does not yet implement <code>dd-manage-deposit-api</code> and <code>dd-manage-deposit-cli</code>, but instead has a
+manually coded API and CLI.</p>
+</div>
+<h2 id="dd-sword2">dd-sword2<a class="headerlink" href="#dd-sword2" title="Permanent link">&para;</a></h2>
+<p>DANS implementation of the SWORD v2 protocol for automated deposits.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-sword2/" target="_blank">dd-sword2</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-sword2" target="_blank">https://github.com/DANS-KNAW/dd-sword2</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-dans-sword2-examples/" target="_blank">dd-dans-sword2-examples</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-dans-sword2-examples" target="_blank">https://github.com/DANS-KNAW/dd-dans-sword2-examples</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-transfer-to-vault">dd-transfer-to-vault<a class="headerlink" href="#dd-transfer-to-vault" title="Permanent link">&para;</a></h2>
+<p>Service for preparing Dataset Version Exports for storage in the <a href="#dd-data-vault">DANS Data Vault</a>. This includes validation, registering the NBN for a
+dataset with the <a href="https://persistent-identifier.nl/" target="_blank">BRI-GMH resolver</a>, creating a <a href="#dd-vault-catalog">vault catalog</a> entry and handing over the bag to
+the <a href="#dd-data-vault">dd-data-vault</a> service.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-transfer-to-vault/" target="_blank">dd-transfer-to-vault</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-transfer-to-vault" target="_blank">https://github.com/DANS-KNAW/dd-transfer-to-vault</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-validate-bagpack">dd-validate-bagpack<a class="headerlink" href="#dd-validate-bagpack" title="Permanent link">&para;</a></h2>
+<p>Service that checks whether a bag complies with the <a href="http://doi.org/10.15497/RDA00025" target="_blank">BagPack specification</a> and the DANS BagPack Profile. This service is used
+by <a href="#dd-transfer-to-vault">dd-transfer-to-vault</a> to make sure that the Dataset Version Exports (DVE) that are uploaded to the DANS Data Vault are valid.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-validate-bagback/" target="_blank">dd-validate-bagback</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-validate-bagback" target="_blank">https://github.com/DANS-KNAW/dd-validate-bagback</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-bagpack-profile/" target="_blank">dans-bagpack-profile</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-bagpack-profile" target="_blank">https://github.com/DANS-KNAW/dans-bagpack-profile</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">NOT YET IMPLEMENTED</p>
+<p>This service is not yet implemented.</p>
+</div>
+<h2 id="dd-validate-dans-bag">dd-validate-dans-bag<a class="headerlink" href="#dd-validate-dans-bag" title="Permanent link">&para;</a></h2>
+<p>Service that checks whether a bag complies with DANS BagIt Profile v1. It is used by <a href="#dd-dataverse-ingest">dd-dataverse-ingest</a> and
+<a href="#dd-vault-ingest">dd-vault-ingest</a> to validate bags that are uploaded via <a href="#dd-sword2">dd-sword2</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-validate-dans-bag/" target="_blank">dd-validate-dans-bag</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-validate-dans-bag" target="_blank">https://github.com/DANS-KNAW/dd-validate-dans-bag</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-validate-dans-bag-api/" target="_blank">dd-validate-dans-bag-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-validate-dans-bag-api" target="_blank">https://github.com/DANS-KNAW/dd-validate-dans-bag-api</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-validate-dans-bag-cli/" target="_blank">dd-validate-dans-bag-cli</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-validate-dans-bag-cli" target="_blank">https://github.com/DANS-KNAW/dd-validate-dans-bag-cli</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-bagit-profile/" target="_blank">DANS BagIt Profile v1</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-bagit-profile" target="_blank">https://github.com/DANS-KNAW/dans-bagit-profile</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-schema/" target="_blank">DANS schema</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-schema" target="_blank">https://github.com/DANS-KNAW/dans-schema</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-vault-catalog">dd-vault-catalog<a class="headerlink" href="#dd-vault-catalog" title="Permanent link">&para;</a></h2>
+<p>Service that manages a catalog of all Dataset Version Exports in the <a href="../data-vault-storage-root/">DANS Data Vault</a>. It exposes a summary page for each stored dataset.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-vault-catalog/" target="_blank">dd-vault-catalog</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-vault-catalog" target="_blank">https://github.com/DANS-KNAW/dd-vault-catalog</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-vault-catalog-api/" target="_blank">dd-vault-catalog-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-vault-catalog-api" target="_blank">https://github.com/DANS-KNAW/dd-vault-catalog-api</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-vault-catalog-cli/" target="_blank">dd-vault-catalog-cli</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-vault-catalog-cli" target="_blank">https://github.com/DANS-KNAW/dd-vault-catalog-cli</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-vault-ingest">dd-vault-ingest<a class="headerlink" href="#dd-vault-ingest" title="Permanent link">&para;</a></h2>
+<p>Service for converting deposits coming in via Vault as a Service to BagPacks.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-vault-ingest/" target="_blank">dd-vault-ingest</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-vault-ingest" target="_blank">https://github.com/DANS-KNAW/dd-vault-ingest</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dd-vault-metadata">dd-vault-metadata<a class="headerlink" href="#dd-vault-metadata" title="Permanent link">&para;</a></h2>
+<p>A service that fills in the <a href="https://docs.google.com/spreadsheets/d/1M0mefIC3VoXgQr-N_HlZlA6FAi_A_FAzbfCzngEEi3o/edit?gid=9637200#gid=9637200&amp;range=A1">Vault Metadata block</a> for a dataset version in Datavers. These metadata are by <a href="#dd-transfer-to-vault">dd-transfer-to-vault</a> to
+catalogue the long-term preservation copy of the dataset version when it is stored on tape.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-vault-metadata/" target="_blank">dd-vault-metadata</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-vault-metadata" target="_blank">https://github.com/DANS-KNAW/dd-vault-metadata</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-vault-metadata-api/" target="_blank">dd-vault-metadata-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-vault-metadata-api" target="_blank">https://github.com/DANS-KNAW/dd-vault-metadata-api</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.google.com/spreadsheets/d/1M0mefIC3VoXgQr-N_HlZlA6FAi_A_FAzbfCzngEEi3o/edit?gid=9637200#gid=9637200&amp;range=A1" target="_blank">Vault Metadata block</a></td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">API not yet implemented</p>
+<p>The current implementation of <code>dd-vault-metadata</code> does not yet implement <code>dd-vault-metadata-api</code>, but instead has a manually coded API.</p>
+</div>
+<h2 id="dd-virus-scan">dd-virus-scan<a class="headerlink" href="#dd-virus-scan" title="Permanent link">&para;</a></h2>
+<p>A service that scans all files in a dataset for virus using <code>clamav</code> and blocks publication if a virus is found.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-virus-scan/" target="_blank">dd-virus-scan</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-virus-scan" target="_blank">https://github.com/DANS-KNAW/dd-virus-scan</a></td>
+</tr>
+<tr>
+<td><a href="https://dans-knaw.github.io/dd-virus-scan-api/" target="_blank">dd-virus-scan-api</a></td>
+<td><a href="https://github.com/DANS-KNAW/dd-virus-scan-api" target="_blank">https://github.com/DANS-KNAW/dd-virus-scan-api</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dans-datastation-tools-deprecated">dans-datastation-tools (deprecated)<a class="headerlink" href="#dans-datastation-tools-deprecated" title="Permanent link">&para;</a></h2>
+<p>Command line utilities for Data Station application management.</p>
+<table>
+<thead>
+<tr>
+<th>Docs</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dans-knaw.github.io/dans-datastation-tools/" target="_blank">dans-datastation-tools</a></td>
+<td><a href="https://github.com/DANS-KNAW/dans-datastation-tools" target="_blank">https://github.com/DANS-KNAW/dans-datastation-tools</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../dataverse/" class="btn btn-neutral float-left" title="Dataverse"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dans-libraries/" class="btn btn-neutral float-right" title="DANS Libraries">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/DANS-KNAW/dans-datastation-architecture" class="fa fa-code-fork" style="color: #fcfcfc"> DANS-KNAW/dans-datastation-architecture</a>
+        </span>
+    
+    
+      <span><a href="../dataverse/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dans-libraries/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Core Services - dans-datastation-architecture</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Core Services";
+        var mkdocs_page_input_path = "core-services.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> dans-datastation-architecture
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Core Services</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-stations">Data Stations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-services">Other services</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dataversenl">DataverseNL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vault-as-a-service">Vault as a Service</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interfaces">Interfaces</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../datastation/">Data Station</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configurations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configurations/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataversenl/">DataverseNL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vaas/">Vault as a Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../temporary-vault-config/">Temporary Vault</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">External interfaces</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../external-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sword/">SWORD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-vault-storage-root/">Data Vault Storage Root</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Internal interfaces</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../internal-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deposit-directory/">Deposit Directory</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Components</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../components/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataverse/">Dataverse</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dans-microservices/">DANS Microservices & Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dans-libraries/">DANS Libraries</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../skosmos/">Skosmos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nbn-resolver/">NBN Resolver (KB)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../object-store/">Object Store (SURF)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-archive/">Data Archive (SURF)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data flow</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../vault-pipeline/">Data Vault pipeline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev-common-practices/">Common practices</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../status/">Build status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">dans-datastation-architecture</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Architecture</li>
+      <li class="breadcrumb-item active">Core Services</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/DANS-KNAW/dans-datastation-architecture/edit/master/docs/core-services.md">Edit on DANS-KNAW/dans-datastation-architecture</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="core-services">Core Services<a class="headerlink" href="#core-services" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The DANS Core Services are centered around the concept of a <strong>Data Station</strong>. A Data Station is a repository system that is used for depositing, curating and
+disseminating datasets, as well as creating long-term preservation copies of those datasets. These long-term preservation copies are stored in the DANS Data
+Vault.</p>
+<p>The following diagram gives a high-level overview:</p>
+<p><img alt="Context" src="../context.png" /></p>
+<h2 id="data-stations">Data Stations<a class="headerlink" href="#data-stations" title="Permanent link">&para;</a></h2>
+<p>Each Data Station targets a part of the scientific research community. There is a Data Station for each of the following community domains:</p>
+<ul>
+<li><a href="https://archaeology.datastations.nl/" target="_blank">Archaeology</a></li>
+<li><a href="https://ssh.datastations.nl/" target="_blank">Social Sciences and Humanities</a></li>
+<li><a href="https://lifesciences.datastations.nl/" target="_blank">Life Sciences</a></li>
+<li><a href="https://phys-techsciences.datastations.nl/" target="_blank">Physical and Technical Sciences</a></li>
+</ul>
+<p>The Data Stations use <a href="https://dataverse.org/" target="_blank">Dataverse</a> as their repository system. Dataverse is an open source repository system developed by Harvard University. The
+Data Stations create a long-term preservation copy of each dataset in the DANS Data Vault.</p>
+<h2 id="other-services">Other services<a class="headerlink" href="#other-services" title="Permanent link">&para;</a></h2>
+<p>The Data Stations are trusted repositories (some are still in the process of being certified). They are displayed as blue slices in the diagram. The grey slices
+are <strong>not Data Stations</strong>, as they are not in themselves full trusted repositories. In the technical architecture, however, they are described as variations on
+the <a href="../datastation/">Data Station architecture</a>, as they are built using mostly the same <a href="../components/">components</a>.</p>
+<h3 id="dataversenl">DataverseNL<a class="headerlink" href="#dataversenl" title="Permanent link">&para;</a></h3>
+<p><a href="../dataversenl/">DataverseNL</a> is a Dataverse installation that offers deposit and dissemination services. Datasets stored in DataverseNL are also preserved in
+the DANS Data Vault. However, curation of the datasets is the responsibility of the DataverseNL customer.</p>
+<h3 id="vault-as-a-service">Vault as a Service<a class="headerlink" href="#vault-as-a-service" title="Permanent link">&para;</a></h3>
+<p><a href="../vaas/">Vault as a Service</a> offers an interface for automated deposit of datasets directly into the DANS Data Vault. This service can be used as a building
+block in a customer's own archival workflow.</p>
+<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h2>
+<p>The services have interfaces for human as well as machine use. This is represented in the diagram by the people and computer icons. See for more information
+under <a href="../external-interfaces/">External interfaces</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../datastation/" class="btn btn-neutral float-right" title="Data Station">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/DANS-KNAW/dans-datastation-architecture" class="fa fa-code-fork" style="color: #fcfcfc"> DANS-KNAW/dans-datastation-architecture</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../datastation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
