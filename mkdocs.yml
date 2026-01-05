@@ -100,6 +100,9 @@ extra:
   ghm_registration_service_url: https://persistent-identifier.nl/gmh-registration-service/api/v1/openapi.yaml
   dans_dev_scripts_repo: https://github.com/DANS-KNAW/dans-dev-scripts
   surf_object_store: https://www.surf.nl/en/services/storage-data-management/object-store
+  object_version_properties: https://dans-knaw.github.io/dans-ocfl-extensions/object-version-properties/object-version-properties/
+  property_registry: https://dans-knaw.github.io/dans-ocfl-extensions/property-registry/property-registry/
+  packaging_format_registry: https://dans-knaw.github.io/dans-ocfl-extensions/packaging-format-registry/packaging-format-registry/
 
 markdown_extensions:
   - attr_list
