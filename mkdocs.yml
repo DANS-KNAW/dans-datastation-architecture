@@ -63,6 +63,7 @@ extra_css:
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js
+  - javascripts/extra.js
 
 extra:
   data_archive: https://www.surf.nl/en/services/data-archive

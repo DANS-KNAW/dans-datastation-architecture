@@ -83,6 +83,8 @@ different. That is why each OCFL Object Version has a packaging format attribute
 
 The following diagram gives an overview of the structural attributes and how they are mapped to the OCFL model.
 
+![Vault metadata](vault-metadata.png){: .align-center}
+
 Key to the columns:
 
 * **DANS Dataset Model**: how DANS conceptualizes datasets. This includes both Dataverse and VaaS datasets.
@@ -90,18 +92,47 @@ Key to the columns:
 * **OCFL Model**: how OCFL conceptualizes objects and their versions. Note that the attributes marked with `)*` are custom version properties defined using the
   [Object Version Properties](#extensions) extension.
 
-![Vault metadata](vault-metadata.png){: .align-center}
+The following table describes the classes and their attributes in more detail.
 
-The following table makes explicit where the various attributes originate from and what their purpose is.
+<script>
+window.addEventListener('load', function() {
+    setColumnWidths("Class", "25%", "30%", "45%");
+});
+</script>
 
-| Attribute                  | Source                                | Purpose                                                    |
-|----------------------------|---------------------------------------|------------------------------------------------------------|
-| ID of the OCFL Object      | NBN of the dataset (assigned by DANS) | Uniquely identifying the dataset in the Vault              |
-| OCFL Object Version Number | Sequential number assigned by OCFL    | Identifying OCFL Object Version within its parent Object   |
-| dataset.major-version      | Major version number                  | Establishing the version history of the original dataset   |
-| dataset.minor-version      | Minor version number                  | Establishing the version history of the original dataset   |
-| dataset.export-number      | Nth export of the dataset version     | Establishing the version history of the original dataset   |
-| packaging-format           | Packaging format used for the DVE     | Recording the layout of the contents of the Object Version |
+| Class                | Attribute                             | Description                                                                                                                          |
+|----------------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| Dataset              | NBN                                   | The URN:NBN that uniquely identifies the dataset in the Vault. This identifier is assigned by DANS.                                  |
+| DatasetVersion       | major-version                         | The major version number of the dataset version.                                                                                     |
+| DatasetVersion       | minor-version                         | The minor version number of the dataset version.                                                                                     |
+| DataFile             | path                                  | The path relative to the dataset root.                                                                                               | 
+| DataFile             | SHA1-checksum                         | The SHA1 checksum of the data file.                                                                                                  |
+| DatasetVersionExport | dansNbn                               | The URN:NBN that uniquely identifies dataset in the Vault                                                                            |
+| DatasetVersionExport | dansDataversePidVersion               | The version number of the dataset as assigned by Dataverse. This consists of the major and minor version numbers separated by a dot. |
+| DatasetVersionExport | Has-Organizational-Identifier-Version | A version number assigned by the VaaS client.                                                                                        |
+| ExportedDataFile     | path                                  | The path relative to the dataset root.                                                                                               |
+| ExportedDataFile     | SHA1-checksum                         | The SHA1 checksum of the data file.                                                                                                  |
+| OCFL Object          | ID                                    | The OCFL object identifier.                                                                                                          |
+| OCFL Object Version  | OCFL version number                   | The OCFL version number. This is an integer starting from 1 and incremented by one for each version                                  |
+| OCFL Object Version  | dataset.major-version                 | Custom version property that - together with dataset.minor-version - documents the dataset version archived in this object version.  |
+| OCFL Object Version  | dataset.minor-version                 | Custom version property that - together with dataset.major-version - documents the dataset version archived in this object version.  |
+| OCFL Object Version  | dataset.export-number                 | Custom version property that documents how many times the same dataset version was archived before.                                  |
+| OCFL Object Version  | packaging-format                      | Custom version property that documents what specification the internal structure of this object version conforms to.                 |
+
+### Restoring datasets from the OCFL Storage Root
+
+By restoring a dataset we mean:
+
+* retrieving its versions in the correct order and;
+* for each version getting all the files and their dataset-relative filepath.
+
+The process is as follows:
+
+1. Retrieve the OCFL-object with all its versions by URN:NBN.
+2. Determine the `dataset.major-version`, `dataset.minor-version` and `dataset.export-number` for each object version.
+3. If there are multiple candidates for a version, choose the one with the highest `dataset.export-number` (unless there are specific reasons to use an older
+   export).
+4. Retrieve the DVE from the content of each object version. The packaging format then determines how to extract the files and their dataset-relative filepath.
 
 [bag]: {{ bagit_specs }}
 [Oxford Common File Layout]: {{ ocfl_url }}
