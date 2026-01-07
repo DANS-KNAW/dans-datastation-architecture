@@ -28,7 +28,7 @@ specification for the layout of a repository that stores versioned digital objec
 
 OCFL can be extended with additional metadata and functionality. The DANS Data Vault uses the following extensions:
 
-* [Object Version Properties]{:target=_blank} - This extension defines a way to specify properties for each version of an object.
+* [Object Version Properties]{:target=_blank} - This extension defines a way to specify custom properties for each version of an object.
 * [Property Registry]{:target=_blank} - This extension defines a registry for properties that can be used in the Object Version Properties extension.
 * [OCFL Packaging Format Registry]{:target=_blank} - This extension defines a list of packaging formats. Packging formats specify the internal structure of an
   archived dataset version export.
@@ -40,25 +40,34 @@ OCFL can be extended with additional metadata and functionality. The DANS Data V
 Dataset model mapping
 ---------------------
 
-OCFL is a generic storage model. It does not define the concept of a dataset. The DANS archival systems (Data Stations and Vault as a Service), on the other
+OCFL has a generic object model. It does not define the concept of a dataset. The DANS archival systems (Data Stations and Vault as a Service), on the other
 hand, are built around the dataset concept. It is essential that the datasets stored in the Vault can be reconstructed from the OCFL objects. For this purpose
 this section documents the mapping between the two models.
 
 ### Basic mapping scheme
 
-The basic mapping scheme is concerned with reconstructing datasets and their version history from OCFL objects.
+The basic mapping scheme is concerned with reconstructing datasets and their version histories from OCFL objects.
 
 | DANS dataset model | OCFL model          | Multiplicity |
 |--------------------|---------------------|--------------|
 | Dataset            | OCFL Object         | 1-to-1       |
 | Dataset Version    | OCFL Object Version | 1-to-1..*    |
-| Datafile           | OCFL Content File   | 1-to-1       |
 
-### Versions vs Version Exports
+A Dataset corresponds to one OCFL Object. Each OCFL Object Version stores Data Version Export (DVE). A DVE is a package containing all the data files and
+metadata of the Dataset Version at the time of export. The structure and metadata schemas of the DVE are documented in a "packaging format" specification.
 
-Each Dataset Version is exported from Dataverse (or from the VaaS client's own system) and stored in a separate OCFL Object Version. This means that there is a
-1-to-1 mapping between a Dataset Version Export and an OCFL Object Version. Note, however, that it is possible that one Dataset Version is exported multiple
-times. The mapping of a dataset version to an OCFL Object is therefore a 1-to-_n_ relationship (with _n > 0_)
+!!! note "Data Files and OCFL Content Files"
+
+    Data Files and OCFL Content Files have been left out of the table above because it is the packaging format that defines the exact way a Data File is stored.
+    Also, some metadata may be stored as OCFL Content Files, so there is not necessarily a 1-to-1 mapping between a Data File and an OCFL Content File.
+
+!!! note "BagPack"
+
+    The current packaging format is called **[BagPack]{:target=_blank}**. It is a recommendation by the Research Data Alliance (RDA) and is implemented as an 
+    export/import format by Dataverse. For VaaS, DANS has implement BagPack to closely resemble the Dataverse implementation.
+
+One Dataset Version may be exported multiple times (see below for an example). Therefore, there is a 1-to-_n_ mapping between a Dataset Version and an OCFL
+Object Version, with _n > 0_.
 
 !!! note "A multiple exports scenario"
 
@@ -66,16 +75,6 @@ times. The mapping of a dataset version to an OCFL Object is therefore a 1-to-_n
     be done by a superuser and is known as **"updatecurrent"**. A new Dataset Version Export will be created and therefore a new OCFL Object Version will be 
     created as well. The Data Station version history, however, will **not** display an additional version.
 
-### Making sense of a version export
-
-Apart from determining now a series of Data Version Exports constitute the version history of a dataset, it is also important to be able to interpret each
-individual DVE correctly. Over time, the way datasets are exported may change. For example, the layout of the exported files and the metadata included may be
-different. That is why each OCFL Object Version has a packaging format attribute.
-
-!!! note "BagPack"
-
-    The current packaging format is called **[BagPack]{:target=_blank}**. It is a recommendation by the Research Data Alliance (RDA) and is implemented as an 
-    export/import format by Dataverse. For VaaS, DANS has implement BagPack to closely resemble the Dataverse implementation.
 
 [BagPack]: {{ bagpack_specs }}
 
