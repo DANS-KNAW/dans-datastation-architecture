@@ -29,6 +29,5 @@ The documentation discusses the following topics:
     are wrapping up the migration process.
 
 
-
 [DANS website]: {{ dans_website }}
 [EASY]: {{ easy }}
