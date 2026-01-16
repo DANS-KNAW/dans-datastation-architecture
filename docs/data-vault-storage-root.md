@@ -64,7 +64,7 @@ metadata of the Dataset Version at the time of export. The structure and metadat
 !!! note "BagPack"
 
     The current packaging format is called **[BagPack]{:target=_blank}**. It is a recommendation by the Research Data Alliance (RDA) and is implemented as an 
-    export/import format by Dataverse. For VaaS, DANS has implement BagPack to closely resemble the Dataverse implementation.
+    export/import format by Dataverse. For VaaS, DANS has implemented BagPack to closely resemble the Dataverse implementation.
 
 One Dataset Version may be exported multiple times (see below for an example). Therefore, there is a 1-to-_n_ mapping between a Dataset Version and an OCFL
 Object Version, with _n > 0_.
