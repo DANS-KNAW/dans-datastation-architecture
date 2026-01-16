@@ -53,7 +53,7 @@ The basic mapping scheme is concerned with reconstructing datasets and their ver
 | Dataset            | OCFL Object         | 1-to-1       |
 | Dataset Version    | OCFL Object Version | 1-to-1..*    |
 
-A Dataset corresponds to one OCFL Object. Each OCFL Object Version stores Data Version Export (DVE). A DVE is a package containing all the data files and
+A Dataset corresponds to one OCFL Object. Each OCFL Object Version stores one Data Version Export (DVE). A DVE is a package containing all the data files and
 metadata of the Dataset Version at the time of export. The structure and metadata schemas of the DVE are documented in a "packaging format" specification.
 
 !!! note "Data Files and OCFL Content Files"
