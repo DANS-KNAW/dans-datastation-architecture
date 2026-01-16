@@ -86,7 +86,7 @@ The following diagram gives an overview of the structural attributes and how the
 Key to the columns:
 
 * **DANS Dataset Model**: how DANS conceptualizes datasets. This includes both Dataverse and VaaS datasets.
-* **Dataset Version Exports**: the relevant properties of the exported datasets versions.
+* **Dataset Version Exports**: the relevant properties of the exported dataset versions.
 * **OCFL Model**: how OCFL conceptualizes objects and their versions. Note that the attributes marked with `)*` are custom version properties defined using the
   [Object Version Properties](#extensions) extension.
 
