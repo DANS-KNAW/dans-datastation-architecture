@@ -18,7 +18,6 @@ creates a skeleton command line tool which uses some of the DropWizard facilitie
 
     Previously DANS command line tools were written in Python, but his approach is being phased out.
 
-
 Dataverse
 ---------
 The [architecture overview](index.md) makes clear that Dataverse plays a key role in the Data Station. That is why DANS
@@ -40,10 +39,15 @@ in PHP but there is no information on the Skosmos website about the development 
 Documentation with mkdocs
 -------------------------
 The documentation for DANS projects (including this site) is written using [mkdocs]{:target=_blank}. The source code for
-those sites consists of markdown in combination with other resources, such as images. Images are often created
+those sites consists of Markdown in combination with other resources, such as images. Images are often created
 with [yEd]{:target=_blank}. The graphml source code of the images is committed along with the image exports. You should
 always check that your changes render correctly. This is made easy by the `start-mkdocs.sh` script
-in the `dans-core-systems` project (only available for DANS developers).
+in [dans-dev-scripts]{:target=_blank}.
+
+Local testing
+-------------
+The [dans-dev-scripts]{:target=_blank} can also be used to run microservices and command-line tools from their project directory.
+See the README.md in the project for more information.
 
 [dans-module-archetype]: https://dans-knaw.github.io/dans-module-archetype/
 
@@ -65,6 +69,6 @@ in the `dans-core-systems` project (only available for DANS developers).
 
 [yEd]: https://www.yworks.com/products/yed
 
-[dans-dev-tools]: https://github.com/DANS-KNAW/dans-dev-tools#dans-dev-tools
+[dans-dev-scripts]: https://github.com/DANS-KNAW/dans-dev-scripts
 
 [Skosmos]: {{ skosmos_url }}
