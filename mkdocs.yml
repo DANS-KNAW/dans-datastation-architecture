@@ -34,6 +34,7 @@ nav:
       - Overview: external-interfaces.md
       - SWORD: sword.md
       - Data Vault Storage Root: data-vault-storage-root.md
+      - Large Object Store: lob-store.md
   - Internal interfaces:
       - Overview: internal-interfaces.md
       - Deposit Directory: deposit-directory.md

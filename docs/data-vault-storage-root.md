@@ -98,26 +98,46 @@ window.addEventListener('load', function() {
 });
 </script>
 
-| Class                  | Attribute                             | Description                                                                                                                                                                |
-|------------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dataset                | NBN                                   | The URN:NBN that uniquely identifies the dataset in the Vault. This identifier is assigned by DANS.                                                                        |
-| Dataset Version        | versionNumber                         | A number or other identifier that records the version. In Dataverse this is a `major.minor` version number. For VaaS clients this can be anything and can even be omitted. |
-| Data File              | path                                  | The path relative to the dataset root.                                                                                                                                     | 
-| Data File              | SHA1-checksum                         | The SHA1 checksum of the data file.                                                                                                                                        |
-| Dataset Version Export | dansNbn                               | The URN:NBN that uniquely identifies the parent dataset in the Vault                                                                                                       |
-| Dataset Version Export | dansDataversePidVersion               | The version number of the dataset as assigned by Dataverse.                                                                                                                |
-| Dataset Version Export | Has-Organizational-Identifier-Version | A version number or other version identifier assigned by the VaaS client.                                                                                                  |
-| Exported Data File     | path                                  | The path relative to the dataset root.                                                                                                                                     |
-| Exported Data File     | SHA1-checksum                         | The SHA1 checksum of the data file.                                                                                                                                        |
-| OCFL Object            | ID                                    | The OCFL object identifier.                                                                                                                                                |
-| OCFL Object Version    | OCFL version number                   | The OCFL version number. This is an integer starting from 1 and incremented by one for each version                                                                        |
-| OCFL Object Version    | dataset-version                       | Custom version property that contains the value of either dansDataversePidVersion or Has-Organizational-Identifier-Version                                                 |
-| OCFL Object Version    | packaging-format                      | Custom version property that documents what specification the internal structure of this object version conforms to.                                                       |
+#### DANS Dataset Model
+
+| Class           | Attribute     | Description                                                                                                                                                                |
+|-----------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Dataset         | NBN           | The URN:NBN that uniquely identifies the dataset in the Vault. This identifier is assigned by DANS.                                                                        |
+| Dataset Version | versionNumber | A number or other identifier that records the version. In Dataverse this is a `major.minor` version number. For VaaS clients this can be anything and can even be omitted. |
+| Data File       | path          | The path relative to the dataset root.                                                                                                                                     | 
+| Data File       | SHA1-checksum | The SHA1 checksum of the data file.                                                                                                                                        |
+
+#### Dataset Version Export
+
+| Class                  | Attribute                             | Description                                                                                                    |
+|------------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Dataset Version Export | dansNbn                               | The URN:NBN that uniquely identifies the parent dataset in the Vault                                           |
+| Dataset Version Export | dansDataversePidVersion               | The version number of the dataset as assigned by Dataverse (see `versionNumber`); not applicable for VaaS DVEs |
+| Dataset Version Export | Has-Organizational-Identifier-Version | A version number or other version identifier assigned by the VaaS client. (see `versionNumber`)                |
+| Exported Data File     | path                                  | The path relative to the dataset root.                                                                         |
+| Exported Data File     | SHA1-checksum                         | The SHA1 checksum of the data file.                                                                            |
+
+#### OCFL Model
+
+| Class               | Attribute              | Description                                                                                                                |
+|---------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| OCFL Object         | ID                     | The OCFL object identifier.                                                                                                |
+| OCFL Object Version | OCFL version number    | The OCFL version number. This is an integer starting from 1 and incremented by one for each version                        |
+| OCFL Object Version | dataset-version        | Custom version property that contains the value of either dansDataversePidVersion or Has-Organizational-Identifier-Version |
+| OCFL Object Version | packaging-format       | Custom version property that documents what specification the internal structure of this object version conforms to.       |
+| OCFL Object Version | external-large-objects | An optional list of SHA-1 checksums of external large object (see remarks below)                                           |
 
 #### Remarks
 
 * `versionNumber` is optional for VaaS clients. However, not providing a value for `versionNumber` (through `Has-Organizational-Identifier-Version`) means that
   it may be harder to correctly restore the version history later.
+* For practical reasons DVEs are limited in size. (Currently, a maximum of 5G is used.) Any files above the cut-off limit are included through external
+  references. The way this is done is defined by the packaging format. For example, DANS RDA BagPack Profile declares that the bag may contain a BagIt
+  `fetch.txt` file to specify what files are missing, where to download them from and where to store them in the bag. To preserve these external dependencies
+  for the long term, they are stored in a companion [LOB-store]. This is a sibling directory of the Data Vault Storage Root with the same name + the extenion
+  `.lobs`, e.g., `archaeology.lobs`.
+
+[LOB-store]: lob-store.md
 
 ### Restoring datasets from the OCFL Storage Root
 

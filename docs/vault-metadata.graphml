@@ -228,7 +228,7 @@ SHA1-checksum
             <y:AttributeLabel xml:space="preserve">OCFL version number
 dataset-version)*
 packaging-format)*
-
+external-large-objects)*
 
 
 
