@@ -55,23 +55,19 @@ used by [dd-sword2](#dd-sword2) to authenticate its clients by their Dataverse a
 
 [dd-dataverse-authenticator]: https://dans-knaw.github.io/dd-dataverse-authenticator/
 
-## dd-dataverse-cli
+## dd-dv-cli
 
 Command line tool for interacting with the [Dataverse] service. It uses [dans-dataverse-client-lib] to communicate with the Dataverse API.
 
-| Docs                               | Code                                                            |
-|------------------------------------|-----------------------------------------------------------------|
-| [dd-dataverse-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-dataverse-cli>{:target=_blank} |
+| Docs                        | Code                                                     |
+|-----------------------------|----------------------------------------------------------|
+| [dd-dv-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-dv-cli>{:target=_blank} |
 
 [Dataverse]: dataverse.md
 
-[dd-dataverse-cli]: https://dans-knaw.github.io/dd-dataverse-cli/
+[dd-dv-cli]: https://dans-knaw.github.io/dd-dv-cli/
 
 [dans-dataverse-client-lib]: dans-libraries.md#dans-dataverse-client-lib
-
-!!! note "Replacement for dans-datastation-tools"
-
-    This will replace most of the old [dans-datastation-tools](#dans-datastation-tools-deprecated) command line tools, which are now deprecated.
 
 ## dd-dataverse-ingest
 
@@ -151,27 +147,35 @@ Service for preparing Dataset Version Exports for storage in the [DANS Data Vaul
 dataset with the [BRI-GMH resolver]{:target=_blank}, creating a [vault catalog](#dd-vault-catalog) entry and handing over the bag to
 the [dd-data-vault](#dd-data-vault) service.
 
-| Docs                                   | Code                                                                |
-|----------------------------------------|---------------------------------------------------------------------|
-| [dd-transfer-to-vault]{:target=_blank} | <https://github.com/DANS-KNAW/dd-transfer-to-vault>{:target=_blank} |
+| Docs                                       | Code                                                                    |
+|--------------------------------------------|-------------------------------------------------------------------------|
+| [dd-transfer-to-vault]{:target=_blank}     | <https://github.com/DANS-KNAW/dd-transfer-to-vault>{:target=_blank}     |
+| [dd-transfer-to-vault-api]{:target=_blank} | <https://github.com/DANS-KNAW/dd-transfer-to-vault-api>{:target=_blank} |
+| [dd-transfer-to-vault-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-transfer-to-vault-cli>{:target=_blank} |
 
 [dd-transfer-to-vault]: https://dans-knaw.github.io/dd-transfer-to-vault/
+
+[dd-transfer-to-vault-api]: https://dans-knaw.github.io/dd-transfer-to-vault-api/
+
+[dd-transfer-to-vault-cli]: https://dans-knaw.github.io/dd-transfer-to-vault-cli/
 
 ## dd-validate-bagpack
 
 Service that checks whether a bag complies with the [BagPack specification]{:target=_blank} and the DANS BagPack Profile. This service is used
 by [dd-transfer-to-vault](#dd-transfer-to-vault) to make sure that the Dataset Version Exports (DVE) that are uploaded to the DANS Data Vault are valid.
 
-| Docs                                   | Code                                                                |
-|----------------------------------------|---------------------------------------------------------------------|
-| [dd-validate-bagback]{:target=_blank}  | <https://github.com/DANS-KNAW/dd-validate-bagback>{:target=_blank}  |
-| [dans-bagpack-profile]{:target=_blank} | <https://github.com/DANS-KNAW/dans-bagpack-profile>{:target=_blank} |
+| Docs                                      | Code                                                                   |
+|-------------------------------------------|------------------------------------------------------------------------|
+| [dd-validate-bagpack]{:target=_blank}     | <https://github.com/DANS-KNAW/dd-validate-bagpack>{:target=_blank}     |
+| [dd-validate-bagpack-api]{:target=_blank} | <https://github.com/DANS-KNAW/dd-validate-bagpack-api>{:target=_blank} |    
+| [dd-validate-bagpack-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-validate-bagpack-cli>{:target=_blank} |    
+| [dans-bagpack-profile]{:target=_blank}    | <https://github.com/DANS-KNAW/dans-bagpack-profile>{:target=_blank}    |
 
-!!! note "NOT YET IMPLEMENTED"
+[dd-validate-bagpack]: https://dans-knaw.github.io/dd-validate-bagpack/
 
-    This service is not yet implemented.
+[dd-validate-bagpack-api]: https://dans-knaw.github.io/dd-validate-bagpack-api/
 
-[dd-validate-bagback]: https://dans-knaw.github.io/dd-validate-bagback/
+[dd-validate-bagpack-cli]: https://dans-knaw.github.io/dd-validate-bagpack-cli/
 
 [dans-bagpack-profile]: {{ dans_bagpack_profile }}
 
