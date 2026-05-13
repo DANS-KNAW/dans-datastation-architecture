@@ -107,6 +107,23 @@ Command line tool for interacting with the [BRI-GMH resolver]{:target=_blank} to
 
 [BRI-GMH resolver]: https://persistent-identifier.nl/
 
+## dd-lob-store
+
+Service that manages [Large Object Stores](lob-store.md). It provides a REST API for storing and retrieving large objects that are part of a Dataset Version
+Export.
+
+| Docs                               | Code                                                            |
+|------------------------------------|-----------------------------------------------------------------|
+| [dd-lob-store]{:target=_blank}     | <https://github.com/DANS-KNAW/dd-lob-store>{:target=_blank}     |
+| [dd-lob-store-api]{:target=_blank} | <https://github.com/DANS-KNAW/dd-lob-store-api>{:target=_blank} |
+| [dd-lob-store-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-lob-store-cli>{:target=_blank} |
+
+[dd-lob-store]: https://dans-knaw.github.io/dd-lob-store/
+
+[dd-lob-store-api]: https://dans-knaw.github.io/dd-lob-store-api/
+
+[dd-lob-store-cli]: https://dans-knaw.github.io/dd-lob-store-cli/
+
 ## dd-manage-deposit
 
 Service that manages and maintains information about deposits in a deposit area.
@@ -127,6 +144,16 @@ Service that manages and maintains information about deposits in a deposit area.
 [dd-manage-deposit-api]: https://dans-knaw.github.io/dd-manage-deposit-api/
 
 [dd-manage-deposit-cli]: https://dans-knaw.github.io/dd-manage-deposit-cli/
+
+## dd-register-nbn
+
+Service for registering NBNs (National Bibliography Numbers) with the [NBN Resolver](nbn-resolver.md).
+
+| Docs                              | Code                                                           |
+|-----------------------------------|----------------------------------------------------------------|
+| [dd-register-nbn]{:target=_blank} | <https://github.com/DANS-KNAW/dd-register-nbn>{:target=_blank} |
+
+[dd-register-nbn]: https://dans-knaw.github.io/dd-register-nbn/
 
 ## dd-sword2
 
@@ -161,7 +188,7 @@ the [dd-data-vault](#dd-data-vault) service.
 
 ## dd-validate-bagpack
 
-Service that checks whether a bag complies with the [BagPack specification]{:target=_blank} and the DANS BagPack Profile. This service is used
+Service that checks whether a bag complies with the [BagPack specification]{:target=_blank} and the [DANS BagPack Profile]{:target=_blank}. This service is used
 by [dd-transfer-to-vault](#dd-transfer-to-vault) to make sure that the Dataset Version Exports (DVE) that are uploaded to the DANS Data Vault are valid.
 
 | Docs                                      | Code                                                                   |
@@ -178,6 +205,8 @@ by [dd-transfer-to-vault](#dd-transfer-to-vault) to make sure that the Dataset V
 [dd-validate-bagpack-cli]: https://dans-knaw.github.io/dd-validate-bagpack-cli/
 
 [dans-bagpack-profile]: {{ dans_bagpack_profile }}
+
+[DANS BagPack profile]: {{ dans_bagpack_profile }}
 
 [BagPack specification]: {{ bagpack_specs }}
 
@@ -265,3 +294,13 @@ A service that scans all files in a dataset for virus using `clamav` and blocks 
 [dd-virus-scan]: https://dans-knaw.github.io/dd-virus-scan/
 
 [dd-virus-scan-api]: https://dans-knaw.github.io/dd-virus-scan-api/
+
+## dans-dv-upload
+
+A portable, cross-platform tool for uploading files to Dataverse, supporting both command-line and GUI modes.
+
+| Docs                             | Code                                                          |
+|----------------------------------|---------------------------------------------------------------|
+| [dans-dv-upload]{:target=_blank} | <https://github.com/DANS-KNAW/dans-dv-upload>{:target=_blank} |
+
+[dans-dv-upload]: https://github.com/DANS-KNAW/dans-dv-upload/blob/master/README.md
