@@ -265,13 +265,3 @@ A service that scans all files in a dataset for virus using `clamav` and blocks 
 [dd-virus-scan]: https://dans-knaw.github.io/dd-virus-scan/
 
 [dd-virus-scan-api]: https://dans-knaw.github.io/dd-virus-scan-api/
-
-## dans-datastation-tools (deprecated)
-
-Command line utilities for Data Station application management.
-
-| Docs                                     | Code                                                                  |
-|------------------------------------------|-----------------------------------------------------------------------|
-| [dans-datastation-tools]{:target=_blank} | <https://github.com/DANS-KNAW/dans-datastation-tools>{:target=_blank} |
-
-[dans-datastation-tools]: https://dans-knaw.github.io/dans-datastation-tools/
