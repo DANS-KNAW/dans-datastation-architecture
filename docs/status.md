@@ -1,46 +1,93 @@
 Build status
 ============
 
-| Component                     | Build status                                                                                                                                                                                                 |
-|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dataverse                     | [![Maven Unit Tests](https://github.com/IQSS/dataverse/actions/workflows/maven_unit_test.yml/badge.svg)](https://github.com/IQSS/dataverse/actions/workflows/maven_unit_test.yml)                            |
-| dans-api-archetype            | [![Build project](https://github.com/DANS-KNAW/dans-api-archetype/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-api-archetype/actions/workflows/build.yml)                       |
-| dans-bagit-lib                | [![Build project](https://github.com/DANS-KNAW/dans-bagit-lib/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-bagit-lib/actions/workflows/build.yml)                               |
-| dans-cli-archetype            | [![Build project](https://github.com/DANS-KNAW/dans-cli-archetype/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-cli-archetype/actions/workflows/build.yml)                       |
-| dans-converter-lib            | [![Build project](https://github.com/DANS-KNAW/dans-converter-lib/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-converter-lib/actions/workflows/build.yml)                       |
-| dans-dataverse-client-lib     | [![Build project](https://github.com/DANS-KNAW/dans-dataverse-client-lib/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-dataverse-client-lib/actions/workflows/build.yml)         |
-| dans-java-utils               | [![Build project](https://github.com/DANS-KNAW/dans-java-utils/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-java-utils/actions/workflows/build.yml)                             |
-| dans-layer-store-lib          | [![Build project](https://github.com/DANS-KNAW/dans-layer-store-lib/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-layer-store-lib/actions/workflows/build.yml)                   |
-| dans-module-archetype         | [![Build project](https://github.com/DANS-KNAW/dans-module-archetype/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-module-archetype/actions/workflows/build.yml)                 |
-| dans-ocfl-java-extensions-lib | [![Build project](https://github.com/DANS-KNAW/dans-ocfl-java-extensions-lib/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-ocfl-java-extensions-lib/actions/workflows/build.yml) |
-| dans-schema                   | [![Build project](https://github.com/DANS-KNAW/dans-schema/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-schema/actions/workflows/build.yml)                                     |
-| dans-validation-lib           | [![Build project](https://github.com/DANS-KNAW/dans-validation-lib/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dans-validation-lib/actions/workflows/build.yml)                     |
-| dd-dans-sword2-examples       | [![Build project](https://github.com/DANS-KNAW/dd-dans-sword2-examples/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-dans-sword2-examples/actions/workflows/build.yml)             |
-| dd-data-vault                 | [![Build project](https://github.com/DANS-KNAW/dd-data-vault/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-data-vault/actions/workflows/build.yml)                                 |
-| dd-data-vault-api             | [![Build project](https://github.com/DANS-KNAW/dd-data-vault-api/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-data-vault-api/actions/workflows/build.yml)                         |
-| dd-data-vault-cli             | [![Build project](https://github.com/DANS-KNAW/dd-data-vault-cli/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-data-vault-cli/actions/workflows/build.yml)                         |
-| dd-dataverse-authenticator    | [![Build project](https://github.com/DANS-KNAW/dd-dataverse-authenticator/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-dataverse-authenticator/actions/workflows/build.yml)       |
-| dd-dataverse-cli              | [![Build project](https://github.com/DANS-KNAW/dd-dataverse-cli/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-dataverse-cli/actions/workflows/build.yml)                           |
-| dd-dataverse-ingest           | [![Build project](https://github.com/DANS-KNAW/dd-dataverse-ingest/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-dataverse-ingest/actions/workflows/build.yml)                     |
-| dd-dataverse-ingest-api       | [![Build project](https://github.com/DANS-KNAW/dd-dataverse-ingest-api/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-dataverse-ingest-api/actions/workflows/build.yml)             |
-| dd-dataverse-ingest-cli       | [![Build project](https://github.com/DANS-KNAW/dd-dataverse-ingest-cli/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-dataverse-ingest-cli/actions/workflows/build.yml)             |
-| dd-gmh-api                    | [![Build project](https://github.com/DANS-KNAW/dd-gmh-api/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-gmh-api/actions/workflows/build.yml)                                       |
-| dd-gmh-cli                    | [![Build project](https://github.com/DANS-KNAW/dd-gmh-cli/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-gmh-cli/actions/workflows/build.yml)                                       |
-| dd-manage-deposit             | [![Build project](https://github.com/DANS-KNAW/dd-manage-deposit/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-manage-deposit/actions/workflows/build.yml)                         |
-| dd-manage-deposit-api         | [![Build project](https://github.com/DANS-KNAW/dd-manage-deposit-api/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-manage-deposit-api/actions/workflows/build.yml)                 |
-| dd-manage-deposit-cli         | [![Build project](https://github.com/DANS-KNAW/dd-manage-deposit-cli/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-manage-deposit-cli/actions/workflows/build.yml)                 |
-| dd-parent                     | [![Build project](https://github.com/DANS-KNAW/dd-parent/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-parent/actions/workflows/build.yml)                                         |
-| dd-sword2                     | [![Build project](https://github.com/DANS-KNAW/dd-sword2/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-sword2/actions/workflows/build.yml)                                         |
-| dd-transfer-to-vault          | [![Build project](https://github.com/DANS-KNAW/dd-transfer-to-vault/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-transfer-to-vault/actions/workflows/build.yml)                   |
-| dd-validate-dans-bag          | [![Build project](https://github.com/DANS-KNAW/dd-validate-dans-bag/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-validate-dans-bag/actions/workflows/build.yml)                   |
-| dd-validate-dans-bag-api      | [![Build project](https://github.com/DANS-KNAW/dd-validate-dans-bag-api/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-validate-dans-bag-api/actions/workflows/build.yml)           |
-| dd-validate-dans-bag-cli      | [![Build project](https://github.com/DANS-KNAW/dd-validate-dans-bag-cli/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-validate-dans-bag-cli/actions/workflows/build.yml)           |
-| dd-vault-catalog              | [![Build project](https://github.com/DANS-KNAW/dd-vault-catalog/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-vault-catalog/actions/workflows/build.yml)                           |
-| dd-vault-catalog-api          | [![Build project](https://github.com/DANS-KNAW/dd-vault-catalog-api/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-vault-catalog-api/actions/workflows/build.yml)                   |
-| dd-vault-catalog-cli          | [![Build project](https://github.com/DANS-KNAW/dd-vault-catalog-cli/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-vault-catalog-cli/actions/workflows/build.yml)                   |
-| dd-vault-ingest               | [![Build project](https://github.com/DANS-KNAW/dd-vault-ingest/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-vault-ingest/actions/workflows/build.yml)                             |
-| dd-vault-metadata             | [![Build project](https://github.com/DANS-KNAW/dd-vault-metadata/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-vault-metadata/actions/workflows/build.yml)                         |
-| dd-vault-metadata-api         | [![Build project](https://github.com/DANS-KNAW/dd-vault-metadata-api/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-vault-metadata-api/actions/workflows/build.yml)                 |
-| dd-virus-scan                 | [![Build project](https://github.com/DANS-KNAW/dd-virus-scan/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-virus-scan/actions/workflows/build.yml)                                 |
-| dd-virus-scan-api             | [![Build project](https://github.com/DANS-KNAW/dd-virus-scan-api/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/dd-virus-scan-api/actions/workflows/build.yml)                         |
-| easy-mirror-deposit           | [![Build project](https://github.com/DANS-KNAW/easy-mirror-deposit/actions/workflows/build.yml/badge.svg)](https://github.com/DANS-KNAW/easy-mirror-deposit/actions/workflows/build.yml)                     |
+<table id="status-table">
+    <thead>
+        <tr>
+            <th>Component</th>
+            <th>Build status</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    const dansModules = [
+        "dans-api-archetype",
+        "dans-bagit-lib",
+        "dans-cli-archetype",
+        "dans-converter-lib",
+        "dans-dataverse-client-lib",
+        "dans-java-utils",
+        "dans-layer-store-lib",
+        "dans-module-archetype",
+        "dans-ocfl-java-extensions-lib",
+        "dans-schema",
+        "dans-validation-lib",
+        "dd-dans-sword2-examples",
+        "dd-data-vault",
+        "dd-data-vault-api",
+        "dd-data-vault-cli",
+        "dd-dataverse-authenticator",
+        "dd-dataverse-cli",
+        "dd-dataverse-ingest",
+        "dd-dataverse-ingest-api",
+        "dd-dataverse-ingest-cli",
+        "dd-gmh-api",
+        "dd-gmh-cli",
+        "dd-manage-deposit",
+        "dd-manage-deposit-api",
+        "dd-manage-deposit-cli",
+        "dd-parent",
+        "dd-sword2",
+        "dd-transfer-to-vault",
+        "dd-validate-dans-bag",
+        "dd-validate-dans-bag-api",
+        "dd-validate-dans-bag-cli",
+        "dd-vault-catalog",
+        "dd-vault-catalog-api",
+        "dd-vault-catalog-cli",
+        "dd-vault-ingest",
+        "dd-vault-metadata",
+        "dd-vault-metadata-api",
+        "dd-virus-scan",
+        "dd-virus-scan-api"
+    ];
+
+    function addModule(modulename, baseUrl = "https://github.com/DANS-KNAW", workflow = "build.yml", badgeName = "Build project") {
+        const tableBody = document.querySelector('#status-table tbody');
+        const row = document.createElement('tr');
+
+        const nameCell = document.createElement('td');
+        nameCell.textContent = modulename;
+        row.appendChild(nameCell);
+
+        const statusCell = document.createElement('td');
+        const link = document.createElement('a');
+        link.href = `${baseUrl}/${modulename}/actions/workflows/${workflow}`;
+        link.target = '_blank';
+        
+        const badge = document.createElement('img');
+        badge.src = `${baseUrl}/${modulename}/actions/workflows/${workflow}/badge.svg`;
+        badge.alt = badgeName;
+        
+        link.appendChild(badge);
+        statusCell.appendChild(link);
+        row.appendChild(statusCell);
+
+        tableBody.appendChild(row);
+    }
+
+    function addDansModule(modulename) {
+        addModule(modulename);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Dataverse first
+        addModule("dataverse", "https://github.com/IQSS", "maven_unit_test.yml", "Maven Unit Tests");
+
+        // DANS modules sorted
+        dansModules.sort().forEach(addDansModule);
+    });
+</script>
