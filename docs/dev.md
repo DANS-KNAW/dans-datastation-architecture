@@ -1,22 +1,32 @@
 Development
 ===========
-The following sections discuss development on various parts of a Data Station. Some components are developed by DANS,
-other components are provided by open source projects in which DANS may participate.
+The following sections discuss development on various parts of a Data Station. Some components are being developed by DANS, other components are provided by
+open source projects in which DANS may participate.
 
 DANS microservices
 ------------------
-The DANS microservices are based on the [dans-module-archetype]{:target=_blank}. This archetype creates a skeleton
-microservice based on the [DropWizard]{:target=_blank} framework. When working on DANS microservices, please comply
-with the [best practises]{:target=_blank} documented in the dans-module-archetype documentation.
+The DANS microservices are based on the [dans-module-archetype]{:target=_blank}. This archetype creates a skeleton microservice based on the
+[DropWizard]{:target=_blank} framework. When working on DANS microservices, please comply with the [common practises](dev-common-practices.md).
 
 DANS command-line tools
 -----------------------
-DANS command line tools are written in Java as well. They are based on the [dans-cli-archetype]{:target=_blank}. This archetype
-creates a skeleton command line tool which uses some of the DropWizard facilities.
+DANS command line tools are written in Java as well. They are based on the [dans-cli-archetype]{:target=_blank}. This archetype creates a skeleton command line
+tool which uses some of the DropWizard facilities.
 
-!!! note "Python command line tools"
+DANS APIs
+---------
+Most of the [DANS microservices](#dans-microservices) implement an API. The API is specified in an OpenAPI document which is packaged as an artifact by a
+separated module. The microservice and command-line tool use this artifact to generate the server and client proxies respectively. If a microservice calls
+another DANS microservice, it will use that other microservice's API module to generate a client proxy as well.
 
-    Previously DANS command line tools were written in Python, but his approach is being phased out.
+There is an archetype to create API modules called [dans-api-archetype]{:target=_blank}.
+
+!!! note "Project names"
+
+    * Microservices, command-line tools and APIs have name starting with `dd-`.
+    * Command-line tools base their name on the microservice they call, adding the suffix `-cli`, e.g., `dd-data-vault-cli`.
+    * API modules also base their name on the microservice they belong to, adding the suffix `-api`, e.g., `dd-data-vault-api`.
+    * Libraries, plugins and profiles have names starting with `dans-`, e.g., `dans-bagit-profile`.
 
 Dataverse
 ---------
@@ -34,7 +44,7 @@ Skosmos
 -------
 [Skosmos]{:target=_blank} is used to serve vocabulary terms to Dataverse. DANS is currently not actively involved in
 development, but it is entirely possible that bug fixes may need to be contributed in the future. The project is written
-in PHP but there is no information on the Skosmos website about the development environment set-up.
+in PHP, but there is no information on the Skosmos website about the development environment set-up.
 
 Documentation with mkdocs
 -------------------------
@@ -49,7 +59,9 @@ Local testing
 The [dans-dev-scripts]{:target=_blank} can also be used to run microservices and command-line tools from their project directory.
 See the README.md in the project for more information.
 
-[dans-module-archetype]: https://dans-knaw.github.io/dans-module-archetype/
+[dans-api-archetype]: https://dans-knaw.github.io/dans-api-archetype/
+
+[dans-module-archetype]: https://dans-knaw.github.io/dans-smodule-archetype/
 
 [dans-cli-archetype]: https://dans-knaw.github.io/dans-cli-archetype/
 
@@ -72,3 +84,4 @@ See the README.md in the project for more information.
 [dans-dev-scripts]: https://github.com/DANS-KNAW/dans-dev-scripts
 
 [Skosmos]: {{ skosmos_url }}
+

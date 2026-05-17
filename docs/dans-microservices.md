@@ -278,10 +278,6 @@ catalogue the long-term preservation copy of the dataset version when it is stor
 
 [Vault Metadata block]: {{ vault_metadata_block }}
 
-!!! note "API not yet implemented"
-
-    The current implementation of `dd-vault-metadata` does not yet implement `dd-vault-metadata-api`, but instead has a manually coded API.
-
 ## dd-virus-scan
 
 A service that scans all files in a dataset for virus using `clamav` and blocks publication if a virus is found.

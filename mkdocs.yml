@@ -43,6 +43,7 @@ nav:
       - Dataverse: dataverse.md
       - DANS Microservices & Tools: dans-microservices.md
       - DANS Libraries: dans-libraries.md
+      - DANS Maven plugins: dans-maven-plugins.md
       - Skosmos: skosmos.md
       - NBN Resolver (KB): nbn-resolver.md
       - Object Store (SURF): object-store.md

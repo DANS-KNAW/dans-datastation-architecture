@@ -8,6 +8,7 @@ the [Data Station architecture](./datastation.md).
 * [Dataverse](./dataverse.md)
 * [DANS Microservices](./dans-microservices.md)
 * [DANS Libraries](./dans-libraries.md)
+* [DANS Maven plugins](./dans-maven-plugins.md)
 * [Skosmos](./skosmos.md)
 * [NBN Resolver](./nbn-resolver.md)
 * [SURF Data Archive](./data-archive.md)
