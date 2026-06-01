@@ -144,11 +144,6 @@ Service that manages and maintains information about deposits in a deposit area.
 | [dd-manage-deposit-api]{:target=_blank} | <https://github.com/DANS-KNAW/dd-manage-deposit-api>{:target=_blank} |
 | [dd-manage-deposit-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-manage-deposit-cli>{:target=_blank} |
 
-!!! note "API and CLI not yet implemented"
-
-    The current implementation of `dd-manage-deposit` does not yet implement `dd-manage-deposit-api` and `dd-manage-deposit-cli`, but instead has a
-    manually coded API and CLI.
-
 [dd-manage-deposit]: https://dans-knaw.github.io/dd-manage-deposit/
 
 [dd-manage-deposit-api]: https://dans-knaw.github.io/dd-manage-deposit-api/
