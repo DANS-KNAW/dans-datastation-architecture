@@ -114,14 +114,8 @@ Service that checks the integrity of Dataverse datafiles.
 | Docs                                     | Code                                                                   |
 |------------------------------------------|------------------------------------------------------------------------|
 | [dd-integrity-check]{:target=_blank}     | <https://github.com/DANS-KNAW/dd-integrity-check>{:target=_blank}     |
-| [dd-integrity-check-api]{:target=_blank} | <https://github.com/DANS-KNAW/dd-integrity-check-api>{:target=_blank} |
-| [dd-integrity-check-cli]{:target=_blank} | <https://github.com/DANS-KNAW/dd-integrity-check-cli>{:target=_blank} |
 
 [dd-integrity-check]: https://dans-knaw.github.io/dd-integrity-check/
-
-[dd-integrity-check-api]: https://dans-knaw.github.io/dd-integrity-check-api/
-
-[dd-integrity-check-cli]: https://dans-knaw.github.io/dd-integrity-check-cli/
 
 ## dd-lob-store
 
