@@ -24,22 +24,17 @@ The structure of the LOB-store is as simple as possible. Its main purpose is to 
 
 ```
 
-A bucket may contain one or more files. The name of a bucket is a UUID in hexadecimal. To avoid problems with the filesystem or tools, the name is split over
-two directory-levels, with the first two characters forming the name of the first level, e.g.,
+A bucket may contain one or more files. The name of a bucket is a UUID in hexadecimal, e.g.:
 
-```text 
+```text
 archive/data-vault/archaeology.lobs
-├── ab
-│   └── a954c1-94bf-4daa-896b-203973153904
+├── aba954c1-94bf-4daa-896b-203973153904
 │        ....
-└── d1
-    └── a86859-d0e9-4aaa-874d-7659828c8b1b
-        └── d1a86859-d0e9-4aaa-874d-7659828c8b1b.dmftar
-            └── 0000
-                ├── d1a86859-d0e9-4aaa-874d-7659828c8b1b.tar
-                ├── d1a86859-d0e9-4aaa-874d-7659828c8b1b.tar.chksum
-                └── d1a86859-d0e9-4aaa-874d-7659828c8b1b.tar.idx
-
+└── d1a86859-d0e9-4aaa-874d-7659828c8b1b.dmftar
+    └── 0000
+        ├── d1a86859-d0e9-4aaa-874d-7659828c8b1b.tar
+        ├── d1a86859-d0e9-4aaa-874d-7659828c8b1b.tar.chksum
+        └── d1a86859-d0e9-4aaa-874d-7659828c8b1b.tar.idx
 ```
 
 Retrieving an object
@@ -49,15 +44,15 @@ The name of each file is its SHA-1 digest. To look up a file, scan all the .idx 
 the file with:
 
 ```text
-dmftar -x -f store.lobs/<bucket>.dmftar `./<sha1>` 
+dmftar -x -f store.lobs/<bucket>.dmftar './<sha1>' 
 ```
 
-e.g.,
+e.g., to extract the file with SHA-1 `3f24c343d7e7e1d8606c894689625de5a53df28c` from bucket `d1a86859-d0e9-4aaa-874d-7659828c8b1b`:
 
 ```bash
-dmftar -x -f \
-   archive/data-vault/archaeology.lobs/d1/a86859-d0e9-4aaa-874d-7659828c8b1b/d1a86859-d0e9-4aaa-874d-7659828c8b1b.dmftar \
-     ./3f24c343d7e7e1d8606c894689625de5a53df28c
+dmftar \ 
+  -x -f archive/data-vault/archaeology.lobs/d1a86859-d0e9-4aaa-874d-7659828c8b1b.dmftar \ 
+  ./3f24c343d7e7e1d8606c894689625de5a53df28c
 ```
 
 !!! alert "Increasing look-up speed"
