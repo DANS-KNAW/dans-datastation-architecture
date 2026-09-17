@@ -16,7 +16,6 @@ Build status
     const dansModules = [
         "dans-api-archetype",
         "dans-bagit-lib",
-        // "dans-bagpack-lib", // only a stub so far
         "dans-build-resources-maven-plugin",
         "dans-cli-archetype",
         "dans-converter-lib",
