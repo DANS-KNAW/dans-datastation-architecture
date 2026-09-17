@@ -5,7 +5,8 @@ Build status
     <thead>
         <tr>
             <th>Component</th>
-            <th>Build status</th>
+            <th>Build</th>
+            <th>Documentation</th>
         </tr>
     </thead>
     <tbody>
@@ -69,6 +70,12 @@ Build status
         "dd-virus-scan-api"
     ];
 
+    const noDocsModules = [
+        "dataverse",
+        "dans-dv-upload",
+        "dd-parent"
+    ];
+
     function addModule(modulename, baseUrl = "https://github.com/DANS-KNAW", workflow = "build.yml", badgeName = "Build project") {
         const tableBody = document.querySelector('#status-table tbody');
         const row = document.createElement('tr');
@@ -89,6 +96,24 @@ Build status
         link.appendChild(badge);
         statusCell.appendChild(link);
         row.appendChild(statusCell);
+
+        const docsBuildCell = document.createElement('td');
+        const docsLink = document.createElement('a');
+        docsLink.href = `${baseUrl}/${modulename}/actions/workflows/docs.yml`;
+        docsLink.target = '_blank';
+
+        const docsBadge = document.createElement('img');
+        docsBadge.src = `${baseUrl}/${modulename}/actions/workflows/docs.yml/badge.svg`;
+        docsBadge.alt = "Documentation build";
+
+        if (noDocsModules.includes(modulename)) { 
+            docsBuildCell.textContent = "N/a";  
+            row.appendChild(docsBuildCell);
+        } else {
+            docsLink.appendChild(docsBadge);
+            docsBuildCell.appendChild(docsLink);
+            row.appendChild(docsBuildCell);
+        }
 
         tableBody.appendChild(row);
     }
