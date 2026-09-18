@@ -81,7 +81,11 @@ Build status
         const row = document.createElement('tr');
 
         const nameCell = document.createElement('td');
-        nameCell.textContent = modulename;
+        const projectLink = document.createElement('a');
+        projectLink.href = `${baseUrl}/${modulename}`;
+        projectLink.target = '_blank';
+        projectLink.textContent = modulename;
+        nameCell.appendChild(projectLink);
         row.appendChild(nameCell);
 
         const statusCell = document.createElement('td');
