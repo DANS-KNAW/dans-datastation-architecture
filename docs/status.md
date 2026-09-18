@@ -1,6 +1,9 @@
 Build status
 ============
 
+This table should give the current build status of the components and their documentation sites in the DANS DataStation architecture. If an item shows up as 
+failing, please verify by clicking on the project link. The status reported here appears to lag behind in some cases.
+
 <table id="status-table">
     <thead>
         <tr>
