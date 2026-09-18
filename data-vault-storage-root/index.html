@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Data Vault Storage Root - dans-datastation-architecture</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+        <link href="../stylesheets/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data Vault Storage Root";
+        var mkdocs_page_input_path = "data-vault-storage-root.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> dans-datastation-architecture
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../core-services/">Core Services</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../datastation/">Data Station</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configurations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configurations/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataversenl/">DataverseNL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vaas/">Vault as a Service</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">External interfaces</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../external-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sword/">SWORD</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Data Vault Storage Root</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ocfl-repositories">OCFL repositories</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#extensions">Extensions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dataset-model-mapping">Dataset model mapping</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-mapping-scheme">Basic mapping scheme</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#structural-attributes">Structural attributes</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#dans-dataset-model">DANS Dataset Model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#dataset-version-export">Dataset Version Export</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ocfl-model">OCFL Model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#remarks">Remarks</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#restoring-datasets-from-the-ocfl-storage-root">Restoring datasets from the OCFL Storage Root</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#serialization-in-layers">Serialization in layers</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lob-store/">Large Object Store</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Internal interfaces</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../internal-interfaces/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deposit-directory/">Deposit Directory</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Components</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../components/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dataverse/">Dataverse</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dans-microservices/">DANS Microservices & Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dans-libraries/">DANS Libraries</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dans-maven-plugins/">DANS Maven plugins</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../skosmos/">Skosmos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nbn-resolver/">NBN Resolver (KB)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../object-store/">Object Store (SURF)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-archive/">Data Archive (SURF)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data flow</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../vault-pipeline/">Data Vault pipeline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev-common-practices/">Common practices</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../status/">Build status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">dans-datastation-architecture</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">External interfaces</li>
+      <li class="breadcrumb-item active">Data Vault Storage Root</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/DANS-KNAW/dans-datastation-architecture/edit/master/docs/data-vault-storage-root.md">Edit on DANS-KNAW/dans-datastation-architecture</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="data-vault-storage-root">Data Vault Storage Root<a class="headerlink" href="#data-vault-storage-root" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The Data Vault is subdivided into <strong>Storage Roots</strong>, containing the long-term preservation copies for Data Stations and "Vault as a Service" (VaaS) customers.
+The Data Vault Storage Root (DVSR) can be viewed as a type of interface, or exchange format, albeit an atypical one, as it is aimed at future users, rather than
+current ones.</p>
+<div class="admonition alert">
+<p class="admonition-title">dd-data-vault interface</p>
+<p>Do not confuse the DVSR with the <a href="../dans-microservices/#dd-data-vault">service interface of dd-data-vault</a>, which is an internal microservice interface that is used by the <a href="../dans-microservices/#dd-transfer-to-vault">transfer service</a> to 
+store data in the Data Vault.</p>
+</div>
+<h2 id="ocfl-repositories">OCFL repositories<a class="headerlink" href="#ocfl-repositories" title="Permanent link">&para;</a></h2>
+<p>The DANS Data Vault is implemented as an array of <strong>OCFL</strong> repositories. OCFL stands for <a href="https://ocfl.io/" target="_blank">Oxford Common File Layout</a>. It is a community
+specification for the layout of a repository that stores versioned digital objects. Each repository, or "storage root," is one
+<strong>Data Vault Storage Root (DVSR)</strong>. The Data Stations each have their own DVSR as does each customer of the Vault as a Service.</p>
+<h3 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h3>
+<p>OCFL can be extended with additional metadata and functionality. The DANS Data Vault uses the following extensions:</p>
+<ul>
+<li><a href="https://dans-knaw.github.io/dans-ocfl-extensions/object-version-properties/object-version-properties/" target="_blank">Object Version Properties</a> - This extension defines a way to specify custom properties for each version of an object.</li>
+<li><a href="https://dans-knaw.github.io/dans-ocfl-extensions/property-registry/property-registry/" target="_blank">Property Registry</a> - This extension defines a registry for properties that can be used in the Object Version Properties extension.</li>
+<li><a href="https://dans-knaw.github.io/dans-ocfl-extensions/packaging-format-registry/packaging-format-registry/" target="_blank">OCFL Packaging Format Registry</a> - This extension defines a list of packaging formats. Packging formats specify the internal structure of an
+  archived dataset version export.</li>
+</ul>
+<h2 id="dataset-model-mapping">Dataset model mapping<a class="headerlink" href="#dataset-model-mapping" title="Permanent link">&para;</a></h2>
+<p>OCFL has a generic object model. It does not define the concept of a dataset. The DANS archival systems (Data Stations and Vault as a Service), on the other
+hand, are built around the dataset concept. It is essential that the datasets stored in the Vault can be reconstructed from the OCFL objects. For this purpose
+this section documents the mapping between the two models.</p>
+<h3 id="basic-mapping-scheme">Basic mapping scheme<a class="headerlink" href="#basic-mapping-scheme" title="Permanent link">&para;</a></h3>
+<p>The basic mapping scheme is concerned with reconstructing datasets and their version histories from OCFL objects.</p>
+<table>
+<thead>
+<tr>
+<th>DANS dataset model</th>
+<th>OCFL model</th>
+<th>Multiplicity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset</td>
+<td>OCFL Object</td>
+<td>1-to-1</td>
+</tr>
+<tr>
+<td>Dataset Version</td>
+<td>OCFL Object Version</td>
+<td>1-to-1..*</td>
+</tr>
+</tbody>
+</table>
+<p>A Dataset corresponds to one OCFL Object. Each OCFL Object Version stores one Data Version Export (DVE). A DVE is a package containing all the data files and
+metadata of the Dataset Version at the time of export. The structure and metadata schemas of the DVE are documented in a "packaging format" specification.</p>
+<div class="admonition note">
+<p class="admonition-title">Data Files and OCFL Content Files</p>
+<p>Data Files and OCFL Content Files have been left out of the table above because it is the packaging format that defines the exact way a Data File is stored.
+Also, some metadata may be stored as OCFL Content Files, so there is not necessarily a 1-to-1 mapping between a Data File and an OCFL Content File.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">BagPack</p>
+<p>The current packaging format is called <strong><a href="http://doi.org/10.15497/RDA00025" target="_blank">BagPack</a></strong>. It is a recommendation by the Research Data Alliance (RDA) and is implemented as an 
+export/import format by Dataverse. For VaaS, DANS has implemented BagPack to closely resemble the Dataverse implementation.</p>
+</div>
+<p>One Dataset Version may be exported multiple times (see below for an example). Therefore, there is a 1-to-<em>n</em> mapping between a Dataset Version and an OCFL
+Object Version, with <em>n &gt; 0</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">A multiple exports scenario</p>
+<p>A scenario where a dataset version is exported multiple times is when the dataset was updated in the Data Station without creating a new version. This can 
+be done by a superuser and is known as <strong>"updatecurrent"</strong>. A new Dataset Version Export will be created and therefore a new OCFL Object Version will be 
+created as well. The Data Station version history, however, will <strong>not</strong> display an additional version.</p>
+</div>
+<h3 id="structural-attributes">Structural attributes<a class="headerlink" href="#structural-attributes" title="Permanent link">&para;</a></h3>
+<p>The following diagram gives an overview of the structural attributes and how they are mapped to the OCFL model.</p>
+<p><img alt="Vault metadata" class="align-center" src="../vault-metadata.png" /></p>
+<p>Key to the columns:</p>
+<ul>
+<li><strong>DANS Dataset Model</strong>: how DANS conceptualizes datasets. This includes both Dataverse and VaaS datasets.</li>
+<li><strong>Dataset Version Exports</strong>: the relevant properties of the exported dataset versions.</li>
+<li><strong>OCFL Model</strong>: how OCFL conceptualizes objects and their versions. Note that the attributes marked with <code>)*</code> are custom version properties defined using the
+  <a href="#extensions">Object Version Properties</a> extension.</li>
+</ul>
+<p>The following table describes the classes and their attributes in more detail.</p>
+<script>
+window.addEventListener('load', function() {
+    setColumnWidths("Class", "25%", "30%", "45%");
+});
+</script>
+
+<h4 id="dans-dataset-model">DANS Dataset Model<a class="headerlink" href="#dans-dataset-model" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset</td>
+<td>NBN</td>
+<td>The URN:NBN that uniquely identifies the dataset in the Vault. This identifier is assigned by DANS.</td>
+</tr>
+<tr>
+<td>Dataset Version</td>
+<td>versionNumber</td>
+<td>A number or other identifier that records the version. In Dataverse this is a <code>major.minor</code> version number. For VaaS clients this can be anything and can even be omitted.</td>
+</tr>
+<tr>
+<td>Data File</td>
+<td>path</td>
+<td>The path relative to the dataset root.</td>
+</tr>
+<tr>
+<td>Data File</td>
+<td>SHA1-checksum</td>
+<td>The SHA1 checksum of the data file.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dataset-version-export">Dataset Version Export<a class="headerlink" href="#dataset-version-export" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset Version Export</td>
+<td>dansNbn</td>
+<td>The URN:NBN that uniquely identifies the parent dataset in the Vault</td>
+</tr>
+<tr>
+<td>Dataset Version Export</td>
+<td>dansDataversePidVersion</td>
+<td>The version number of the dataset as assigned by Dataverse (see <code>versionNumber</code>); not applicable for VaaS DVEs</td>
+</tr>
+<tr>
+<td>Dataset Version Export</td>
+<td>Has-Organizational-Identifier-Version</td>
+<td>A version number or other version identifier assigned by the VaaS client. (see <code>versionNumber</code>)</td>
+</tr>
+<tr>
+<td>Exported Data File</td>
+<td>path</td>
+<td>The path relative to the dataset root.</td>
+</tr>
+<tr>
+<td>Exported Data File</td>
+<td>SHA1-checksum</td>
+<td>The SHA1 checksum of the data file.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ocfl-model">OCFL Model<a class="headerlink" href="#ocfl-model" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OCFL Object</td>
+<td>ID</td>
+<td>The OCFL object identifier.</td>
+</tr>
+<tr>
+<td>OCFL Object Version</td>
+<td>OCFL version number</td>
+<td>The OCFL version number. This is an integer starting from 1 and incremented by one for each version</td>
+</tr>
+<tr>
+<td>OCFL Object Version</td>
+<td>dataset-version</td>
+<td>Custom version property that contains the value of either dansDataversePidVersion or Has-Organizational-Identifier-Version</td>
+</tr>
+<tr>
+<td>OCFL Object Version</td>
+<td>packaging-format</td>
+<td>Custom version property that documents what specification the internal structure of this object version conforms to.</td>
+</tr>
+<tr>
+<td>OCFL Object Version</td>
+<td>external-large-objects</td>
+<td>An optional list of SHA-1 checksums of external large object (see remarks below)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="remarks">Remarks<a class="headerlink" href="#remarks" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>versionNumber</code> is optional for VaaS clients. However, not providing a value for <code>versionNumber</code> (through <code>Has-Organizational-Identifier-Version</code>) means that
+  it may be harder to correctly restore the version history later.</li>
+<li>For practical reasons DVEs are limited in size. (Currently, a maximum of 5G is used.) Any files above the cut-off limit are included through external
+  references. The way this is done is defined by the packaging format. For example, DANS RDA BagPack Profile declares that the bag may contain a BagIt
+  <code>fetch.txt</code> file to specify what files are missing, where to download them from and where to store them in the bag. To preserve these external dependencies
+  for the long term, they are stored in a companion <a href="../lob-store/">LOB-store</a>. This is a sibling directory of the Data Vault Storage Root with the same name + the extenion
+  <code>.lobs</code>, e.g., <code>archaeology.lobs</code>.</li>
+</ul>
+<h3 id="restoring-datasets-from-the-ocfl-storage-root">Restoring datasets from the OCFL Storage Root<a class="headerlink" href="#restoring-datasets-from-the-ocfl-storage-root" title="Permanent link">&para;</a></h3>
+<p>By restoring a dataset we mean:</p>
+<ul>
+<li>retrieving its versions in the correct order and;</li>
+<li>for each version getting all the files and their dataset-relative filepath.</li>
+</ul>
+<p>The process is as follows:</p>
+<ol>
+<li>Retrieve the OCFL-object with all its versions by URN:NBN.</li>
+<li>Determine the <code>dataset-version</code> property for each object version.</li>
+<li>If there are multiple candidates for a version, choose the one with the highest OCFL version number, unless there is a specific reason to use an older
+   export.</li>
+<li>Retrieve the DVE from the content of each object version. The packaging format then determines how to extract the files and their dataset-relative filepaths.</li>
+</ol>
+<h2 id="serialization-in-layers">Serialization in layers<a class="headerlink" href="#serialization-in-layers" title="Permanent link">&para;</a></h2>
+<p>OCFL repositories can be serialized in different ways, for example, as a directory structure on a file system, or as objects in an object store. The DANS Data
+Vault uses the SURF <a href="https://www.surf.nl/en/services/data-archive" target="_blank">Data Archive</a> tape storage. The tape storage system that is used by Data Archive organizes files in a file-folder
+structure, so in principle serialization should be the same as to a disk-based files system, from OCFL's perspective. However, the tape storage system requires
+a minimum file size of 1GB, which is much larger than the typical data file stored in the DANS Data Vault. To meet this requirement, the OCFL repositories are
+stored as a series of DMFTAR archives, each of which is larger than 1GB. Each archive forms a layer. For a more detailed description of the layers, see the
+documentation of <a href="../dans-libraries/#dans-layer-store-lib" target="_blank">dans-layer-store-lib</a>.</p>
+<p>To restore the OCFL repository, the layers must be extracted in the correct order. SURF provides a utility called <a href="https://servicedesk.surf.nl/wiki/display/WIKI/Data+Archive%3A+Packaging+with+dmftar" target="_blank">dmftar</a> to create and extract
+DMFTAR archives. This utility is the interface to the tape storage system.</p>
+<div class="admonition alert">
+<p class="admonition-title">Restoring without the <code>dmftar</code> utility</p>
+<p>Even without the <code>dmftar</code> utility, it is possible to restore the OCFL repository, as long as the layers are extracted in the correct order. A DMFTAR archive 
+is just a lightweight wrapper around a TAR archive, implemented as a directory containing batches of (possibly multi-volume) TAR files along with index 
+files and a checksum file.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../sword/" class="btn btn-neutral float-left" title="SWORD"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../lob-store/" class="btn btn-neutral float-right" title="Large Object Store">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/DANS-KNAW/dans-datastation-architecture" class="fa fa-code-fork" style="color: #fcfcfc"> DANS-KNAW/dans-datastation-architecture</a>
+        </span>
+    
+    
+      <span><a href="../sword/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../lob-store/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+      <script src="../javascripts/extra.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
