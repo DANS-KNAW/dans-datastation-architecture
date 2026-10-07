@@ -79,7 +79,8 @@ failing, please verify by clicking on the project link. The status reported here
         "dd-parent"
     ];
 
-    function addModule(modulename, baseUrl = "https://github.com/DANS-KNAW", workflow = "build.yml", badgeName = "Build project") {
+    function addModule(modulename, baseUrl = "https://github.com/DANS-KNAW", workflow = "build.yml", badgeName = "Build project", branch = "master") {
+        const owner = baseUrl.replace(/^https:\/\/github\.com\//, '');
         const tableBody = document.querySelector('#status-table tbody');
         const row = document.createElement('tr');
 
@@ -93,12 +94,13 @@ failing, please verify by clicking on the project link. The status reported here
 
         const statusCell = document.createElement('td');
         const link = document.createElement('a');
-        link.href = `${baseUrl}/${modulename}/actions/workflows/${workflow}`;
+        link.href = `${baseUrl}/${modulename}/actions/workflows/${workflow}?query=branch%3A${branch}`;
         link.target = '_blank';
         
         const badge = document.createElement('img');
-        badge.src = `${baseUrl}/${modulename}/actions/workflows/${workflow}/badge.svg`;
+        badge.src = `https://img.shields.io/github/actions/workflow/status/${owner}/${modulename}/${workflow}?branch=${branch}`;
         badge.alt = badgeName;
+        badge.loading = 'lazy';
         
         link.appendChild(badge);
         statusCell.appendChild(link);
@@ -106,12 +108,13 @@ failing, please verify by clicking on the project link. The status reported here
 
         const docsBuildCell = document.createElement('td');
         const docsLink = document.createElement('a');
-        docsLink.href = `${baseUrl}/${modulename}/actions/workflows/docs.yml`;
+        docsLink.href = `${baseUrl}/${modulename}/actions/workflows/docs.yml?query=branch%3A${branch}`;
         docsLink.target = '_blank';
 
         const docsBadge = document.createElement('img');
-        docsBadge.src = `${baseUrl}/${modulename}/actions/workflows/docs.yml/badge.svg`;
+        docsBadge.src = `https://img.shields.io/github/actions/workflow/status/${owner}/${modulename}/docs.yml?branch=${branch}`;
         docsBadge.alt = "Documentation build";
+        docsBadge.loading = 'lazy';
 
         if (noDocsModules.includes(modulename)) { 
             docsBuildCell.textContent = "N/a";  
@@ -131,7 +134,7 @@ failing, please verify by clicking on the project link. The status reported here
 
     document.addEventListener("DOMContentLoaded", function() {
         // Dataverse first
-        addModule("dataverse", "https://github.com/IQSS", "maven_unit_test.yml", "Maven Unit Tests");
+        addModule("dataverse", "https://github.com/IQSS", "maven_unit_test.yml", "Maven Unit Tests", "develop");
 
         // DANS modules sorted
         dansModules.sort().forEach(addDansModule);
