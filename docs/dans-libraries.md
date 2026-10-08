@@ -15,29 +15,27 @@ A fork from the [Java BagIt library]{target="_blank"} that is used to create, va
 
 [dans-bagit-lib]: https://dans-knaw.github.io/dans-bagit-lib/
 
-## dans-bagpack-lib
+## dans-jackson-converter-lib
 
-Classes for working with [BagPack]{target="_blank"} packages.
+DANS [Jackson]{:target=_blank} converters.
 
-| Docs                               | Code                                                            |
-|------------------------------------|-----------------------------------------------------------------|
-| [dans-bagpack-lib]{:target=_blank} | <https://github.com/DANS-KNAW/dans-bagpack-lib>{:target=_blank} |
-
-[dans-bagpack-lib]: https://dans-knaw.github.io/dans-bagpack-lib/
-
-[BagPack]: {{ bagpack_specs }}
-
-## dans-converter-lib
-
-DANS [Jackson]{:target=_blank} and [JPA]{:target=_blank} converters.
-
-| Docs                                 | Code                                                              |
-|--------------------------------------|-------------------------------------------------------------------|
-| [dans-converter-lib]{:target=_blank} | <https://github.com/DANS-KNAW/dans-converter-lib>{:target=_blank} |
+| Docs                                         | Code                                                                      |
+|----------------------------------------------|---------------------------------------------------------------------------|
+| [dans-jackson-converter-lib]{:target=_blank} | <https://github.com/DANS-KNAW/dans-jackson-converter-lib>{:target=_blank} |
 
 [Jackson]: {{ jackson_url }}
+[dans-jackson-converter-lib]: https://dans-knaw.github.io/dans-jackson-converter-lib/
+
+## dans-jpa-converter-lib
+
+DANS [JPA]{:target=_blank} converters.
+
+| Docs                                     | Code                                                                  |
+|------------------------------------------|-----------------------------------------------------------------------|
+| [dans-jpa-converter-lib]{:target=_blank} | <https://github.com/DANS-KNAW/dans-jpa-converter-lib>{:target=_blank} |  
+
 [JPA]: {{ jpa_url }}
-[dans-converter-lib]: https://dans-knaw.github.io/dans-converter-lib/
+[dans-jpa-converter-lib]: https://dans-knaw.github.io/dans-jpa-converter-lib/
 
 ## dans-dataverse-client-lib
 
